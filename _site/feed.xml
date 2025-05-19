@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-05-19T18:46:50+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Grabage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Calculation of C2H2 methylene</title><link href="http://localhost:4000/jekyll/update/2025/05/19/calculation-gallary.html" rel="alternate" type="text/html" title="Calculation of C2H2 methylene" /><published>2025-05-19T17:13:29+08:00</published><updated>2025-05-19T17:13:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/19/calculation-gallary</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/19/calculation-gallary.html"><![CDATA[<p>Here we want to calculate the adiabatic excitation energy of C2H2</p>
+
+<p>The difference between vertical adiabatic and 0-0 exciation energy can be found at  this paper
+“dx.doi.org/10.1021/jp501974p | J. Phys. Chem. A 2014, 118, 4157−4171”
+The structure of single is optimized using dft ,taken from si of this paper
+“dx.doi.org/10.1021/ct200272b | J. Chem. Theory Comput. 2011, 7, 2376–2386”
+Using  singlet as an example, we describe the calcultion of caspt2-f12 and nevpt2-f12 in molpro and orca respectivly</p>
+
+<p>The strucutre of methylene is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="mi">4</span>
+</span><span class="hll">
+</span><span class="n">c</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="mf">1.13109775801047</span> 
+<span class="n">c</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">1.13109775801047</span> 
+<span class="n">h</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="mf">3.13996154221094</span> 
+<span class="n">h</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">3.13996154221094</span> </code></pre></figure>
+
+<p>The input of molpro is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">gprint</span><span class="p">,</span><span class="n">orbitals</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">civector</span>
+</span><span class="hll"><span class="n">basis</span><span class="o">=</span><span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span>
+</span><span class="n">bohr</span>
+<span class="n">geometry</span><span class="o">=</span><span class="no">C2H2X</span><span class="p">.</span><span class="nf">xyz</span>
+<span class="p">{</span><span class="no">HF</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">hf</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="n">multi</span><span class="p">,</span>
+<span class="n">occ</span>  <span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span> <span class="p">;</span>
+<span class="n">closed</span>  <span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">;</span> 
+<span class="n">wf</span><span class="p">,</span><span class="n">elec</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sym</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="o">!</span><span class="n">rotate</span> <span class="mf">4.1</span><span class="p">,</span><span class="mf">6.1</span><span class="p">,</span><span class="mi">90</span>
+<span class="o">!</span><span class="n">rotate</span> <span class="mf">3.5</span><span class="p">,</span><span class="mf">6.5</span><span class="p">,</span><span class="mi">90</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">cas</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="no">RS2</span><span class="o">-</span><span class="no">F12</span><span class="p">,</span><span class="n">shift</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">wf</span><span class="p">,</span><span class="n">symmetry</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>The input of orca is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="o">!</span><span class="no">HF</span>  <span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span> <span class="no">Usesym</span>   <span class="n">bohrs</span> <span class="n">largeprint</span> 
+</span><span class="hll"><span class="o">*</span><span class="n">xyzfile</span>  <span class="mi">0</span> <span class="mi">1</span>  <span class="no">C2H2X</span><span class="p">.</span><span class="nf">xyz</span>
+</span><span class="o">%</span><span class="n">scf</span> <span class="n">rotate</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">90</span><span class="p">}{</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span> <span class="k">end</span> <span class="k">end</span>
+<span class="o">%</span><span class="n">casscf</span> 
+
+   <span class="n">nel</span> <span class="mi">4</span>
+   <span class="n">norb</span> <span class="mi">4</span>
+   <span class="no">PTMethod</span> <span class="n">fic_nevpt2</span>
+   <span class="n">ptsettings</span>
+     <span class="n">f12</span> <span class="kp">true</span>
+   <span class="k">end</span>
+   
+<span class="k">end</span> </code></pre></figure>
+
+<p>The output of molpro is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll">         <span class="no">RS2</span><span class="o">-</span><span class="no">F12</span>           <span class="no">MULTI</span>          <span class="no">HF</span><span class="o">-</span><span class="no">SCF</span>
+</span><span class="hll">    <span class="o">-</span><span class="mf">77.18737976</span>    <span class="o">-</span><span class="mf">76.91519896</span>    <span class="o">-</span><span class="mf">76.84728822</span>
+</span></code></pre></figure>
+
+<p>The output of orca is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="o">---------------------------------------------------------------</span> 
+</span><span class="hll"> 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="no">Correction</span> <span class="p">:</span> <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.27516311398801</span>
+</span> <span class="o">---------------------------------------------------------------</span> 
+ 	 <span class="no">Reference</span>  <span class="no">Energy</span>       <span class="p">:</span> <span class="no">E0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">76.84875474173299</span>
+ <span class="o">---------------------------------------------------------------</span> 
+ 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="p">(</span><span class="no">E0</span><span class="o">+</span><span class="n">dE</span><span class="p">)</span>    <span class="p">:</span> <span class="no">E</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">77.12391785572100</span>
+ <span class="o">---------------------------------------------------------------</span> </code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Here we want to calculate the adiabatic excitation energy of C2H2]]></summary></entry><entry><title type="html">Theory of DSRG-PT2</title><link href="http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Theory of DSRG-PT2" /><published>2025-04-26T22:13:29+08:00</published><updated>2025-04-26T22:13:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll.html"><![CDATA[<p>This site my can host some learning material in my life.
+<code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
+
+<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+  <span class="n">puts</span> <span class="sh">"</span><span class="s">Hi, #{name}</span><span class="sh">"</span>
+<span class="n">end</span>
+<span class="nf">print_hi</span><span class="p">(</span><span class="sh">'</span><span class="s">Tom</span><span class="sh">'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>There is an equation
+\(E=mcd^2\)
+Check out the <a href="https://github.com/docs/home">Forte</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[This site my can host some learning material in my life. YEAR-MONTH-DAY-title.MARKUP]]></summary></entry></feed>
