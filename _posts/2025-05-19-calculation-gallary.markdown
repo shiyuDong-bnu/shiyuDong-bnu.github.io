@@ -6,6 +6,8 @@ categories: jekyll update
 ---
 Here we want to calculate the adiabatic excitation energy of C2H2
 
+![AltText](/image/c2cs35394f-f1.gif)
+
 The difference between vertical adiabatic and 0-0 exciation energy can be found at  this paper
 "dx.doi.org/10.1021/jp501974p | J. Phys. Chem. A 2014, 118, 4157−4171"
 The structure of single is optimized using dft ,taken from si of this paper
