@@ -255,10 +255,19 @@ Finally the  f12 result is
  --------------------------------------------------------------- 
 {% endhighlight %}
 
-## Wrong Result
-When I first try to calculate the excited state, I use the spatical symmetry A^\prime instead of 
-But I think what is wrong is active space.
 ## Conclusion 
+ 1. First of all ,the active space is important. I first think the active space should be C-H sigma bond, but this is not correct .
+    The correct active space is pi bond.
+ 2. The spatial symmetry of the excited state I implicitly is choosen to be the same of ground state. But the correct way to determinate is 
+
+    a. choose the correct point group 
+
+    b. check the active space MO irreps
+
+    c. determinate the excitation type ,and thus determinate the dominant configuration of the excited state you want.
+
+    d. the correct state symmetry is to be the direct product of  single occupied acitive space orbital.
+
 Need to check all input parameter !!!
 
 [forte_home]: https://github.com/docs/home
