@@ -1,10 +1,166 @@
 <p>Here we want to calculate the adiabatic excitation energy of C2H2</p>
 
+<h2 id="background">Background</h2>
+<p><img src="/image/c2cs35394f-f1.gif" alt="AltText" /></p>
+
 <p>The difference between vertical adiabatic and 0-0 exciation energy can be found at  this paper
-“dx.doi.org/10.1021/jp501974p | J. Phys. Chem. A 2014, 118, 4157−4171”
-The structure of single is optimized using dft ,taken from si of this paper
-“dx.doi.org/10.1021/ct200272b | J. Chem. Theory Comput. 2011, 7, 2376–2386”
-Using  singlet as an example, we describe the calcultion of caspt2-f12 and nevpt2-f12 in molpro and orca respectivly</p>
+“dx.doi.org/10.1021/jp501974p | J. Phys. Chem. A 2014, 118, 4157−4171”</p>
 
-<p>The strucutre of methylene is</p>
+<p>The structure of single is optimized using dft ,taken from si of this paper
+“dx.doi.org/10.1021/ct200272b | J. Chem. Theory Comput. 2011, 7, 2376–2386”</p>
 
+<p>In this post ,we want to calculate the adiabatic excitateion energy  of Acetylene
+of caspt2-f12 and nevpt2-f12 in molpro and orca respectivly.</p>
+
+<h2 id="ground-state">Ground State</h2>
+
+<p>The strucutre of methylene is linear</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="mi">4</span>
+</span><span class="hll">
+</span><span class="n">c</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="mf">1.13109775801047</span> 
+<span class="n">c</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">1.13109775801047</span> 
+<span class="n">h</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="mf">3.13996154221094</span> 
+<span class="n">h</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">3.13996154221094</span> </code></pre></figure>
+
+<h3 id="molpro">molpro</h3>
+<p>The input of molpro is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">gprint</span><span class="p">,</span><span class="n">orbitals</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">civector</span>
+</span><span class="hll"><span class="n">basis</span><span class="o">=</span><span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span>
+</span><span class="n">bohr</span>
+<span class="n">geometry</span><span class="o">=</span><span class="no">C2H2X</span><span class="p">.</span><span class="nf">xyz</span>
+<span class="p">{</span><span class="no">HF</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">hf</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="n">multi</span><span class="p">,</span>
+<span class="n">occ</span>  <span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span> <span class="p">;</span>
+<span class="n">closed</span>  <span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">;</span> 
+<span class="n">wf</span><span class="p">,</span><span class="n">elec</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sym</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="o">!</span><span class="n">rotate</span> <span class="mf">4.1</span><span class="p">,</span><span class="mf">6.1</span><span class="p">,</span><span class="mi">90</span>
+<span class="o">!</span><span class="n">rotate</span> <span class="mf">3.5</span><span class="p">,</span><span class="mf">6.5</span><span class="p">,</span><span class="mi">90</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">cas</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="no">RS2</span><span class="o">-</span><span class="no">F12</span><span class="p">,</span><span class="n">shift</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">wf</span><span class="p">,</span><span class="n">symmetry</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="summary">Summary</h4>
+<ol>
+  <li>The active space is C(2p) orbital,and we need to find two pi-bond orbital and two pi-antibond orbital.</li>
+  <li>The geomerty is linear</li>
+  <li>spin is singlet</li>
+  <li>wavefunction spatial symmetry is Ag
+    <h3 id="orca">orca</h3>
+    <p>The input of orca is</p>
+  </li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="o">!</span><span class="no">HF</span>  <span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span> <span class="no">Usesym</span>   <span class="n">bohrs</span> <span class="n">largeprint</span> 
+</span><span class="hll"><span class="o">*</span><span class="n">xyzfile</span>  <span class="mi">0</span> <span class="mi">1</span>  <span class="no">C2H2X</span><span class="p">.</span><span class="nf">xyz</span>
+</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="o">!</span><span class="no">HF</span>  <span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span> <span class="no">Usesym</span>   <span class="n">bohrs</span>
+</span><span class="hll"><span class="o">!</span><span class="n">moread</span>
+</span><span class="o">%</span><span class="n">moinp</span> <span class="s2">"HF.gbw"</span>
+<span class="sx">% scf </span>
+  <span class="n">rotate</span> 
+        <span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="o">%</span><span class="n">casscf</span> 
+   <span class="n">nel</span> <span class="mi">4</span>
+   <span class="n">norb</span> <span class="mi">4</span>
+   <span class="no">PTMethod</span> <span class="n">fic_nevpt2</span>
+   <span class="n">ptsettings</span>
+     <span class="n">f12</span> <span class="kp">true</span>
+   <span class="k">end</span>
+   
+<span class="k">end</span> 
+<span class="o">*</span><span class="n">xyz</span>  <span class="mi">0</span> <span class="mi">1</span>  
+<span class="n">c</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="mf">1.13109775801047</span> 
+<span class="n">c</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">1.13109775801047</span> 
+<span class="n">h</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="mf">3.13996154221094</span> 
+<span class="n">h</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">3.13996154221094</span> 
+<span class="o">*</span></code></pre></figure>
+
+<h3 id="result">Result</h3>
+<p>The output of molpro is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll">         <span class="no">RS2</span><span class="o">-</span><span class="no">F12</span>           <span class="no">MULTI</span>          <span class="no">HF</span><span class="o">-</span><span class="no">SCF</span>
+</span><span class="hll">    <span class="o">-</span><span class="mf">77.18737976</span>    <span class="o">-</span><span class="mf">76.91519896</span>    <span class="o">-</span><span class="mf">76.84728822</span>
+</span></code></pre></figure>
+
+<p>The output of orca is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="o">===============================================================</span>
+</span><span class="hll">                       <span class="no">NEVPT2</span> <span class="no">Results</span>  
+</span> <span class="o">===============================================================</span>
+   <span class="o">*******************************</span>
+    <span class="no">MULT</span> <span class="mi">1</span><span class="p">,</span> <span class="no">IRREP</span>  <span class="no">Ag</span><span class="p">,</span> <span class="no">ROOT</span> <span class="mi">0</span> 
+   <span class="o">*******************************</span>
+
+  <span class="no">Class</span> <span class="no">V0_ijab</span> <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.067841971472</span> 
+  <span class="no">Class</span> <span class="no">Vm1_iab</span> <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.061599918270</span> 
+  <span class="no">Class</span> <span class="no">Vm2_ab</span>  <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.026472162485</span> 
+  <span class="no">Class</span> <span class="no">V1_ija</span>  <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.008119245188</span> 
+  <span class="no">Class</span> <span class="no">V2_ij</span>   <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.001871859387</span> 
+  <span class="no">Class</span> <span class="no">V0_ia</span>   <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.050330027838</span> 
+  <span class="no">Class</span> <span class="no">Vm1_a</span>   <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.001943111619</span> 
+  <span class="no">Class</span> <span class="no">V1_i</span>    <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.000000000000</span> 
+
+ <span class="o">---------------------------------------------------------------</span> 
+ 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="no">Correction</span> <span class="p">:</span> <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.21817829625785</span>
+ <span class="o">---------------------------------------------------------------</span> 
+ 	 <span class="no">Reference</span>  <span class="no">Energy</span>       <span class="p">:</span> <span class="no">E0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">76.91519884161944</span>
+ <span class="o">---------------------------------------------------------------</span> </code></pre></figure>
+
+<h2 id="excited-state">Excited State</h2>
+<p>Now we need to calculate  the excited state.
+In excited state, the geometry is as following 
+<img src="/image/excited_state.png" alt="AltText" /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="mi">4</span>
+</span><span class="hll">
+</span><span class="n">c</span> <span class="o">-</span><span class="mf">0.22872949141251</span> <span class="mf">1.27002027174688</span> <span class="o">-</span><span class="mf">0.00000000311696</span> 
+<span class="n">c</span> <span class="mf">0.22872960517416</span> <span class="o">-</span><span class="mf">1.27002040888460</span> <span class="o">-</span><span class="mf">0.00000000311917</span> 
+<span class="n">h</span> <span class="mf">1.29544929136450</span> <span class="mf">2.67207978087269</span> <span class="mf">0.00000003715195</span> 
+<span class="n">h</span> <span class="o">-</span><span class="mf">1.29545064696851</span> <span class="o">-</span><span class="mf">2.67207814671517</span> <span class="mf">0.00000003715897</span> </code></pre></figure>
+
+<h3 id="molpro-1">molpro</h3>
+<p>input</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">gprint</span><span class="p">,</span><span class="n">orbitals</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">civector</span>
+</span><span class="hll"><span class="n">basis</span><span class="o">=</span><span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span>
+</span><span class="n">bohr</span>
+<span class="n">geometry</span><span class="o">=</span><span class="no">C2H2A1</span><span class="p">.</span><span class="nf">xyz</span>
+<span class="p">{</span><span class="no">HF</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">hf</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="n">multi</span><span class="p">,</span>
+<span class="n">occ</span>  <span class="mi">7</span><span class="p">,</span><span class="mi">2</span> <span class="p">;</span>
+<span class="n">closed</span>  <span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">;</span> 
+<span class="n">wf</span><span class="p">,</span><span class="n">elec</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sym</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">state</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">weight</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">cas</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="no">RS2</span><span class="o">-</span><span class="no">F12</span><span class="p">,</span><span class="n">shift</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">wf</span><span class="p">,</span><span class="n">symmetry</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>output</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="no">RS2</span><span class="o">-</span><span class="no">F12</span><span class="o">/</span><span class="n">cc</span><span class="o">-</span><span class="n">pVDZ</span><span class="o">-</span><span class="no">F12</span> <span class="n">energy</span><span class="o">=</span>    <span class="o">-</span><span class="mf">76.999081928598</span>
+</span><span class="hll">
+</span>         <span class="no">RS2</span><span class="o">-</span><span class="no">F12</span>           <span class="no">MULTI</span>          <span class="no">HF</span><span class="o">-</span><span class="no">SCF</span>
+    <span class="o">-</span><span class="mf">76.99908193</span>    <span class="o">-</span><span class="mf">76.69704216</span>    <span class="o">-</span><span class="mf">76.75296781</span></code></pre></figure>
+
+<h2 id="wrong-result">Wrong Result</h2>
+<p>When I first try to calculate the excited state, I use the spatical symmetry A^\prime instead of 
+But I think what is wrong is active space.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Need to check all input parameter !!!
+[forte_home]: https://github.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/</p>
