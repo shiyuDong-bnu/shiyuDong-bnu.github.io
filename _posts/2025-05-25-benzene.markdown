@@ -1,0 +1,284 @@
+---
+layout: post
+title:  "Calculation of benzene"
+date:   2025-05-25 11:26:29 +0800
+categories: jekyll update
+---
+
+## Background
+Here we want to calculate the adiabatic excitation energy of benzene.
+For introduction and the source of sturcture ,see previous  post[calculation of acetylene ]({% post_url 2025-05-19-calculation-gallary %})
+
+![AltText](/image/c2cs35394f-f1.gif)
+
+It is obvious that the active space of benzene should be six pz orbital of carbon atoms.But here ,we want to demostrate the use of 
+point group symmetry to help us find the correct  active space.
+
+##  Symmetry of benzene $$\pi$$ bond
+
+This section is a summary of the 10-6 section of book Group Theory and Chemistry (Dover Books on Chemistry) by David M. Bishop 
+
+
+First, we can use the six orbital as the basis of reducible representation space $$V$$.
+
+Next , we decomposite the reducible repsentation space $$V$$ into irreducible representation spaces $$V^{\mu}$$.
+
+$$
+\Gamma^{AO}=\Gamma^{A_{2u}}\oplus \Gamma^{B_{2g}} \oplus \Gamma^{E_{1g}} \oplus \Gamma^{E_{2u}}
+$$
+
+At the same time, we can generate the basis (i.e the symmetry adapted orbital ) of irredudible space $$V^{\mu}$$ using project operator
+
+$$
+\mathbf{P}^\mu= \sum_{R} \chi^{\mu}(R) \mathbf{O}(R)
+$$
+### symmetry in molpro and orca
+Most of quantum chemistry software only support Abelian group.
+
+The largest Abelian subgroup of $$D_{6h}$$ is $$D_{2h}$$.We need to find the correlation between irreps of this two groups.
+One website which I find very useful is [gernot katezers](http://www.gernot-katzers-spice-pages.com/character_tables/D6h.html)
+![Coorelation](/image/benzene/D6h_2_D2h.png)
+
+Thus the irreps of our active space should become
+
+
+$$
+B_{1u}, B_{2g}, B_{2g}+B_{3g},A_{u}+B_{1u}
+$$
+#### molpro 
+ In molpro the order of irreps is 
+![order](/image/benzene/order.png)
+## Ground State 
+
+
+The strucutre of groud state benzene  is 
+{% highlight ruby mark_lines="1 2" %}
+12
+
+c 2.27707173737953 -1.31466798054016 0.00000000000000
+c  2.27707173737953 1.31466798054016 0.00000000000000 
+c  0.00000000000000 2.62933596108032 0.00000000000000 
+c -2.27707173737953 1.31466798054016 0.00000000000000
+c -2.27707173737953 -1.31466798054016 0.0000000000000
+c 0.00000000000000 -2.62933596108032 0.00000000000000
+h 4.04988201744309 -2.33820047295699 0.00000000000000
+h  4.04988201744309 2.33820047295699 0.00000000000000 
+h  0.00000000000000 4.67640094591398 0.00000000000000 
+h -4.04988201744309 2.33820047295699 0.00000000000000
+h -4.04988201744309 -2.33820047295699 0.0000000000000
+h 0.00000000000000 -4.67640094591398 0.00000000000000
+{% endhighlight %}
+### molpro
+The input of molpro is 
+{% highlight ruby mark_lines="1 2" %}
+gprint ,civector
+basis=cc-pvdz-f12
+bohr
+geometry=benzenex.xyz
+{HF;
+}
+put,molden,hf.molden
+{multi,
+occ  6   4   5   3   2   1   2   1;
+closed 6   4   5   3   0   0   0   0;
+wf,elec=42,spin=0,sym=1;
+rotate 4.7 2.7,90
+rotate 3.5 2.5,90
+}
+put,molden,casscf.molden
+{RS2-F12,shift=0.2;
+wf,symmetry=1,spin=0;
+}
+{% endhighlight %}
+#### Summary 
+  1. The active space is six corbon pz orbitals.
+  2. spin is singlet 
+  3. wavefunction spatial symmetry is Ag
+  4. but the active space is 
+{% highlight ruby mark_lines="1 2" %}
+ Number of active  orbitals:        6 (   0   0   0   0   2   1   2   1 )
+{% endhighlight %}
+<mark>
+this has 2 $$B_{3g}$$ irreps instead of 2 $$B_{2g}$$ irreps
+</mark>
+### orca
+The input of orca is 
+
+{% highlight ruby mark_lines="1 2" %}
+!HF  cc-pvdz-f12 Usesym   bohrs 
+*xyzfile  0 1  benzenex.xyz
+{% endhighlight %}
+{% highlight ruby mark_lines="1 2" %}
+!HF  autoaux cc-pvdz-f12 Usesym   bohrs
+!moread
+%moinp "hf.gbw"
+%basis
+ Basis "cc-pVDZ-F12"
+ CABS  "cc-pVDZ-F12-OptRI"
+end
+
+% scf 
+  rotate 
+        {16,18,90}
+        {21,28,90}
+        {22,29,90}
+        {23,50,90}
+  end
+end
+%casscf 
+   nel 6
+   norb 6
+   TrafoStep RI
+   PTMethod  FIC_NEVPT2
+   PTSettings 
+         F12 true
+   end
+end 
+*xyzfile 0 1  benzenex.xyz
+
+{% endhighlight %}
+### Result
+The output of molpro is 
+{% highlight ruby mark_lines="1 2" %}
+         RS2-F12           MULTI          HF-SCF
+   -231.81401165   -230.84208086   -230.77066786
+
+{% endhighlight %}
+
+The output of orca is 
+{% highlight ruby mark_lines="1 2" %}
+ --------------------------------------------------------------- 
+ 	 Total Energy Correction : dE = -0.97521870880607
+ --------------------------------------------------------------- 
+ 	 Reference  Energy       : E0 = -230.85678671167923
+ --------------------------------------------------------------- 
+ 	 Total Energy (E0+dE)    : E  = -231.83200542048530
+ --------------------------------------------------------------- 
+{% endhighlight %}
+
+## Excited State
+Now we need to calculate  the excited state.
+In excited state, the geometry is as following 
+{% highlight ruby mark_lines="1 2" %}
+12
+
+C 2.32729774090999 -1.34366597719879 0.0000000000000
+C 2.32729774090999 1.34366597719879 0.00000000000000
+C 0.00000000000000 2.68733195439759 0.00000000000000
+C -2.32729774090999 1.34366597719879 0.0000000000000
+C -2.32729774090999 -1.34366597719879 0.000000000000
+C 0.00000000000000 -2.68733195439759 0.0000000000000
+H 4.09658133834245 -2.36516233844921 0.0000000000000
+H 4.09658133834245 2.36516233844921 0.00000000000000
+H 0.00000000000000 4.73032467689843 0.00000000000000
+H -4.09658133834245 2.36516233844921 0.0000000000000
+H -4.09658133834245 -2.36516233844921 0.000000000000
+H 0.00000000000000 -4.73032467689843 0.0000000000000
+
+{% endhighlight %}
+### irreps of state
+If we assume the dominant configuration is excitation from $$E_{1g}$$ to $$E_{2u}$$,
+the irreps is 
+$$
+E_{1g}\times E_{2u}=B_{1u}\oplus B_{2u}\oplus E_{1u}
+$$
+The $$D_{6h}$$ irrep $$B_{1u},B_{2u}$$ correlated to $$D_2h}$$ irreps $$B_{3u} B_{2u}$$
+<mark>But we choose </mark> $$B_{2u}$$
+$$B_{3u}$$ cannot run ,there is no configuration .Why ???
+### molpro
+input
+{% highlight ruby mark_lines="1 2" %}
+gprint ,civector
+basis=cc-pvdz-f12
+bohr
+geometry=benzeneb1u.xyz
+{HF;
+}
+put,molden,hf.molden
+{multi,
+occ  6   4   5   3   2   1   2   1;
+closed 6   4   5   3   0   0   0   0;
+wf,elec=42,spin=0,sym=2;
+rotate 4.7 2.7,90;
+}
+put,molden,casscf.molden
+{RS2-F12,shift=0.2;
+wf,symmetry=2,spin=0;
+}
+
+{% endhighlight %}
+output 
+{% highlight ruby mark_lines="1 2" %}
+         RS2-F12           MULTI          HF-SCF
+   -231.65091798   -230.66581679   -230.76283816
+{% endhighlight %}
+### orca
+
+The input of orca for casscf is 
+{% highlight ruby mark_lines="1 2" %}
+!HF  autoaux cc-pvdz-f12 Usesym   bohrs
+!moread
+%moinp "hf.gbw"
+%basis
+ Basis "cc-pVDZ-F12"
+ CABS  "cc-pVDZ-F12-OptRI"
+end
+
+% scf 
+  rotate 
+        {21,26,90}
+        {22,27,90}
+        {23,50,90}
+  end
+end
+%casscf 
+   mult 1 
+   irrep 7
+   weights 0.0 1.0  
+   nel 6
+   norb 6
+   TrafoStep RI
+   PTMethod  FIC_NEVPT2
+   PTSettings 
+         F12 true
+   end
+end 
+*xyzfile 0 1  benzeneb1u.xyz
+
+{% endhighlight %}
+output is 
+{% highlight ruby mark_lines="1 2" %}
+ Symmetries of active orbitals:
+   MO =   18  IRREP= 5 (B1u)
+   MO =   19  IRREP= 3 (B3g)
+   MO =   20  IRREP= 2 (B2g)
+   MO =   21  IRREP= 5 (B1u)
+   MO =   22  IRREP= 4 (Au)
+   MO =   23  IRREP= 3 (B3g)
+--------------
+CASSCF RESULTS
+--------------
+
+Final CASSCF energy       : -230.665821065 Eh   -6276.7361 eV
+
+
+{% endhighlight %}
+
+Finally the  f12 result is 
+{% highlight ruby mark_lines="1 2" %}
+ 	 Total Energy Correction : dE = -0.96437097091322
+ --------------------------------------------------------------- 
+ 	 Reference  Energy       : E0 = -230.67968019252493
+ --------------------------------------------------------------- 
+ 	 Total Energy (E0+dE)    : E  = -231.64405116343815
+ ---------------------------------------------------------------
+{% endhighlight %}
+
+## Conclusion 
+    1. The state symmetry include ,spin symmetry ,spatial symmetry .After determinant this ,we also need to specify which root is want we want.
+    2. the state symmetry is determinat from direct product of orbital. 
+    
+
+[forte_home]: https://github.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
