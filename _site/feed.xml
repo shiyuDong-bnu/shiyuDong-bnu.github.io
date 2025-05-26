@@ -1,12 +1,274 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-05-19T18:46:50+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Grabage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Calculation of C2H2 methylene</title><link href="http://localhost:4000/jekyll/update/2025/05/19/calculation-gallary.html" rel="alternate" type="text/html" title="Calculation of C2H2 methylene" /><published>2025-05-19T17:13:29+08:00</published><updated>2025-05-19T17:13:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/19/calculation-gallary</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/19/calculation-gallary.html"><![CDATA[<p>Here we want to calculate the adiabatic excitation energy of C2H2</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-05-26T15:35:26+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Calculation of benzene</title><link href="http://localhost:4000/jekyll/update/2025/05/25/benzene.html" rel="alternate" type="text/html" title="Calculation of benzene" /><published>2025-05-25T11:26:29+08:00</published><updated>2025-05-25T11:26:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/25/benzene</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/25/benzene.html"><![CDATA[<h2 id="background">Background</h2>
+<p>Here we want to calculate the adiabatic excitation energy of benzene.
+For introduction and the source of sturcture ,see previous  post<a href="/jekyll/update/2025/05/19/calculation-gallary.html">calculation of acetylene </a></p>
+
+<p><img src="/image/c2cs35394f-f1.gif" alt="AltText" /></p>
+
+<p>It is obvious that the active space of benzene should be six pz orbital of carbon atoms.But here ,we want to demostrate the use of 
+point group symmetry to help us find the correct  active space.</p>
+
+<h2 id="symmetry-of-benzene-pi-bond">Symmetry of benzene \(\pi\) bond</h2>
+
+<p>This section is a summary of the 10-6 section of book Group Theory and Chemistry (Dover Books on Chemistry) by David M. Bishop</p>
+
+<p>First, we can use the six orbital as the basis of reducible representation space \(V\).</p>
+
+<p>Next , we decomposite the reducible repsentation space \(V\) into irreducible representation spaces \(V^{\mu}\).</p>
+
+\[\Gamma^{AO}=\Gamma^{A_{2u}}\oplus \Gamma^{B_{2g}} \oplus \Gamma^{E_{1g}} \oplus \Gamma^{E_{2u}}\]
+
+<p>At the same time, we can generate the basis (i.e the symmetry adapted orbital ) of irredudible space \(V^{\mu}\) using project operator</p>
+
+<p>\(\mathbf{P}^\mu= \sum_{R} \chi^{\mu}(R) \mathbf{O}(R)\)</p>
+<h3 id="symmetry-in-molpro-and-orca">symmetry in molpro and orca</h3>
+<p>Most of quantum chemistry software only support Abelian group.</p>
+
+<p>The largest Abelian subgroup of \(D_{6h}\) is \(D_{2h}\).We need to find the correlation between irreps of this two groups.
+One website which I find very useful is <a href="http://www.gernot-katzers-spice-pages.com/character_tables/D6h.html">gernot katezers</a>
+<img src="/image/benzene/D6h_2_D2h.png" alt="Coorelation" /></p>
+
+<p>Thus the irreps of our active space should become</p>
+
+<p>\(B_{1u}, B_{2g}, B_{2g}+B_{3g},A_{u}+B_{1u}\)</p>
+<h4 id="molpro">molpro</h4>
+<p>In molpro the order of irreps is 
+<img src="/image/benzene/order.png" alt="order" /></p>
+<h2 id="ground-state">Ground State</h2>
+
+<p>The strucutre of groud state benzene  is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="mi">12</span>
+</span><span class="hll">
+</span><span class="n">c</span> <span class="mf">2.27707173737953</span> <span class="o">-</span><span class="mf">1.31466798054016</span> <span class="mf">0.00000000000000</span>
+<span class="n">c</span>  <span class="mf">2.27707173737953</span> <span class="mf">1.31466798054016</span> <span class="mf">0.00000000000000</span> 
+<span class="n">c</span>  <span class="mf">0.00000000000000</span> <span class="mf">2.62933596108032</span> <span class="mf">0.00000000000000</span> 
+<span class="n">c</span> <span class="o">-</span><span class="mf">2.27707173737953</span> <span class="mf">1.31466798054016</span> <span class="mf">0.00000000000000</span>
+<span class="n">c</span> <span class="o">-</span><span class="mf">2.27707173737953</span> <span class="o">-</span><span class="mf">1.31466798054016</span> <span class="mf">0.0000000000000</span>
+<span class="n">c</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">2.62933596108032</span> <span class="mf">0.00000000000000</span>
+<span class="n">h</span> <span class="mf">4.04988201744309</span> <span class="o">-</span><span class="mf">2.33820047295699</span> <span class="mf">0.00000000000000</span>
+<span class="n">h</span>  <span class="mf">4.04988201744309</span> <span class="mf">2.33820047295699</span> <span class="mf">0.00000000000000</span> 
+<span class="n">h</span>  <span class="mf">0.00000000000000</span> <span class="mf">4.67640094591398</span> <span class="mf">0.00000000000000</span> 
+<span class="n">h</span> <span class="o">-</span><span class="mf">4.04988201744309</span> <span class="mf">2.33820047295699</span> <span class="mf">0.00000000000000</span>
+<span class="n">h</span> <span class="o">-</span><span class="mf">4.04988201744309</span> <span class="o">-</span><span class="mf">2.33820047295699</span> <span class="mf">0.0000000000000</span>
+<span class="n">h</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">4.67640094591398</span> <span class="mf">0.00000000000000</span></code></pre></figure>
+
+<h3 id="molpro-1">molpro</h3>
+<p>The input of molpro is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">gprint</span> <span class="p">,</span><span class="n">civector</span>
+</span><span class="hll"><span class="n">basis</span><span class="o">=</span><span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span>
+</span><span class="n">bohr</span>
+<span class="n">geometry</span><span class="o">=</span><span class="n">benzenex</span><span class="p">.</span><span class="nf">xyz</span>
+<span class="p">{</span><span class="no">HF</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">hf</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="n">multi</span><span class="p">,</span>
+<span class="n">occ</span>  <span class="mi">6</span>   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">3</span>   <span class="mi">2</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">1</span><span class="p">;</span>
+<span class="n">closed</span> <span class="mi">6</span>   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">3</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span><span class="p">;</span>
+<span class="n">wf</span><span class="p">,</span><span class="n">elec</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sym</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="n">rotate</span> <span class="mf">4.7</span> <span class="mf">2.7</span><span class="p">,</span><span class="mi">90</span>
+<span class="n">rotate</span> <span class="mf">3.5</span> <span class="mf">2.5</span><span class="p">,</span><span class="mi">90</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">casscf</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="no">RS2</span><span class="o">-</span><span class="no">F12</span><span class="p">,</span><span class="n">shift</span><span class="o">=</span><span class="mf">0.2</span><span class="p">;</span>
+<span class="n">wf</span><span class="p">,</span><span class="n">symmetry</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<h4 id="summary">Summary</h4>
+<ol>
+  <li>The active space is six corbon pz orbitals.</li>
+  <li>spin is singlet</li>
+  <li>wavefunction spatial symmetry is Ag</li>
+  <li>but the active space is</li>
+</ol>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="no">Number</span> <span class="n">of</span> <span class="n">active</span>  <span class="ss">orbitals:        </span><span class="mi">6</span> <span class="p">(</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">2</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">1</span> <span class="p">)</span>
+</span></code></pre></figure>
+
+<p><mark>
+this has 2 $$B_{3g}$$ irreps instead of 2 $$B_{2g}$$ irreps
+</mark></p>
+<h3 id="orca">orca</h3>
+<p>The input of orca is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="o">!</span><span class="no">HF</span>  <span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span> <span class="no">Usesym</span>   <span class="n">bohrs</span> 
+</span><span class="hll"><span class="o">*</span><span class="n">xyzfile</span>  <span class="mi">0</span> <span class="mi">1</span>  <span class="n">benzenex</span><span class="p">.</span><span class="nf">xyz</span>
+</span></code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="o">!</span><span class="no">HF</span>  <span class="n">autoaux</span> <span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span> <span class="no">Usesym</span>   <span class="n">bohrs</span>
+</span><span class="hll"><span class="o">!</span><span class="n">moread</span>
+</span><span class="o">%</span><span class="n">moinp</span> <span class="s2">"hf.gbw"</span>
+<span class="o">%</span><span class="n">basis</span>
+ <span class="no">Basis</span> <span class="s2">"cc-pVDZ-F12"</span>
+ <span class="no">CABS</span>  <span class="s2">"cc-pVDZ-F12-OptRI"</span>
+<span class="k">end</span>
+
+<span class="sx">% scf </span>
+  <span class="n">rotate</span> 
+        <span class="p">{</span><span class="mi">16</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span>
+        <span class="p">{</span><span class="mi">21</span><span class="p">,</span><span class="mi">28</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span>
+        <span class="p">{</span><span class="mi">22</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span>
+        <span class="p">{</span><span class="mi">23</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="o">%</span><span class="n">casscf</span> 
+   <span class="n">nel</span> <span class="mi">6</span>
+   <span class="n">norb</span> <span class="mi">6</span>
+   <span class="no">TrafoStep</span> <span class="no">RI</span>
+   <span class="no">PTMethod</span>  <span class="no">FIC_NEVPT2</span>
+   <span class="no">PTSettings</span> 
+         <span class="no">F12</span> <span class="kp">true</span>
+   <span class="k">end</span>
+<span class="k">end</span> 
+<span class="o">*</span><span class="n">xyzfile</span> <span class="mi">0</span> <span class="mi">1</span>  <span class="n">benzenex</span><span class="p">.</span><span class="nf">xyz</span></code></pre></figure>
+
+<h3 id="result">Result</h3>
+<p>The output of molpro is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll">         <span class="no">RS2</span><span class="o">-</span><span class="no">F12</span>           <span class="no">MULTI</span>          <span class="no">HF</span><span class="o">-</span><span class="no">SCF</span>
+</span><span class="hll">   <span class="o">-</span><span class="mf">231.81401165</span>   <span class="o">-</span><span class="mf">230.84208086</span>   <span class="o">-</span><span class="mf">230.77066786</span>
+</span></code></pre></figure>
+
+<p>The output of orca is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="o">---------------------------------------------------------------</span> 
+</span><span class="hll"> 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="no">Correction</span> <span class="p">:</span> <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.97521870880607</span>
+</span> <span class="o">---------------------------------------------------------------</span> 
+ 	 <span class="no">Reference</span>  <span class="no">Energy</span>       <span class="p">:</span> <span class="no">E0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">230.85678671167923</span>
+ <span class="o">---------------------------------------------------------------</span> 
+ 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="p">(</span><span class="no">E0</span><span class="o">+</span><span class="n">dE</span><span class="p">)</span>    <span class="p">:</span> <span class="no">E</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">231.83200542048530</span>
+ <span class="o">---------------------------------------------------------------</span> </code></pre></figure>
+
+<h2 id="excited-state">Excited State</h2>
+<p>Now we need to calculate  the excited state.
+In excited state, the geometry is as following</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="mi">12</span>
+</span><span class="hll">
+</span><span class="no">C</span> <span class="mf">2.32729774090999</span> <span class="o">-</span><span class="mf">1.34366597719879</span> <span class="mf">0.0000000000000</span>
+<span class="no">C</span> <span class="mf">2.32729774090999</span> <span class="mf">1.34366597719879</span> <span class="mf">0.00000000000000</span>
+<span class="no">C</span> <span class="mf">0.00000000000000</span> <span class="mf">2.68733195439759</span> <span class="mf">0.00000000000000</span>
+<span class="no">C</span> <span class="o">-</span><span class="mf">2.32729774090999</span> <span class="mf">1.34366597719879</span> <span class="mf">0.0000000000000</span>
+<span class="no">C</span> <span class="o">-</span><span class="mf">2.32729774090999</span> <span class="o">-</span><span class="mf">1.34366597719879</span> <span class="mf">0.000000000000</span>
+<span class="no">C</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">2.68733195439759</span> <span class="mf">0.0000000000000</span>
+<span class="no">H</span> <span class="mf">4.09658133834245</span> <span class="o">-</span><span class="mf">2.36516233844921</span> <span class="mf">0.0000000000000</span>
+<span class="no">H</span> <span class="mf">4.09658133834245</span> <span class="mf">2.36516233844921</span> <span class="mf">0.00000000000000</span>
+<span class="no">H</span> <span class="mf">0.00000000000000</span> <span class="mf">4.73032467689843</span> <span class="mf">0.00000000000000</span>
+<span class="no">H</span> <span class="o">-</span><span class="mf">4.09658133834245</span> <span class="mf">2.36516233844921</span> <span class="mf">0.0000000000000</span>
+<span class="no">H</span> <span class="o">-</span><span class="mf">4.09658133834245</span> <span class="o">-</span><span class="mf">2.36516233844921</span> <span class="mf">0.000000000000</span>
+<span class="no">H</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">4.73032467689843</span> <span class="mf">0.0000000000000</span></code></pre></figure>
+
+<h3 id="irreps-of-state">irreps of state</h3>
+<p>If we assume the dominant configuration is excitation from \(E_{1g}\) to \(E_{2u}\),
+the irreps is 
+\(E_{1g}\times E_{2u}=B_{1u}\oplus B_{2u}\oplus E_{1u}\)
+The \(D_{6h}\) irrep \(B_{1u},B_{2u}\) correlated to \(D_2h}\) irreps \(B_{3u} B_{2u}\)
+<mark>But we choose </mark> \(B_{2u}\)
+\(B_{3u}\) cannot run ,there is no configuration .Why ???</p>
+<h3 id="molpro-2">molpro</h3>
+<p>input</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">gprint</span> <span class="p">,</span><span class="n">civector</span>
+</span><span class="hll"><span class="n">basis</span><span class="o">=</span><span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span>
+</span><span class="n">bohr</span>
+<span class="n">geometry</span><span class="o">=</span><span class="n">benzeneb1u</span><span class="p">.</span><span class="nf">xyz</span>
+<span class="p">{</span><span class="no">HF</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">hf</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="n">multi</span><span class="p">,</span>
+<span class="n">occ</span>  <span class="mi">6</span>   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">3</span>   <span class="mi">2</span>   <span class="mi">1</span>   <span class="mi">2</span>   <span class="mi">1</span><span class="p">;</span>
+<span class="n">closed</span> <span class="mi">6</span>   <span class="mi">4</span>   <span class="mi">5</span>   <span class="mi">3</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span>   <span class="mi">0</span><span class="p">;</span>
+<span class="n">wf</span><span class="p">,</span><span class="n">elec</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sym</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">rotate</span> <span class="mf">4.7</span> <span class="mf">2.7</span><span class="p">,</span><span class="mi">90</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">casscf</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="no">RS2</span><span class="o">-</span><span class="no">F12</span><span class="p">,</span><span class="n">shift</span><span class="o">=</span><span class="mf">0.2</span><span class="p">;</span>
+<span class="n">wf</span><span class="p">,</span><span class="n">symmetry</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>output</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll">         <span class="no">RS2</span><span class="o">-</span><span class="no">F12</span>           <span class="no">MULTI</span>          <span class="no">HF</span><span class="o">-</span><span class="no">SCF</span>
+</span><span class="hll">   <span class="o">-</span><span class="mf">231.65091798</span>   <span class="o">-</span><span class="mf">230.66581679</span>   <span class="o">-</span><span class="mf">230.76283816</span>
+</span></code></pre></figure>
+
+<h3 id="orca-1">orca</h3>
+
+<p>The input of orca for casscf is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="o">!</span><span class="no">HF</span>  <span class="n">autoaux</span> <span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span> <span class="no">Usesym</span>   <span class="n">bohrs</span>
+</span><span class="hll"><span class="o">!</span><span class="n">moread</span>
+</span><span class="o">%</span><span class="n">moinp</span> <span class="s2">"hf.gbw"</span>
+<span class="o">%</span><span class="n">basis</span>
+ <span class="no">Basis</span> <span class="s2">"cc-pVDZ-F12"</span>
+ <span class="no">CABS</span>  <span class="s2">"cc-pVDZ-F12-OptRI"</span>
+<span class="k">end</span>
+
+<span class="sx">% scf </span>
+  <span class="n">rotate</span> 
+        <span class="p">{</span><span class="mi">21</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span>
+        <span class="p">{</span><span class="mi">22</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span>
+        <span class="p">{</span><span class="mi">23</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="o">%</span><span class="n">casscf</span> 
+   <span class="n">mult</span> <span class="mi">1</span> 
+   <span class="n">irrep</span> <span class="mi">7</span>
+   <span class="n">weights</span> <span class="mf">0.0</span> <span class="mf">1.0</span>  
+   <span class="n">nel</span> <span class="mi">6</span>
+   <span class="n">norb</span> <span class="mi">6</span>
+   <span class="no">TrafoStep</span> <span class="no">RI</span>
+   <span class="no">PTMethod</span>  <span class="no">FIC_NEVPT2</span>
+   <span class="no">PTSettings</span> 
+         <span class="no">F12</span> <span class="kp">true</span>
+   <span class="k">end</span>
+<span class="k">end</span> 
+<span class="o">*</span><span class="n">xyzfile</span> <span class="mi">0</span> <span class="mi">1</span>  <span class="n">benzeneb1u</span><span class="p">.</span><span class="nf">xyz</span></code></pre></figure>
+
+<p>output is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="no">Symmetries</span> <span class="n">of</span> <span class="n">active</span> <span class="ss">orbitals:</span>
+</span><span class="hll"><span class="ss">   </span><span class="no">MO</span> <span class="o">=</span>   <span class="mi">18</span>  <span class="no">IRREP</span><span class="o">=</span> <span class="mi">5</span> <span class="p">(</span><span class="no">B1u</span><span class="p">)</span>
+</span>   <span class="no">MO</span> <span class="o">=</span>   <span class="mi">19</span>  <span class="no">IRREP</span><span class="o">=</span> <span class="mi">3</span> <span class="p">(</span><span class="no">B3g</span><span class="p">)</span>
+   <span class="no">MO</span> <span class="o">=</span>   <span class="mi">20</span>  <span class="no">IRREP</span><span class="o">=</span> <span class="mi">2</span> <span class="p">(</span><span class="no">B2g</span><span class="p">)</span>
+   <span class="no">MO</span> <span class="o">=</span>   <span class="mi">21</span>  <span class="no">IRREP</span><span class="o">=</span> <span class="mi">5</span> <span class="p">(</span><span class="no">B1u</span><span class="p">)</span>
+   <span class="no">MO</span> <span class="o">=</span>   <span class="mi">22</span>  <span class="no">IRREP</span><span class="o">=</span> <span class="mi">4</span> <span class="p">(</span><span class="no">Au</span><span class="p">)</span>
+   <span class="no">MO</span> <span class="o">=</span>   <span class="mi">23</span>  <span class="no">IRREP</span><span class="o">=</span> <span class="mi">3</span> <span class="p">(</span><span class="no">B3g</span><span class="p">)</span>
+<span class="o">--------------</span>
+<span class="no">CASSCF</span> <span class="no">RESULTS</span>
+<span class="o">--------------</span>
+
+<span class="no">Final</span> <span class="no">CASSCF</span> <span class="n">energy</span>       <span class="p">:</span> <span class="o">-</span><span class="mf">230.665821065</span> <span class="no">Eh</span>   <span class="o">-</span><span class="mf">6276.7361</span> <span class="n">eV</span></code></pre></figure>
+
+<p>Finally the  f12 result is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="no">Correction</span> <span class="p">:</span> <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.96437097091322</span>
+</span><span class="hll"> <span class="o">---------------------------------------------------------------</span> 
+</span> 	 <span class="no">Reference</span>  <span class="no">Energy</span>       <span class="p">:</span> <span class="no">E0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">230.67968019252493</span>
+ <span class="o">---------------------------------------------------------------</span> 
+ 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="p">(</span><span class="no">E0</span><span class="o">+</span><span class="n">dE</span><span class="p">)</span>    <span class="p">:</span> <span class="no">E</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">231.64405116343815</span>
+ <span class="o">---------------------------------------------------------------</span></code></pre></figure>
+
+<h2 id="conclusion">Conclusion</h2>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1. The state symmetry include ,spin symmetry ,spatial symmetry .After determinant this ,we also need to specify which root is want we want.
+2. the state symmetry is determinat from direct product of orbital. 
+</code></pre></div></div>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background Here we want to calculate the adiabatic excitation energy of benzene. For introduction and the source of sturcture ,see previous postcalculation of acetylene]]></summary></entry><entry><title type="html">Calculation of C2H2 methylene</title><link href="http://localhost:4000/jekyll/update/2025/05/19/calculation-gallary.html" rel="alternate" type="text/html" title="Calculation of C2H2 methylene" /><published>2025-05-19T17:13:29+08:00</published><updated>2025-05-19T17:13:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/19/calculation-gallary</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/19/calculation-gallary.html"><![CDATA[<p>Here we want to calculate the adiabatic excitation energy of C2H2</p>
+
+<h2 id="background">Background</h2>
+<p><img src="/image/c2cs35394f-f1.gif" alt="AltText" /></p>
 
 <p>The difference between vertical adiabatic and 0-0 exciation energy can be found at  this paper
-“dx.doi.org/10.1021/jp501974p | J. Phys. Chem. A 2014, 118, 4157−4171”
-The structure of single is optimized using dft ,taken from si of this paper
-“dx.doi.org/10.1021/ct200272b | J. Chem. Theory Comput. 2011, 7, 2376–2386”
-Using  singlet as an example, we describe the calcultion of caspt2-f12 and nevpt2-f12 in molpro and orca respectivly</p>
+“dx.doi.org/10.1021/jp501974p | J. Phys. Chem. A 2014, 118, 4157−4171”</p>
 
-<p>The strucutre of methylene is</p>
+<p>The structure of single is optimized using dft ,taken from si of this paper
+“dx.doi.org/10.1021/ct200272b | J. Chem. Theory Comput. 2011, 7, 2376–2386”</p>
+
+<p>In this post ,we want to calculate the adiabatic excitateion energy  of Acetylene
+of caspt2-f12 and nevpt2-f12 in molpro and orca respectivly.</p>
+
+<h2 id="ground-state">Ground State</h2>
+
+<p>The strucutre of methylene is linear</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="mi">4</span>
 </span><span class="hll">
@@ -15,6 +277,7 @@ Using  singlet as an example, we describe the calcultion of caspt2-f12 and nevpt
 <span class="n">h</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="mf">3.13996154221094</span> 
 <span class="n">h</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">3.13996154221094</span> </code></pre></figure>
 
+<h3 id="molpro">molpro</h3>
 <p>The input of molpro is</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">gprint</span><span class="p">,</span><span class="n">orbitals</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">civector</span>
@@ -36,13 +299,30 @@ Using  singlet as an example, we describe the calcultion of caspt2-f12 and nevpt
 <span class="n">wf</span><span class="p">,</span><span class="n">symmetry</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span></code></pre></figure>
 
-<p>The input of orca is</p>
+<h4 id="summary">Summary</h4>
+<ol>
+  <li>The active space is C(2p) orbital,and we need to find two pi-bond orbital and two pi-antibond orbital.</li>
+  <li>The geomerty is linear</li>
+  <li>spin is singlet</li>
+  <li>wavefunction spatial symmetry is Ag
+    <h3 id="orca">orca</h3>
+    <p>The input of orca is</p>
+  </li>
+</ol>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="o">!</span><span class="no">HF</span>  <span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span> <span class="no">Usesym</span>   <span class="n">bohrs</span> <span class="n">largeprint</span> 
 </span><span class="hll"><span class="o">*</span><span class="n">xyzfile</span>  <span class="mi">0</span> <span class="mi">1</span>  <span class="no">C2H2X</span><span class="p">.</span><span class="nf">xyz</span>
-</span><span class="o">%</span><span class="n">scf</span> <span class="n">rotate</span> <span class="p">{</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">90</span><span class="p">}{</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span> <span class="k">end</span> <span class="k">end</span>
-<span class="o">%</span><span class="n">casscf</span> 
+</span></code></pre></figure>
 
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="o">!</span><span class="no">HF</span>  <span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span> <span class="no">Usesym</span>   <span class="n">bohrs</span>
+</span><span class="hll"><span class="o">!</span><span class="n">moread</span>
+</span><span class="o">%</span><span class="n">moinp</span> <span class="s2">"HF.gbw"</span>
+<span class="sx">% scf </span>
+  <span class="n">rotate</span> 
+        <span class="p">{</span><span class="mi">6</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="o">%</span><span class="n">casscf</span> 
    <span class="n">nel</span> <span class="mi">4</span>
    <span class="n">norb</span> <span class="mi">4</span>
    <span class="no">PTMethod</span> <span class="n">fic_nevpt2</span>
@@ -50,8 +330,15 @@ Using  singlet as an example, we describe the calcultion of caspt2-f12 and nevpt
      <span class="n">f12</span> <span class="kp">true</span>
    <span class="k">end</span>
    
-<span class="k">end</span> </code></pre></figure>
+<span class="k">end</span> 
+<span class="o">*</span><span class="n">xyz</span>  <span class="mi">0</span> <span class="mi">1</span>  
+<span class="n">c</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="mf">1.13109775801047</span> 
+<span class="n">c</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">1.13109775801047</span> 
+<span class="n">h</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="mf">3.13996154221094</span> 
+<span class="n">h</span> <span class="mf">0.00000000000000</span> <span class="mf">0.00000000000000</span> <span class="o">-</span><span class="mf">3.13996154221094</span> 
+<span class="o">*</span></code></pre></figure>
 
+<h3 id="result">Result</h3>
 <p>The output of molpro is</p>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll">         <span class="no">RS2</span><span class="o">-</span><span class="no">F12</span>           <span class="no">MULTI</span>          <span class="no">HF</span><span class="o">-</span><span class="no">SCF</span>
@@ -60,13 +347,173 @@ Using  singlet as an example, we describe the calcultion of caspt2-f12 and nevpt
 
 <p>The output of orca is</p>
 
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="o">---------------------------------------------------------------</span> 
-</span><span class="hll"> 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="no">Correction</span> <span class="p">:</span> <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.27516311398801</span>
-</span> <span class="o">---------------------------------------------------------------</span> 
- 	 <span class="no">Reference</span>  <span class="no">Energy</span>       <span class="p">:</span> <span class="no">E0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">76.84875474173299</span>
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="o">===============================================================</span>
+</span><span class="hll">                       <span class="no">NEVPT2</span> <span class="no">Results</span>  
+</span> <span class="o">===============================================================</span>
+   <span class="o">*******************************</span>
+    <span class="no">MULT</span> <span class="mi">1</span><span class="p">,</span> <span class="no">IRREP</span>  <span class="no">Ag</span><span class="p">,</span> <span class="no">ROOT</span> <span class="mi">0</span> 
+   <span class="o">*******************************</span>
+
+  <span class="no">Class</span> <span class="no">V0_ijab</span> <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.067841971472</span> 
+  <span class="no">Class</span> <span class="no">Vm1_iab</span> <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.061599918270</span> 
+  <span class="no">Class</span> <span class="no">Vm2_ab</span>  <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.026472162485</span> 
+  <span class="no">Class</span> <span class="no">V1_ija</span>  <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.008119245188</span> 
+  <span class="no">Class</span> <span class="no">V2_ij</span>   <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.001871859387</span> 
+  <span class="no">Class</span> <span class="no">V0_ia</span>   <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.050330027838</span> 
+  <span class="no">Class</span> <span class="no">Vm1_a</span>   <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.001943111619</span> 
+  <span class="no">Class</span> <span class="no">V1_i</span>    <span class="p">:</span>	 <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.000000000000</span> 
+
  <span class="o">---------------------------------------------------------------</span> 
- 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="p">(</span><span class="no">E0</span><span class="o">+</span><span class="n">dE</span><span class="p">)</span>    <span class="p">:</span> <span class="no">E</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">77.12391785572100</span>
- <span class="o">---------------------------------------------------------------</span> </code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Here we want to calculate the adiabatic excitation energy of C2H2]]></summary></entry><entry><title type="html">Theory of DSRG-PT2</title><link href="http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Theory of DSRG-PT2" /><published>2025-04-26T22:13:29+08:00</published><updated>2025-04-26T22:13:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll.html"><![CDATA[<p>This site my can host some learning material in my life.
+ 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="no">Correction</span> <span class="p">:</span> <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.21817829625785</span>
+ <span class="o">---------------------------------------------------------------</span> 
+ 	 <span class="no">Reference</span>  <span class="no">Energy</span>       <span class="p">:</span> <span class="no">E0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">76.91519884161944</span>
+ <span class="o">---------------------------------------------------------------</span> 
+ 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="p">(</span><span class="no">E0</span><span class="o">+</span><span class="n">dE</span><span class="p">)</span>    <span class="p">:</span> <span class="no">E</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">77.13337713787729</span>
+ <span class="o">---------------------------------------------------------------</span> </code></pre></figure>
+
+<h2 id="excited-state">Excited State</h2>
+<p>Now we need to calculate  the excited state.
+In excited state, the geometry is as following 
+<img src="/image/excited_state.png" alt="AltText" /></p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="mi">4</span>
+</span><span class="hll">
+</span><span class="n">c</span> <span class="o">-</span><span class="mf">0.22872949141251</span> <span class="mf">1.27002027174688</span> <span class="o">-</span><span class="mf">0.00000000311696</span> 
+<span class="n">c</span> <span class="mf">0.22872960517416</span> <span class="o">-</span><span class="mf">1.27002040888460</span> <span class="o">-</span><span class="mf">0.00000000311917</span> 
+<span class="n">h</span> <span class="mf">1.29544929136450</span> <span class="mf">2.67207978087269</span> <span class="mf">0.00000003715195</span> 
+<span class="n">h</span> <span class="o">-</span><span class="mf">1.29545064696851</span> <span class="o">-</span><span class="mf">2.67207814671517</span> <span class="mf">0.00000003715897</span> </code></pre></figure>
+
+<h3 id="molpro-1">molpro</h3>
+<p>In molpro the point group of excited state is denoted to be Cs
+input</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">gprint</span><span class="p">,</span><span class="n">orbitals</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">civector</span>
+</span><span class="hll"><span class="n">basis</span><span class="o">=</span><span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span>
+</span><span class="n">bohr</span>
+<span class="n">geometry</span><span class="o">=</span><span class="no">C2H2A1</span><span class="p">.</span><span class="nf">xyz</span>
+<span class="p">{</span><span class="no">HF</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">hf</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="n">multi</span><span class="p">,</span>
+<span class="n">occ</span>  <span class="mi">7</span><span class="p">,</span><span class="mi">2</span> <span class="p">;</span>
+<span class="n">closed</span>  <span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">;</span> 
+<span class="n">wf</span><span class="p">,</span><span class="n">elec</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sym</span><span class="o">=</span><span class="mi">2</span><span class="p">;</span>
+<span class="n">state</span> <span class="mi">2</span><span class="p">;</span>
+<span class="n">weight</span> <span class="mi">1</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">cas</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span><span class="no">RS2</span><span class="o">-</span><span class="no">F12</span><span class="p">,</span><span class="n">shift</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">wf</span><span class="p">,</span><span class="n">symmetry</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span></code></pre></figure>
+
+<p>output</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="no">RS2</span><span class="o">-</span><span class="no">F12</span><span class="o">/</span><span class="n">cc</span><span class="o">-</span><span class="n">pVDZ</span><span class="o">-</span><span class="no">F12</span> <span class="n">energy</span><span class="o">=</span>    <span class="o">-</span><span class="mf">76.999081928598</span>
+</span><span class="hll">
+</span>         <span class="no">RS2</span><span class="o">-</span><span class="no">F12</span>           <span class="no">MULTI</span>          <span class="no">HF</span><span class="o">-</span><span class="no">SCF</span>
+    <span class="o">-</span><span class="mf">76.99908193</span>    <span class="o">-</span><span class="mf">76.69704216</span>    <span class="o">-</span><span class="mf">76.75296781</span></code></pre></figure>
+
+<h3 id="orca-1">orca</h3>
+<p>In orca the point group of excited state is determinated to be C2h which is correct.
+After HF we need to find the order of mos of four pi-bond and pi-antibond orbital</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="o">----------------</span>
+</span><span class="hll"><span class="no">ORBITAL</span> <span class="no">ENERGIES</span>
+</span><span class="o">----------------</span>
+
+  <span class="no">NO</span>   <span class="no">OCC</span>          <span class="no">E</span><span class="p">(</span><span class="no">Eh</span><span class="p">)</span>            <span class="no">E</span><span class="p">(</span><span class="n">eV</span><span class="p">)</span>    <span class="no">Irrep</span> 
+   <span class="mi">0</span>   <span class="mf">2.0000</span>     <span class="o">-</span><span class="mf">11.296779</span>      <span class="o">-</span><span class="mf">307.4010</span>    <span class="mi">1</span><span class="o">-</span><span class="no">Ag</span>
+   <span class="mi">1</span>   <span class="mf">2.0000</span>     <span class="o">-</span><span class="mf">11.295308</span>      <span class="o">-</span><span class="mf">307.3610</span>    <span class="mi">1</span><span class="o">-</span><span class="no">Bu</span>
+   <span class="mi">2</span>   <span class="mf">2.0000</span>      <span class="o">-</span><span class="mf">1.012950</span>       <span class="o">-</span><span class="mf">27.5638</span>    <span class="mi">2</span><span class="o">-</span><span class="no">Ag</span>
+   <span class="mi">3</span>   <span class="mf">2.0000</span>      <span class="o">-</span><span class="mf">0.765920</span>       <span class="o">-</span><span class="mf">20.8417</span>    <span class="mi">2</span><span class="o">-</span><span class="no">Bu</span>
+   <span class="mi">4</span>   <span class="mf">2.0000</span>      <span class="o">-</span><span class="mf">0.596013</span>       <span class="o">-</span><span class="mf">16.2183</span>    <span class="mi">3</span><span class="o">-</span><span class="no">Ag</span>
+   <span class="mi">5</span>   <span class="mf">2.0000</span>      <span class="o">-</span><span class="mf">0.417948</span>       <span class="o">-</span><span class="mf">11.3729</span>    <span class="mi">3</span><span class="o">-</span><span class="no">Bu</span>
+   <span class="mi">6</span>   <span class="mf">2.0000</span>      <span class="o">-</span><span class="mf">0.386648</span>       <span class="o">-</span><span class="mf">10.5212</span>    <span class="mi">1</span><span class="o">-</span><span class="no">Au</span>
+   <span class="mi">7</span>   <span class="mf">0.0000</span>       <span class="mf">0.020162</span>         <span class="mf">0.5486</span>    <span class="mi">4</span><span class="o">-</span><span class="no">Ag</span>
+   <span class="mi">8</span>   <span class="mf">0.0000</span>       <span class="mf">0.060384</span>         <span class="mf">1.6431</span>    <span class="mi">4</span><span class="o">-</span><span class="no">Bu</span>
+   <span class="mi">9</span>   <span class="mf">0.0000</span>       <span class="mf">0.081533</span>         <span class="mf">2.2186</span>    <span class="mi">5</span><span class="o">-</span><span class="no">Ag</span>
+  <span class="mi">10</span>   <span class="mf">0.0000</span>       <span class="mf">0.090870</span>         <span class="mf">2.4727</span>    <span class="mi">1</span><span class="o">-</span><span class="no">Bg</span>
+  <span class="mi">11</span>   <span class="mf">0.0000</span>       <span class="mf">0.091065</span>         <span class="mf">2.4780</span>    <span class="mi">5</span><span class="o">-</span><span class="no">Bu</span>
+  <span class="mi">12</span>   <span class="mf">0.0000</span>       <span class="mf">0.101260</span>         <span class="mf">2.7554</span>    <span class="mi">2</span><span class="o">-</span><span class="no">Au</span>
+  <span class="mi">13</span>   <span class="mf">0.0000</span>       <span class="mf">0.129303</span>         <span class="mf">3.5185</span>    <span class="mi">6</span><span class="o">-</span><span class="no">Ag</span>
+  <span class="mi">14</span>   <span class="mf">0.0000</span>       <span class="mf">0.137025</span>         <span class="mf">3.7286</span>    <span class="mi">7</span><span class="o">-</span><span class="no">Ag</span></code></pre></figure>
+
+<p>The orbital in active space is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll">   <span class="mi">5</span>   <span class="mf">2.0000</span>      <span class="o">-</span><span class="mf">0.417948</span>       <span class="o">-</span><span class="mf">11.3729</span>    <span class="mi">3</span><span class="o">-</span><span class="no">Bu</span>
+</span><span class="hll">   <span class="mi">6</span>   <span class="mf">2.0000</span>      <span class="o">-</span><span class="mf">0.386648</span>       <span class="o">-</span><span class="mf">10.5212</span>    <span class="mi">1</span><span class="o">-</span><span class="no">Au</span>
+</span>   <span class="mi">7</span>   <span class="mf">0.0000</span>       <span class="mf">0.020162</span>         <span class="mf">0.5486</span>    <span class="mi">4</span><span class="o">-</span><span class="no">Ag</span>
+  <span class="mi">10</span>   <span class="mf">0.0000</span>       <span class="mf">0.090870</span>         <span class="mf">2.4727</span>    <span class="mi">1</span><span class="o">-</span><span class="no">Bg</span></code></pre></figure>
+
+<p>First we need to rotate the group of {8,10}</p>
+
+<p>Next the excitation is from 6–&gt;7</p>
+
+<p>The symmetry is Au X Ag = Au</p>
+
+<p>The input of orca for casscf is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="o">!</span><span class="no">HF</span>  <span class="n">cc</span><span class="o">-</span><span class="n">pvdz</span><span class="o">-</span><span class="n">f12</span> <span class="no">Usesym</span>   <span class="n">bohrs</span>
+</span><span class="hll"><span class="o">!</span><span class="n">moread</span>
+</span><span class="o">%</span><span class="n">moinp</span> <span class="s2">"HF.gbw"</span>
+<span class="sx">% scf </span>
+  <span class="n">rotate</span> 
+        <span class="p">{</span><span class="mi">8</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">90</span><span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+<span class="o">%</span><span class="n">casscf</span> 
+   <span class="n">nel</span> <span class="mi">4</span>
+   <span class="n">norb</span> <span class="mi">4</span>
+   <span class="n">mult</span> <span class="mi">1</span>
+   <span class="n">irrep</span>  <span class="mi">2</span> 
+   <span class="n">nroots</span> <span class="mi">1</span>
+<span class="c1">#   PTMethod fic_nevpt2</span>
+<span class="c1">#   ptsettings</span>
+<span class="c1">#     f12 true</span>
+<span class="c1">#   end</span>
+   
+<span class="k">end</span> 
+<span class="o">*</span><span class="n">xyzfile</span>  <span class="mi">0</span> <span class="mi">1</span>  <span class="no">C2H2A1</span><span class="p">.</span><span class="nf">xyz</span></code></pre></figure>
+
+<p>output is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="no">Symmetries</span> <span class="n">of</span> <span class="n">active</span> <span class="ss">orbitals:</span>
+</span><span class="hll"><span class="ss">   </span><span class="no">MO</span> <span class="o">=</span>    <span class="mi">5</span>  <span class="no">IRREP</span><span class="o">=</span> <span class="mi">3</span> <span class="p">(</span><span class="no">Bu</span><span class="p">)</span>
+</span>   <span class="no">MO</span> <span class="o">=</span>    <span class="mi">6</span>  <span class="no">IRREP</span><span class="o">=</span> <span class="mi">2</span> <span class="p">(</span><span class="no">Au</span><span class="p">)</span>
+   <span class="no">MO</span> <span class="o">=</span>    <span class="mi">7</span>  <span class="no">IRREP</span><span class="o">=</span> <span class="mi">0</span> <span class="p">(</span><span class="no">Ag</span><span class="p">)</span>
+   <span class="no">MO</span> <span class="o">=</span>    <span class="mi">8</span>  <span class="no">IRREP</span><span class="o">=</span> <span class="mi">1</span> <span class="p">(</span><span class="no">Bg</span><span class="p">)</span>
+<span class="o">-------------------------</span>   <span class="o">--------------------</span>
+<span class="no">FINAL</span> <span class="no">SINGLE</span> <span class="no">POINT</span> <span class="no">ENERGY</span>       <span class="o">-</span><span class="mf">76.697042114451</span>
+<span class="o">-------------------------</span>   <span class="o">--------------------</span></code></pre></figure>
+
+<p>Finally the  f12 result is</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="o">---------------------------------------------------------------</span> 
+</span><span class="hll"> 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="no">Correction</span> <span class="p">:</span> <span class="n">dE</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.24327214974453</span>
+</span> <span class="o">---------------------------------------------------------------</span> 
+ 	 <span class="no">Reference</span>  <span class="no">Energy</span>       <span class="p">:</span> <span class="no">E0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">76.69704211445088</span>
+ <span class="o">---------------------------------------------------------------</span> 
+ 	 <span class="no">Total</span> <span class="no">Energy</span> <span class="p">(</span><span class="no">E0</span><span class="o">+</span><span class="n">dE</span><span class="p">)</span>    <span class="p">:</span> <span class="no">E</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">76.94031426419541</span>
+ <span class="o">---------------------------------------------------------------</span> </code></pre></figure>
+
+<h2 id="conclusion">Conclusion</h2>
+<ol>
+  <li>First of all ,the active space is important. I first think the active space should be C-H sigma bond, but this is not correct .
+The correct active space is pi bond.</li>
+  <li>
+    <p>The spatial symmetry of the excited state I implicitly is choosen to be the same of ground state. But the correct way to determinate is</p>
+
+    <p>a. choose the correct point group</p>
+
+    <p>b. check the active space MO irreps</p>
+
+    <p>c. determinate the excitation type ,and thus determinate the dominant configuration of the excited state you want.</p>
+
+    <p>d. the correct state symmetry is to be the direct product of  single occupied acitive space orbital.</p>
+  </li>
+</ol>
+
+<p>Need to check all input parameter !!!</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Here we want to calculate the adiabatic excitation energy of C2H2]]></summary></entry><entry><title type="html">Theory of DSRG-PT2</title><link href="http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Theory of DSRG-PT2" /><published>2025-04-26T22:13:29+08:00</published><updated>2025-04-26T22:13:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll.html"><![CDATA[<p>This site my can host some learning material in my life.
 <code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
 
 <p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
