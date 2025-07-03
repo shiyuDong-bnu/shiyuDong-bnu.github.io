@@ -1,0 +1,29 @@
+---
+layout: post
+title:  "QUESTDB and excited state quantum chemistry method"
+date:   2025-07-03 21:28:29 +0800
+categories: jekyll update
+---
+
+## Background
+QUESTDB( https://lcpq.github.io/QUESTDB_website/ )
+is quantum excited state database which benchmark quantum chemistry method for excited state.
+The Journal of Physical Chemistry Letters 2020 116, 2374-2383
+DOI: 10.1021/acs.jpclett.0c00014
+##  Develop theories for excited is more complex
+1. excited state lack a proper vairational principle
+2. excited state have very difference natures ( $$\pi->\pi*$$,$$n->\pi*$$ charge transfer ,double excitateion ,valence ,Rydberg ,singlet ,triplet )
+
+## Method
+1. first ab initial method for excited was CIS in 1970 , error ~1 eV, CIS(D) has error 0.2-0.3 eV
+2. CASSCF and CASPT2,NEVPT2 is more reliable and has error 0.1-0.2
+3. TD-DFT 0.2-0.4 ev for low lying valence excited state, but not goot for charge-transfer , Rydberg state and double excitation.
+4. EOM-CCSD 0.1 eV
+5. ADC (2) 0.1-0.2 ev  ADC(3) 
+6. BSE GW  0.1-0.3 EV
+7. selected CI (SCI)
+
+
+
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
