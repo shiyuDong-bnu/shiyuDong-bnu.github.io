@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-05-28T23:26:13+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Cumulant And Cumulant Decomposition</title><link href="http://localhost:4000/jekyll/update/2025/05/28/cumulant.html" rel="alternate" type="text/html" title="Cumulant And Cumulant Decomposition" /><published>2025-05-28T16:28:29+08:00</published><updated>2025-05-28T16:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/28/cumulant</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/28/cumulant.html"><![CDATA[<h2 id="background">Background</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-03T21:37:27+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">QUESTDB and excited state quantum chemistry method</title><link href="http://localhost:4000/jekyll/update/2025/07/03/questdb.html" rel="alternate" type="text/html" title="QUESTDB and excited state quantum chemistry method" /><published>2025-07-03T21:28:29+08:00</published><updated>2025-07-03T21:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/07/03/questdb</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/07/03/questdb.html"><![CDATA[<h2 id="background">Background</h2>
+<p>QUESTDB( https://lcpq.github.io/QUESTDB_website/ )
+is quantum excited state database which benchmark quantum chemistry method for excited state.
+The Journal of Physical Chemistry Letters 2020 116, 2374-2383
+DOI: 10.1021/acs.jpclett.0c00014</p>
+<h2 id="develop-theories-for-excited-is-more-complex">Develop theories for excited is more complex</h2>
+<ol>
+  <li>excited state lack a proper vairational principle</li>
+  <li>excited state have very difference natures ( \(\pi-&gt;\pi*\),\(n-&gt;\pi*\) charge transfer ,double excitateion ,valence ,Rydberg ,singlet ,triplet )</li>
+</ol>
+
+<h2 id="method">Method</h2>
+<ol>
+  <li>first ab initial method for excited was CIS in 1970 , error ~1 eV, CIS(D) has error 0.2-0.3 eV</li>
+  <li>CASSCF and CASPT2,NEVPT2 is more reliable and has error 0.1-0.2</li>
+  <li>TD-DFT 0.2-0.4 ev for low lying valence excited state, but not goot for charge-transfer , Rydberg state and double excitation.</li>
+  <li>EOM-CCSD 0.1 eV</li>
+  <li>ADC (2) 0.1-0.2 ev  ADC(3)</li>
+  <li>BSE GW  0.1-0.3 EV</li>
+  <li>selected CI (SCI)</li>
+</ol>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background QUESTDB( https://lcpq.github.io/QUESTDB_website/ ) is quantum excited state database which benchmark quantum chemistry method for excited state. The Journal of Physical Chemistry Letters 2020 116, 2374-2383 DOI: 10.1021/acs.jpclett.0c00014 Develop theories for excited is more complex excited state lack a proper vairational principle excited state have very difference natures ( \(\pi-&gt;\pi*\),\(n-&gt;\pi*\) charge transfer ,double excitateion ,valence ,Rydberg ,singlet ,triplet )]]></summary></entry><entry><title type="html">Example of Generalized Normal Order</title><link href="http://localhost:4000/jekyll/update/2025/05/30/GNO.html" rel="alternate" type="text/html" title="Example of Generalized Normal Order" /><published>2025-05-30T16:28:29+08:00</published><updated>2025-05-30T16:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/30/GNO</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/30/GNO.html"><![CDATA[<h2 id="background">Background</h2>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background]]></summary></entry><entry><title type="html">Cumulant And Cumulant Decomposition</title><link href="http://localhost:4000/jekyll/update/2025/05/28/cumulant.html" rel="alternate" type="text/html" title="Cumulant And Cumulant Decomposition" /><published>2025-05-28T16:28:29+08:00</published><updated>2025-05-28T16:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/28/cumulant</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/28/cumulant.html"><![CDATA[<h2 id="background">Background</h2>
 <p>Here we want to demostate the decomposite of three body operator into two body operator by cumulant decomposition.The reference paper is</p>
 
 <p>J. Chem. Phys. 127, 104107 (2007)
@@ -65,7 +85,9 @@ in one block \(u,v\) in another block.</p>
 The begining relationship is equation #(18) in jctc paper metioned above</p>
 
 <p>\(\gamma^{pq\cdots}_{rs\cdots}=\sum_\rho \lambda(\rho)\)
-Here we will generate the diagram</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background Here we want to demostate the decomposite of three body operator into two body operator by cumulant decomposition.The reference paper is]]></summary></entry><entry><title type="html">Calculation of benzene</title><link href="http://localhost:4000/jekyll/update/2025/05/25/benzene.html" rel="alternate" type="text/html" title="Calculation of benzene" /><published>2025-05-25T11:26:29+08:00</published><updated>2025-05-25T11:26:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/25/benzene</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/25/benzene.html"><![CDATA[<h2 id="background">Background</h2>
+Here we will generate the diagram</p>
+
+<p>Due to time limitationn ,I will rewrite this post laterly.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background Here we want to demostate the decomposite of three body operator into two body operator by cumulant decomposition.The reference paper is]]></summary></entry><entry><title type="html">Calculation of benzene</title><link href="http://localhost:4000/jekyll/update/2025/05/25/benzene.html" rel="alternate" type="text/html" title="Calculation of benzene" /><published>2025-05-25T11:26:29+08:00</published><updated>2025-05-25T11:26:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/25/benzene</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/25/benzene.html"><![CDATA[<h2 id="background">Background</h2>
 <p>Here we want to calculate the adiabatic excitation energy of benzene.
 For introduction and the source of sturcture ,see previous  post<a href="/jekyll/update/2025/05/19/calculation-gallary.html">calculation of acetylene </a></p>
 
