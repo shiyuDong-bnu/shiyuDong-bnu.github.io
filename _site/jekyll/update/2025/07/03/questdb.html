@@ -66,8 +66,47 @@ DOI: 10.1021/acs.jpclett.0c00014</p>
   <li>EOM-CCSD 0.1 eV</li>
   <li>ADC (2) 0.1-0.2 ev  ADC(3)</li>
   <li>BSE GW  0.1-0.3 EV</li>
-  <li>selected CI (SCI)</li>
+  <li>selected CI (SCI)
+    <h2 id="usage">Usage</h2>
+    <p>You can download the geometry and reference energy from QUESTDB here is an example
+I calculate EOM-CCSD of acetaldehyde using molpro</p>
+    <h3 id="input">input</h3>
+    <p>geometry download from questdb</p>
+  </li>
 </ol>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="mi">7</span>
+</span><span class="hll">
+</span><span class="no">C</span>   <span class="o">-</span><span class="mf">0.00124094</span>            <span class="mf">0.00000000</span>            <span class="mf">0.46104598</span>
+<span class="no">C</span>   <span class="o">-</span><span class="mf">0.93054640</span>            <span class="mf">0.00000000</span>           <span class="o">-</span><span class="mf">0.71424991</span>
+<span class="no">O</span>    <span class="mf">1.20624568</span>            <span class="mf">0.00000000</span>            <span class="mf">0.38083840</span>
+<span class="no">H</span>   <span class="o">-</span><span class="mf">0.49162964</span>            <span class="mf">0.00000000</span>            <span class="mf">1.44957198</span>
+<span class="no">H</span>   <span class="o">-</span><span class="mf">1.57671241</span>            <span class="mf">0.87868017</span>           <span class="o">-</span><span class="mf">0.66257994</span>
+<span class="no">H</span>   <span class="o">-</span><span class="mf">1.57671241</span>           <span class="o">-</span><span class="mf">0.87868017</span>           <span class="o">-</span><span class="mf">0.66257994</span>
+<span class="no">H</span>   <span class="o">-</span><span class="mf">0.37065389</span>            <span class="mf">0.00000000</span>           <span class="o">-</span><span class="mf">1.64609256</span></code></pre></figure>
+
+<p>molpro input</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">basis</span><span class="o">=</span><span class="n">aug</span><span class="o">-</span><span class="n">cc</span><span class="o">-</span><span class="n">pvtz</span>    <span class="o">!</span> <span class="n">define</span> <span class="n">basis</span> <span class="n">set</span>
+</span><span class="hll"><span class="n">geometry</span><span class="o">=</span><span class="n">acetaldehyde</span><span class="p">.</span><span class="nf">xyz</span>  <span class="o">!</span> <span class="n">read</span> <span class="n">geometry</span>
+</span><span class="n">hf</span>                         <span class="o">!</span> <span class="k">do</span> <span class="n">scf</span> <span class="n">calculation</span>
+<span class="n">ccsd</span>                       <span class="o">!</span> <span class="k">do</span> <span class="n">ccsd</span> <span class="n">calculation</span>
+<span class="n">start</span> <span class="p">,</span><span class="mf">4000.2</span> <span class="n">save</span> <span class="mf">4000.2</span> <span class="o">!</span> <span class="n">save</span> <span class="n">final</span> <span class="no">T</span> <span class="n">amplitudes</span>
+<span class="n">eom</span> <span class="mf">2.1</span> <span class="mf">1.1</span>  <span class="mf">1.2</span>  <span class="mf">2.2</span>     <span class="o">!</span> <span class="n">ground</span> <span class="n">state</span> <span class="n">is</span> <span class="mf">1.1</span> <span class="n">first</span> <span class="n">exited</span> <span class="n">state</span> <span class="n">is</span> <span class="mf">1.2</span></code></pre></figure>
+
+<p>output</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll">   <span class="no">Final</span> <span class="no">Results</span><span class="p">:</span>
+</span><span class="hll">   <span class="o">==============</span>
+</span> 
+   <span class="no">State</span>    <span class="no">Exc</span><span class="o">.</span> <span class="no">Energy</span>    <span class="no">Total</span> <span class="no">Energy</span>     <span class="no">Weight</span><span class="p">(</span><span class="no">S</span><span class="p">)</span>     <span class="no">Weight</span><span class="p">(</span><span class="no">D</span><span class="p">)</span>      <span class="no">Delta</span> <span class="no">E</span>    <span class="no">Conv</span>   <span class="no">Max</span><span class="o">.</span> <span class="no">Coef</span><span class="o">.</span>     <span class="no">Excitation</span>
+    <span class="mf">1.1</span>     <span class="mf">0.00000000</span>    <span class="o">-</span><span class="mf">153.57317406</span>     <span class="mf">0.635E-02</span>     <span class="mf">0.156E+00</span>    <span class="o">-</span><span class="mf">0.124E-06</span>     <span class="no">Y</span>
+    <span class="mf">1.2</span>     <span class="mf">0.16029771</span>    <span class="o">-</span><span class="mf">153.41287635</span>     <span class="mf">0.928E+00</span>     <span class="mf">0.724E-01</span>     <span class="mf">0.122E-06</span>     <span class="no">Y</span>    <span class="o">-</span><span class="mf">0.76471</span>     <span class="mf">10.1</span> <span class="o">-&gt;</span>  <span class="mf">6.2</span>
+    <span class="mf">2.1</span>     <span class="mf">0.25671913</span>    <span class="o">-</span><span class="mf">153.31645494</span>     <span class="mf">0.924E+00</span>     <span class="mf">0.757E-01</span>     <span class="mf">0.837E-06</span>     <span class="no">Y</span>    <span class="o">-</span><span class="mf">0.75379</span>     <span class="mf">10.1</span> <span class="o">-&gt;</span> <span class="mf">11.1</span>
+    <span class="mf">2.2</span>     <span class="mf">0.29101596</span>    <span class="o">-</span><span class="mf">153.28215811</span>     <span class="mf">0.924E+00</span>     <span class="mf">0.759E-01</span>    <span class="o">-</span><span class="mf">0.351E-06</span>     <span class="no">Y</span>    <span class="o">-</span><span class="mf">0.81336</span>     <span class="mf">10.1</span> <span class="o">-&gt;</span>  <span class="mf">3.2</span></code></pre></figure>
+
+<h3 id="conclusion">Conclusion</h3>
+<p>you can search</p>
 
 
   </div><a class="u-url" href="/jekyll/update/2025/07/03/questdb.html" hidden></a>

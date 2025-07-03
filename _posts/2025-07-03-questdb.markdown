@@ -22,7 +22,48 @@ DOI: 10.1021/acs.jpclett.0c00014
 5. ADC (2) 0.1-0.2 ev  ADC(3) 
 6. BSE GW  0.1-0.3 EV
 7. selected CI (SCI)
+## Usage
+You can download the geometry and reference energy from QUESTDB here is an example
+I calculate EOM-CCSD of acetaldehyde using molpro 
+### input
+geometry download from questdb
+{% highlight ruby mark_lines="1 2" %}
+7
 
+C   -0.00124094            0.00000000            0.46104598
+C   -0.93054640            0.00000000           -0.71424991
+O    1.20624568            0.00000000            0.38083840
+H   -0.49162964            0.00000000            1.44957198
+H   -1.57671241            0.87868017           -0.66257994
+H   -1.57671241           -0.87868017           -0.66257994
+H   -0.37065389            0.00000000           -1.64609256
+
+{% endhighlight %}
+molpro input
+
+{% highlight ruby mark_lines="1 2" %}
+basis=aug-cc-pvtz    ! define basis set
+geometry=acetaldehyde.xyz  ! read geometry
+hf                         ! do scf calculation
+ccsd                       ! do ccsd calculation
+start ,4000.2 save 4000.2 ! save final T amplitudes
+eom 2.1 1.1  1.2  2.2     ! ground state is 1.1 first exited state is 1.2
+
+{% endhighlight %}
+output 
+{% highlight ruby mark_lines="1 2" %}
+   Final Results:
+   ==============
+ 
+   State    Exc. Energy    Total Energy     Weight(S)     Weight(D)      Delta E    Conv   Max. Coef.     Excitation
+    1.1     0.00000000    -153.57317406     0.635E-02     0.156E+00    -0.124E-06     Y
+    1.2     0.16029771    -153.41287635     0.928E+00     0.724E-01     0.122E-06     Y    -0.76471     10.1 ->  6.2
+    2.1     0.25671913    -153.31645494     0.924E+00     0.757E-01     0.837E-06     Y    -0.75379     10.1 -> 11.1
+    2.2     0.29101596    -153.28215811     0.924E+00     0.759E-01    -0.351E-06     Y    -0.81336     10.1 ->  3.2
+
+{% endhighlight %}
+### Conclusion 
+you can search 
 
 
 [jekyll-gh]:   https://github.com/jekyll/jekyll
