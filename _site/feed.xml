@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-03T21:55:53+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">QUESTDB and excited state quantum chemistry method</title><link href="http://localhost:4000/jekyll/update/2025/07/03/questdb.html" rel="alternate" type="text/html" title="QUESTDB and excited state quantum chemistry method" /><published>2025-07-03T21:28:29+08:00</published><updated>2025-07-03T21:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/07/03/questdb</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/07/03/questdb.html"><![CDATA[<h2 id="background">Background</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-09T21:36:38+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">QUESTDB and excited state quantum chemistry method</title><link href="http://localhost:4000/jekyll/update/2025/07/03/questdb.html" rel="alternate" type="text/html" title="QUESTDB and excited state quantum chemistry method" /><published>2025-07-03T21:28:29+08:00</published><updated>2025-07-03T21:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/07/03/questdb</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/07/03/questdb.html"><![CDATA[<h2 id="background">Background</h2>
 <p>QUESTDB( https://lcpq.github.io/QUESTDB_website/ )
 is quantum excited state database which benchmark quantum chemistry method for excited state.
 The Journal of Physical Chemistry Letters 2020 116, 2374-2383
@@ -57,7 +57,78 @@ I calculate EOM-CCSD of acetaldehyde using molpro</p>
     <span class="mf">2.2</span>     <span class="mf">0.29101596</span>    <span class="o">-</span><span class="mf">153.28215811</span>     <span class="mf">0.924E+00</span>     <span class="mf">0.759E-01</span>    <span class="o">-</span><span class="mf">0.351E-06</span>     <span class="no">Y</span>    <span class="o">-</span><span class="mf">0.81336</span>     <span class="mf">10.1</span> <span class="o">-&gt;</span>  <span class="mf">3.2</span></code></pre></figure>
 
 <h3 id="conclusion">Conclusion</h3>
-<p>you can search</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background QUESTDB( https://lcpq.github.io/QUESTDB_website/ ) is quantum excited state database which benchmark quantum chemistry method for excited state. The Journal of Physical Chemistry Letters 2020 116, 2374-2383 DOI: 10.1021/acs.jpclett.0c00014 Develop theories for excited is more complex excited state lack a proper vairational principle excited state have very difference natures ( \(\pi-&gt;\pi*\),\(n-&gt;\pi*\) charge transfer ,double excitateion ,valence ,Rydberg ,singlet ,triplet )]]></summary></entry><entry><title type="html">Example of Generalized Normal Order</title><link href="http://localhost:4000/jekyll/update/2025/05/30/GNO.html" rel="alternate" type="text/html" title="Example of Generalized Normal Order" /><published>2025-05-30T16:28:29+08:00</published><updated>2025-05-30T16:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/30/GNO</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/30/GNO.html"><![CDATA[<h2 id="background">Background</h2>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background]]></summary></entry><entry><title type="html">Cumulant And Cumulant Decomposition</title><link href="http://localhost:4000/jekyll/update/2025/05/28/cumulant.html" rel="alternate" type="text/html" title="Cumulant And Cumulant Decomposition" /><published>2025-05-28T16:28:29+08:00</published><updated>2025-05-28T16:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/28/cumulant</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/28/cumulant.html"><![CDATA[<h2 id="background">Background</h2>
+<p>you can search</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background QUESTDB( https://lcpq.github.io/QUESTDB_website/ ) is quantum excited state database which benchmark quantum chemistry method for excited state. The Journal of Physical Chemistry Letters 2020 116, 2374-2383 DOI: 10.1021/acs.jpclett.0c00014 Develop theories for excited is more complex excited state lack a proper vairational principle excited state have very difference natures ( \(\pi-&gt;\pi*\),\(n-&gt;\pi*\) charge transfer ,double excitateion ,valence ,Rydberg ,singlet ,triplet )]]></summary></entry><entry><title type="html">frozen core and basis set</title><link href="http://localhost:4000/jekyll/update/2025/07/03/frozen_core.html" rel="alternate" type="text/html" title="frozen core and basis set" /><published>2025-07-03T21:28:29+08:00</published><updated>2025-07-03T21:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/07/03/frozen_core</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/07/03/frozen_core.html"><![CDATA[<h2 id="background">Background</h2>
+<p>reference</p>
+
+<p>J. Chem. Theory Comput. 2025, 21, 6, 2977–2987 https://doi.org/10.1021/acs.jctc.4c01731</p>
+
+<p>A very widely applied approximation for electron correlation
+methods  is the frozen-core approximation,
+whereby the lowest lying MOs are “frozen”, prohibiting
+excitations from these orbitals and only including excitations
+from valence or “active” orbitals. This approximation also
+coincides with an intuitive chemist’s picture where the core
+electrons are considered to be less sensitive to changes in the
+environment and chemical reactions are determined by valence
+electrons. 
+In fact, it has been found that the error introduced
+by the frozen-core approximation is minimal in terms of
+relative energies and additionally for geometries of
+related methods.
+Furthermore, for practical applications,
+the use of the frozen-core approximation is preferred since
+most of the commonly used basis sets are designed to correlate
+the valence electrons only.</p>
+<h2 id="basis-set">basis set</h2>
+<p>Specifically, most AO and auxiliary
+basis sets are not equipped to describe the core region
+sufficiently and special basis functions, that is, Gaussians with
+large exponents, would have to be added to the basis sets in
+order to describe the correlation between core electrons as well
+as core and active electrons such as, for example, in
+Dunning’s cc-pCVXZ73 and cc-pwCVXZ74 basis sets (where X
+= D, T, Q, 5, …).</p>
+<h2 id="auxiliary-basis-set">auxiliary basis set</h2>
+<p>The problem with auxiliary basis sets is even
+more obvious since they are often developed within the frozen-
+core approximation and, thus, do not contain any core
+functions. One possible solution is the use of automatically
+generated auxiliary basis sets, for example, developed by Neese
+and coworkers.75 However, these basis sets are usually about
+twice the size of optimized basis sets, which makes the
+computation much more expensive. Another possible solution
+lies in the utilization of optimized auxiliary basis sets in
+combination with the frozen-core approximation for the
+underlying electron correlation method, which allows to
+overcome the restrictions on the basis set selection.</p>
+<h2 id="advatages-of-using-frozen-core-approximation">advatages of using frozen core approximation</h2>
+<p>A further
+advantage when using the frozen-core approximation comes
+with the increased computational efficiency since the active
+occupied space excludes the core electrons. 
+Thus, the limited
+availability of all-electron basis sets together with the higher
+computational cost for larger basis sets makes the use of the
+frozen-core approximation preferable within electron correla-
+tion methods.
+In addition, the frozen-core approximation
+entails no significant loss of accuracy for quantities such as
+structural parameters or relative energies.</p>
+
+<h2 id="how-to---choose-the-number-of-frozen-core-and-potential-problem">How to   choose the number of frozen core and potential problem</h2>
+<p>The definition of core electrons,Chemical Physics Letters,Volume 350, Issues 5–6,2001,Pages 573-576,
+https://doi.org/10.1016/S0009-2614(01)01345-8.</p>
+
+<p>A common practice is to carry out a Hartree–Fock calculation on the electronic ground state 
+ and then to select the appropriate number of orbitals with the lowest one-electron energies .
+However, difficulties arise when the core energies of one atom lie above the energies of some valence atomic orbitals of another atom .
+A notable example is gallium trifluoride GaF3, where the energy of a gallium 3d-orbital lies above that of a fluorine 2s orbital. 
+In the G2 model, the former is treated as a part of the core while the latter is part of the valence shell</p>
+
+<p>The number of core electrons are 
+2(Li to Mg) 10(Al to Ca) 18 (Sc to Kr)</p>
+
+<h3 id="conclusion">Conclusion</h3>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background reference]]></summary></entry><entry><title type="html">Example of Generalized Normal Order</title><link href="http://localhost:4000/jekyll/update/2025/05/30/GNO.html" rel="alternate" type="text/html" title="Example of Generalized Normal Order" /><published>2025-05-30T16:28:29+08:00</published><updated>2025-05-30T16:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/30/GNO</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/30/GNO.html"><![CDATA[<h2 id="background">Background</h2>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background]]></summary></entry><entry><title type="html">Cumulant And Cumulant Decomposition</title><link href="http://localhost:4000/jekyll/update/2025/05/28/cumulant.html" rel="alternate" type="text/html" title="Cumulant And Cumulant Decomposition" /><published>2025-05-28T16:28:29+08:00</published><updated>2025-05-28T16:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/28/cumulant</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/28/cumulant.html"><![CDATA[<h2 id="background">Background</h2>
 <p>Here we want to demostate the decomposite of three body operator into two body operator by cumulant decomposition.The reference paper is</p>
 
 <p>J. Chem. Phys. 127, 104107 (2007)
