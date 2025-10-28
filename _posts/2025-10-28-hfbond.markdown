@@ -1,0 +1,61 @@
+---
+layout: post
+title:  "Simplified Tamm-Dancoff approximation to TD-DFT"
+date:   2025-08-08 20:41:29 +0800
+categories: jekyll update
+---
+
+## Background
+HF is a diatomic molecule and  here we want to use it as an example to 
+demostrate how to fitting spectroscopic constant.
+
+
+$$
+\begin{pmatrix}
+ A & B \\
+ B^{*}& A^{*} 
+\end{pmatrix}
+\begin{pmatrix}
+X \\
+Y
+\end{pmatrix}
+= 
+\begin{pmatrix}
+\omega & 0\\
+0& \omega 
+\end{pmatrix}
+\begin{pmatrix}
+X \\
+Y
+\end{pmatrix}
+$$
+In the Tamm-Dancoff approximation (TDA), the matrix B is neglected which leads to 
+
+$$
+AX=\omega X
+$$
+Three simplifications then yield the simplified Tamm-Dancoff approach (sTDA)
+1. Neglect the responce of exchange-correlation functional
+2. Evaluate the two-electron integrals as damped Coulomb interactions between transition/charge density monopoles
+3. Restrict the configuration sapce to a user-specified energy range of excitations
+
+The elements of the simplified matrix are then given as 
+
+$$
+A^\prime_{ia,jb}=\delta_{ij}\delta_{ab}(\epsilon_a-\epsilon_b)+\sum_{A,B}^{N_{atoms}}
+(s_k q_{ia}^{A}\gamma_{AB}^{K}q_{jb}^B-q_{ia}^{A}\gamma_{AB}^{J}q_{jb}^B)
+$$
+$$q_{ia}^{A}$$ are the transition/charge density monopoles located on atom A .
+These are obtained from Lowdin population analysis.
+$$\epsilon_p$$ is the Kon-Sham orbital energy of orbital p.
+In the spin-restricted case,$$s_k=2$$ for singlet-singlet transition ,$$s_k=0$$ for singlet-triplet exictaions.
+$$\gamma_{AB}^K$$ and $$\gamma_{AB}^J$$ are the Mataga-Nishimoto-Ohno-Klopman damped Coulomb operators for exchange-type 
+and Coulom-type integrals ,respectively.
+$$
+\gamma_{AB}^{J}=(\frac{1}{R_{AB}^\beta+(a_x\eta)^{-\beta}})^{1/\beta}
+$$
+
+## TDDFT
+
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
