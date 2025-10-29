@@ -1,49 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-10-29T19:50:29+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Simplified Tamm-Dancoff approximation to TD-DFT</title><link href="http://localhost:4000/jekyll/update/2025/08/08/stda.html" rel="alternate" type="text/html" title="Simplified Tamm-Dancoff approximation to TD-DFT" /><published>2025-08-08T20:41:29+08:00</published><updated>2025-08-08T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/08/08/stda</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/08/08/stda.html"><![CDATA[<h2 id="background">Background</h2>
-<p>reference</p>
-
-<p>The time-dependent density functional theory (TD-DFT) responce 
-problem can be expressed as the following non-Hermitian eigenvalue problem</p>
-
-<p>\(\begin{pmatrix}
- A &amp; B \\
- B^{*}&amp; A^{*} 
-\end{pmatrix}
-\begin{pmatrix}
-X \\
-Y
-\end{pmatrix}
-= 
-\begin{pmatrix}
-\omega &amp; 0\\
-0&amp; \omega 
-\end{pmatrix}
-\begin{pmatrix}
-X \\
-Y
-\end{pmatrix}\)
-In the Tamm-Dancoff approximation (TDA), the matrix B is neglected which leads to</p>
-
-<p>\(AX=\omega X\)
-Three simplifications then yield the simplified Tamm-Dancoff approach (sTDA)</p>
-<ol>
-  <li>Neglect the responce of exchange-correlation functional</li>
-  <li>Evaluate the two-electron integrals as damped Coulomb interactions between transition/charge density monopoles</li>
-  <li>Restrict the configuration sapce to a user-specified energy range of excitations</li>
-</ol>
-
-<p>The elements of the simplified matrix are then given as</p>
-
-<p>\(A^\prime_{ia,jb}=\delta_{ij}\delta_{ab}(\epsilon_a-\epsilon_b)+\sum_{A,B}^{N_{atoms}}
-(s_k q_{ia}^{A}\gamma_{AB}^{K}q_{jb}^B-q_{ia}^{A}\gamma_{AB}^{J}q_{jb}^B)\)
-\(q_{ia}^{A}\) are the transition/charge density monopoles located on atom A .
-These are obtained from Lowdin population analysis.
-\(\epsilon_p\) is the Kon-Sham orbital energy of orbital p.
-In the spin-restricted case,\(s_k=2\) for singlet-singlet transition ,\(s_k=0\) for singlet-triplet exictaions.
-\(\gamma_{AB}^K\) and \(\gamma_{AB}^J\) are the Mataga-Nishimoto-Ohno-Klopman damped Coulomb operators for exchange-type 
-and Coulom-type integrals ,respectively.
-\(\gamma_{AB}^{J}=(\frac{1}{R_{AB}^\beta+(a_x\eta)^{-\beta}})^{1/\beta}\)</p>
-
-<h2 id="tddft">TDDFT</h2>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background reference]]></summary></entry><entry><title type="html">Spectroscopic constant of diatomic molecule : HF as an example</title><link href="http://localhost:4000/jekyll/update/2025/08/08/hfbond.html" rel="alternate" type="text/html" title="Spectroscopic constant of diatomic molecule : HF as an example" /><published>2025-08-08T20:41:29+08:00</published><updated>2025-08-08T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/08/08/hfbond</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/08/08/hfbond.html"><![CDATA[<h2 id="background">Background</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-10-29T20:04:02+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Spectroscopic constant of diatomic molecule : HF as an example</title><link href="http://localhost:4000/jekyll/update/2025/10/28/hfbond.html" rel="alternate" type="text/html" title="Spectroscopic constant of diatomic molecule : HF as an example" /><published>2025-10-28T20:41:29+08:00</published><updated>2025-10-28T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/10/28/hfbond</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/10/28/hfbond.html"><![CDATA[<h2 id="background">Background</h2>
 <p>HF is a diatomic molecule and  here we want to use it as an example to 
 demostrate how to fitting spectroscopic constant.</p>
 
@@ -212,7 +167,52 @@ using both caspt2 method and nevpt2 method</p>
   <span class="no">Grid</span> <span class="o">=</span> <span class="mi">450</span>
   <span class="no">Range</span> <span class="o">=</span> <span class="mf">0.85</span> <span class="mf">9.4</span>
   <span class="no">Vibrations</span> <span class="o">=</span> <span class="mi">2</span>
-  <span class="n">scale</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background HF is a diatomic molecule and here we want to use it as an example to demostrate how to fitting spectroscopic constant.]]></summary></entry><entry><title type="html">QUESTDB and excited state quantum chemistry method</title><link href="http://localhost:4000/jekyll/update/2025/07/03/questdb.html" rel="alternate" type="text/html" title="QUESTDB and excited state quantum chemistry method" /><published>2025-07-03T21:28:29+08:00</published><updated>2025-07-03T21:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/07/03/questdb</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/07/03/questdb.html"><![CDATA[<h2 id="background">Background</h2>
+  <span class="n">scale</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background HF is a diatomic molecule and here we want to use it as an example to demostrate how to fitting spectroscopic constant.]]></summary></entry><entry><title type="html">Simplified Tamm-Dancoff approximation to TD-DFT</title><link href="http://localhost:4000/jekyll/update/2025/08/08/stda.html" rel="alternate" type="text/html" title="Simplified Tamm-Dancoff approximation to TD-DFT" /><published>2025-08-08T20:41:29+08:00</published><updated>2025-08-08T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/08/08/stda</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/08/08/stda.html"><![CDATA[<h2 id="background">Background</h2>
+<p>reference</p>
+
+<p>The time-dependent density functional theory (TD-DFT) responce 
+problem can be expressed as the following non-Hermitian eigenvalue problem</p>
+
+<p>\(\begin{pmatrix}
+ A &amp; B \\
+ B^{*}&amp; A^{*} 
+\end{pmatrix}
+\begin{pmatrix}
+X \\
+Y
+\end{pmatrix}
+= 
+\begin{pmatrix}
+\omega &amp; 0\\
+0&amp; \omega 
+\end{pmatrix}
+\begin{pmatrix}
+X \\
+Y
+\end{pmatrix}\)
+In the Tamm-Dancoff approximation (TDA), the matrix B is neglected which leads to</p>
+
+<p>\(AX=\omega X\)
+Three simplifications then yield the simplified Tamm-Dancoff approach (sTDA)</p>
+<ol>
+  <li>Neglect the responce of exchange-correlation functional</li>
+  <li>Evaluate the two-electron integrals as damped Coulomb interactions between transition/charge density monopoles</li>
+  <li>Restrict the configuration sapce to a user-specified energy range of excitations</li>
+</ol>
+
+<p>The elements of the simplified matrix are then given as</p>
+
+<p>\(A^\prime_{ia,jb}=\delta_{ij}\delta_{ab}(\epsilon_a-\epsilon_b)+\sum_{A,B}^{N_{atoms}}
+(s_k q_{ia}^{A}\gamma_{AB}^{K}q_{jb}^B-q_{ia}^{A}\gamma_{AB}^{J}q_{jb}^B)\)
+\(q_{ia}^{A}\) are the transition/charge density monopoles located on atom A .
+These are obtained from Lowdin population analysis.
+\(\epsilon_p\) is the Kon-Sham orbital energy of orbital p.
+In the spin-restricted case,\(s_k=2\) for singlet-singlet transition ,\(s_k=0\) for singlet-triplet exictaions.
+\(\gamma_{AB}^K\) and \(\gamma_{AB}^J\) are the Mataga-Nishimoto-Ohno-Klopman damped Coulomb operators for exchange-type 
+and Coulom-type integrals ,respectively.
+\(\gamma_{AB}^{J}=(\frac{1}{R_{AB}^\beta+(a_x\eta)^{-\beta}})^{1/\beta}\)</p>
+
+<h2 id="tddft">TDDFT</h2>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background reference]]></summary></entry><entry><title type="html">QUESTDB and excited state quantum chemistry method</title><link href="http://localhost:4000/jekyll/update/2025/07/03/questdb.html" rel="alternate" type="text/html" title="QUESTDB and excited state quantum chemistry method" /><published>2025-07-03T21:28:29+08:00</published><updated>2025-07-03T21:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/07/03/questdb</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/07/03/questdb.html"><![CDATA[<h2 id="background">Background</h2>
 <p>QUESTDB( https://lcpq.github.io/QUESTDB_website/ )
 is quantum excited state database which benchmark quantum chemistry method for excited state.
 The Journal of Physical Chemistry Letters 2020 116, 2374-2383
