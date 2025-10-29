@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Simplified Tamm-Dancoff approximation to TD-DFT"
+title:  "Spectroscopic constant of diatomic molecule : HF as an example"
 date:   2025-08-08 20:41:29 +0800
 categories: jekyll update
 ---
@@ -9,53 +9,154 @@ categories: jekyll update
 HF is a diatomic molecule and  here we want to use it as an example to 
 demostrate how to fitting spectroscopic constant.
 
+## Optimization of $$R_e$$
+First of all ,we use molpro to optimize the equilibrum bond distance of HF molecule
+using both caspt2 method and nevpt2 method
 
-$$
-\begin{pmatrix}
- A & B \\
- B^{*}& A^{*} 
-\end{pmatrix}
-\begin{pmatrix}
-X \\
-Y
-\end{pmatrix}
-= 
-\begin{pmatrix}
-\omega & 0\\
-0& \omega 
-\end{pmatrix}
-\begin{pmatrix}
-X \\
-Y
-\end{pmatrix}
-$$
-In the Tamm-Dancoff approximation (TDA), the matrix B is neglected which leads to 
+This is  an input which optimize HF using nevpt2/cc-pvqz
+{% highlight ruby mark_lines="1 2" %}
+basis=cc-pvqz
+angstrom
+geometry={
+    angstrom;
+    H  ;
+    F H r ;
+}
+r=0.9
+hf
+put,molden,hf.molden
+{    multi,
+occ, 4, 1, 1, 0,;
+closed, 2, 1, 1, 0 ;
+wf,elec=10,spin=0,sym=1;
+}
+put,molden,cas.molden
+{    nevpt2,
+    state,1,1;
+}
+{optg,root=1,procedure=mycas}
+mycas={hf;multi;nevpt2}
 
-$$
-AX=\omega X
-$$
-Three simplifications then yield the simplified Tamm-Dancoff approach (sTDA)
-1. Neglect the responce of exchange-correlation functional
-2. Evaluate the two-electron integrals as damped Coulomb interactions between transition/charge density monopoles
-3. Restrict the configuration sapce to a user-specified energy range of excitations
+{%endhighlight%}
 
-The elements of the simplified matrix are then given as 
+This is an optimization file for dsrg
 
-$$
-A^\prime_{ia,jb}=\delta_{ij}\delta_{ab}(\epsilon_a-\epsilon_b)+\sum_{A,B}^{N_{atoms}}
-(s_k q_{ia}^{A}\gamma_{AB}^{K}q_{jb}^B-q_{ia}^{A}\gamma_{AB}^{J}q_{jb}^B)
-$$
-$$q_{ia}^{A}$$ are the transition/charge density monopoles located on atom A .
-These are obtained from Lowdin population analysis.
-$$\epsilon_p$$ is the Kon-Sham orbital energy of orbital p.
-In the spin-restricted case,$$s_k=2$$ for singlet-singlet transition ,$$s_k=0$$ for singlet-triplet exictaions.
-$$\gamma_{AB}^K$$ and $$\gamma_{AB}^J$$ are the Mataga-Nishimoto-Ohno-Klopman damped Coulomb operators for exchange-type 
-and Coulom-type integrals ,respectively.
-$$
-\gamma_{AB}^{J}=(\frac{1}{R_{AB}^\beta+(a_x\eta)^{-\beta}})^{1/\beta}
-$$
+{% highlight ruby mark_lines="1 2" %}
+import forte
 
-## TDDFT
+molecule {
+0 1
+H
+F 1 0.9
+}
+
+set {
+  basis                cc-pvqz
+  reference            rhf
+  scf_type             pk
+  e_convergence        10
+  d_convergence        10
+  restricted_docc      [2,0,1,1]
+  active               [2,0,0,0]
+  mcscf_type           conv
+  mcscf_maxiter        100
+  mcscf_diis_start     20
+  mcscf_e_convergence  10
+  mcscf_r_convergence  8
+  g_convergence        gau_verytight
+}
+
+set forte {
+  ref_type             casscf
+  restricted_docc      [2,0,1,1]
+  active               [2,0,0,0]
+  active_space_solver  detci
+  correlation_solver   dsrg-mrpt2
+  dsrg_s               0.5
+  force_diag_method    true
+}
+
+{%endhighlight%}
+
+
+| Basis Set | CASPT2 | NEVPT2 | DSRG-PT2(s=0.5) | DSRG-PT2(s=1.0) | 
+| ---------- | ---------- | ---------- | ---------- | ---------- |
+| cc-pVDZ | 0.92033766 |0.92384987 |0.917399 | 0.913450  |
+| cc-pVTZ | 0.91719700 |0.92249350 |0.915964 | 0.910931  |
+| cc-pVQZ | 0.91579604 |0.92159519 |0.916780 | 0.914105  |
+
+
+## Calculation of Spectroscopic Constant 
+
+{% highlight ruby mark_lines="1 2" %}
+ &VIBROT
+  RoVibrational spectrum
+  Title = HF (^1 Pi_u)
+  Atoms = 0 H 0 F
+  Potential
+0.4000	 -98.39414876
+0.4500	 -98.95737209
+0.5000	 -99.33419285
+0.5500	 -99.58745543
+0.6000	 -99.75756806
+0.6500	 -99.87102993
+0.7000	 -99.94547732
+0.7500	 -99.99282331
+0.8000	 -100.02124762
+0.8250	 -100.03021940
+0.8500	 -100.03645446
+0.8750	 -100.04040903
+0.9000	 -100.04246762
+0.9250	 -100.04295454
+0.9500	 -100.04214339
+0.9750	 -100.04026516
+1.0000	 -100.03751494
+1.0250	 -100.03405765
+1.0500	 -100.03003295
+1.0750	 -100.02555925
+1.1000	 -100.02073718
+1.1250	 -100.01565243
+1.1500	 -100.01037810
+1.2000	 -99.99950138
+1.2500	 -99.98850518
+1.3000	 -99.97767860
+1.3500	 -99.96722798
+1.4000	 -99.95729554
+1.4500	 -99.94797370
+1.5000	 -99.93931638
+1.5500	 -99.93134832
+1.6000	 -99.92407265
+1.6500	 -99.91747685
+1.7000	 -99.91153737
+1.7500	 -99.90622293
+1.8000	 -99.90149693
+1.8500	 -99.89731924
+1.9000	 -99.89364747
+1.9500	 -99.89043804
+2.0000	 -99.88764711
+2.0500	 -99.88523151
+2.1000	 -99.88314945
+2.1500	 -99.88136132
+2.2000	 -99.87983017
+2.3000	 -99.87740696
+2.4000	 -99.87564961
+2.5000	 -99.87438007
+2.6000	 -99.87346539
+2.7000	 -99.87280811
+2.8000	 -99.87233707
+2.9000	 -99.87200028
+3.0000	 -99.87175975
+4.0000	 -99.87116318
+5.0000	 -99.87114070
+ DistUnit = angstrom
+  EnerUnit = hartree 
+  Grid = 450
+  Range = 0.85 9.4
+  Vibrations = 2
+  scale
+
+{%endhighlight%}
+
 
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/

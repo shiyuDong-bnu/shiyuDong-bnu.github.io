@@ -1,4 +1,218 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-07-09T21:36:38+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">QUESTDB and excited state quantum chemistry method</title><link href="http://localhost:4000/jekyll/update/2025/07/03/questdb.html" rel="alternate" type="text/html" title="QUESTDB and excited state quantum chemistry method" /><published>2025-07-03T21:28:29+08:00</published><updated>2025-07-03T21:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/07/03/questdb</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/07/03/questdb.html"><![CDATA[<h2 id="background">Background</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-10-29T19:50:29+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Simplified Tamm-Dancoff approximation to TD-DFT</title><link href="http://localhost:4000/jekyll/update/2025/08/08/stda.html" rel="alternate" type="text/html" title="Simplified Tamm-Dancoff approximation to TD-DFT" /><published>2025-08-08T20:41:29+08:00</published><updated>2025-08-08T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/08/08/stda</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/08/08/stda.html"><![CDATA[<h2 id="background">Background</h2>
+<p>reference</p>
+
+<p>The time-dependent density functional theory (TD-DFT) responce 
+problem can be expressed as the following non-Hermitian eigenvalue problem</p>
+
+<p>\(\begin{pmatrix}
+ A &amp; B \\
+ B^{*}&amp; A^{*} 
+\end{pmatrix}
+\begin{pmatrix}
+X \\
+Y
+\end{pmatrix}
+= 
+\begin{pmatrix}
+\omega &amp; 0\\
+0&amp; \omega 
+\end{pmatrix}
+\begin{pmatrix}
+X \\
+Y
+\end{pmatrix}\)
+In the Tamm-Dancoff approximation (TDA), the matrix B is neglected which leads to</p>
+
+<p>\(AX=\omega X\)
+Three simplifications then yield the simplified Tamm-Dancoff approach (sTDA)</p>
+<ol>
+  <li>Neglect the responce of exchange-correlation functional</li>
+  <li>Evaluate the two-electron integrals as damped Coulomb interactions between transition/charge density monopoles</li>
+  <li>Restrict the configuration sapce to a user-specified energy range of excitations</li>
+</ol>
+
+<p>The elements of the simplified matrix are then given as</p>
+
+<p>\(A^\prime_{ia,jb}=\delta_{ij}\delta_{ab}(\epsilon_a-\epsilon_b)+\sum_{A,B}^{N_{atoms}}
+(s_k q_{ia}^{A}\gamma_{AB}^{K}q_{jb}^B-q_{ia}^{A}\gamma_{AB}^{J}q_{jb}^B)\)
+\(q_{ia}^{A}\) are the transition/charge density monopoles located on atom A .
+These are obtained from Lowdin population analysis.
+\(\epsilon_p\) is the Kon-Sham orbital energy of orbital p.
+In the spin-restricted case,\(s_k=2\) for singlet-singlet transition ,\(s_k=0\) for singlet-triplet exictaions.
+\(\gamma_{AB}^K\) and \(\gamma_{AB}^J\) are the Mataga-Nishimoto-Ohno-Klopman damped Coulomb operators for exchange-type 
+and Coulom-type integrals ,respectively.
+\(\gamma_{AB}^{J}=(\frac{1}{R_{AB}^\beta+(a_x\eta)^{-\beta}})^{1/\beta}\)</p>
+
+<h2 id="tddft">TDDFT</h2>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background reference]]></summary></entry><entry><title type="html">Spectroscopic constant of diatomic molecule : HF as an example</title><link href="http://localhost:4000/jekyll/update/2025/08/08/hfbond.html" rel="alternate" type="text/html" title="Spectroscopic constant of diatomic molecule : HF as an example" /><published>2025-08-08T20:41:29+08:00</published><updated>2025-08-08T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/08/08/hfbond</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/08/08/hfbond.html"><![CDATA[<h2 id="background">Background</h2>
+<p>HF is a diatomic molecule and  here we want to use it as an example to 
+demostrate how to fitting spectroscopic constant.</p>
+
+<h2 id="optimization-of-r_e">Optimization of \(R_e\)</h2>
+<p>First of all ,we use molpro to optimize the equilibrum bond distance of HF molecule
+using both caspt2 method and nevpt2 method</p>
+
+<p>This is  an input which optimize HF using nevpt2/cc-pvqz</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">basis</span><span class="o">=</span><span class="n">cc</span><span class="o">-</span><span class="n">pvqz</span>
+</span><span class="hll"><span class="n">angstrom</span>
+</span><span class="n">geometry</span><span class="o">=</span><span class="p">{</span>
+    <span class="n">angstrom</span><span class="p">;</span>
+    <span class="no">H</span>  <span class="p">;</span>
+    <span class="no">F</span> <span class="no">H</span> <span class="n">r</span> <span class="p">;</span>
+<span class="p">}</span>
+<span class="n">r</span><span class="o">=</span><span class="mf">0.9</span>
+<span class="n">hf</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">hf</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span>    <span class="n">multi</span><span class="p">,</span>
+<span class="n">occ</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,;</span>
+<span class="n">closed</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span> <span class="p">;</span>
+<span class="n">wf</span><span class="p">,</span><span class="n">elec</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span><span class="n">spin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">sym</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="n">put</span><span class="p">,</span><span class="n">molden</span><span class="p">,</span><span class="n">cas</span><span class="p">.</span><span class="nf">molden</span>
+<span class="p">{</span>    <span class="n">nevpt2</span><span class="p">,</span>
+    <span class="n">state</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="p">{</span><span class="n">optg</span><span class="p">,</span><span class="n">root</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">procedure</span><span class="o">=</span><span class="n">mycas</span><span class="p">}</span>
+<span class="n">mycas</span><span class="o">=</span><span class="p">{</span><span class="n">hf</span><span class="p">;</span><span class="n">multi</span><span class="p">;</span><span class="n">nevpt2</span><span class="p">}</span></code></pre></figure>
+
+<p>This is an optimization file for dsrg</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">import</span> <span class="n">forte</span>
+</span><span class="hll">
+</span><span class="n">molecule</span> <span class="p">{</span>
+<span class="mi">0</span> <span class="mi">1</span>
+<span class="no">H</span>
+<span class="no">F</span> <span class="mi">1</span> <span class="mf">0.9</span>
+<span class="p">}</span>
+
+<span class="n">set</span> <span class="p">{</span>
+  <span class="n">basis</span>                <span class="n">cc</span><span class="o">-</span><span class="n">pvqz</span>
+  <span class="n">reference</span>            <span class="n">rhf</span>
+  <span class="n">scf_type</span>             <span class="n">pk</span>
+  <span class="n">e_convergence</span>        <span class="mi">10</span>
+  <span class="n">d_convergence</span>        <span class="mi">10</span>
+  <span class="n">restricted_docc</span>      <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+  <span class="n">active</span>               <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">mcscf_type</span>           <span class="n">conv</span>
+  <span class="n">mcscf_maxiter</span>        <span class="mi">100</span>
+  <span class="n">mcscf_diis_start</span>     <span class="mi">20</span>
+  <span class="n">mcscf_e_convergence</span>  <span class="mi">10</span>
+  <span class="n">mcscf_r_convergence</span>  <span class="mi">8</span>
+  <span class="n">g_convergence</span>        <span class="n">gau_verytight</span>
+<span class="p">}</span>
+
+<span class="n">set</span> <span class="n">forte</span> <span class="p">{</span>
+  <span class="n">ref_type</span>             <span class="n">casscf</span>
+  <span class="n">restricted_docc</span>      <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+  <span class="n">active</span>               <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">active_space_solver</span>  <span class="n">detci</span>
+  <span class="n">correlation_solver</span>   <span class="n">dsrg</span><span class="o">-</span><span class="n">mrpt2</span>
+  <span class="n">dsrg_s</span>               <span class="mf">0.5</span>
+  <span class="n">force_diag_method</span>    <span class="kp">true</span>
+<span class="p">}</span></code></pre></figure>
+
+<table>
+  <thead>
+    <tr>
+      <th>Basis Set</th>
+      <th>CASPT2</th>
+      <th>NEVPT2</th>
+      <th>DSRG-PT2(s=0.5)</th>
+      <th>DSRG-PT2(s=1.0)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>cc-pVDZ</td>
+      <td>0.92033766</td>
+      <td>0.92384987</td>
+      <td>0.917399</td>
+      <td>0.913450</td>
+    </tr>
+    <tr>
+      <td>cc-pVTZ</td>
+      <td>0.91719700</td>
+      <td>0.92249350</td>
+      <td>0.915964</td>
+      <td>0.910931</td>
+    </tr>
+    <tr>
+      <td>cc-pVQZ</td>
+      <td>0.91579604</td>
+      <td>0.92159519</td>
+      <td>0.916780</td>
+      <td>0.914105</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="calculation-of-spectroscopic-constant">Calculation of Spectroscopic Constant</h2>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"> <span class="o">&amp;</span><span class="no">VIBROT</span>
+</span><span class="hll">  <span class="no">RoVibrational</span> <span class="n">spectrum</span>
+</span>  <span class="no">Title</span> <span class="o">=</span> <span class="no">HF</span> <span class="p">(</span><span class="o">^</span><span class="mi">1</span> <span class="no">Pi_u</span><span class="p">)</span>
+  <span class="no">Atoms</span> <span class="o">=</span> <span class="mi">0</span> <span class="no">H</span> <span class="mi">0</span> <span class="no">F</span>
+  <span class="no">Potential</span>
+<span class="mf">0.4000</span>	 <span class="o">-</span><span class="mf">98.39414876</span>
+<span class="mf">0.4500</span>	 <span class="o">-</span><span class="mf">98.95737209</span>
+<span class="mf">0.5000</span>	 <span class="o">-</span><span class="mf">99.33419285</span>
+<span class="mf">0.5500</span>	 <span class="o">-</span><span class="mf">99.58745543</span>
+<span class="mf">0.6000</span>	 <span class="o">-</span><span class="mf">99.75756806</span>
+<span class="mf">0.6500</span>	 <span class="o">-</span><span class="mf">99.87102993</span>
+<span class="mf">0.7000</span>	 <span class="o">-</span><span class="mf">99.94547732</span>
+<span class="mf">0.7500</span>	 <span class="o">-</span><span class="mf">99.99282331</span>
+<span class="mf">0.8000</span>	 <span class="o">-</span><span class="mf">100.02124762</span>
+<span class="mf">0.8250</span>	 <span class="o">-</span><span class="mf">100.03021940</span>
+<span class="mf">0.8500</span>	 <span class="o">-</span><span class="mf">100.03645446</span>
+<span class="mf">0.8750</span>	 <span class="o">-</span><span class="mf">100.04040903</span>
+<span class="mf">0.9000</span>	 <span class="o">-</span><span class="mf">100.04246762</span>
+<span class="mf">0.9250</span>	 <span class="o">-</span><span class="mf">100.04295454</span>
+<span class="mf">0.9500</span>	 <span class="o">-</span><span class="mf">100.04214339</span>
+<span class="mf">0.9750</span>	 <span class="o">-</span><span class="mf">100.04026516</span>
+<span class="mf">1.0000</span>	 <span class="o">-</span><span class="mf">100.03751494</span>
+<span class="mf">1.0250</span>	 <span class="o">-</span><span class="mf">100.03405765</span>
+<span class="mf">1.0500</span>	 <span class="o">-</span><span class="mf">100.03003295</span>
+<span class="mf">1.0750</span>	 <span class="o">-</span><span class="mf">100.02555925</span>
+<span class="mf">1.1000</span>	 <span class="o">-</span><span class="mf">100.02073718</span>
+<span class="mf">1.1250</span>	 <span class="o">-</span><span class="mf">100.01565243</span>
+<span class="mf">1.1500</span>	 <span class="o">-</span><span class="mf">100.01037810</span>
+<span class="mf">1.2000</span>	 <span class="o">-</span><span class="mf">99.99950138</span>
+<span class="mf">1.2500</span>	 <span class="o">-</span><span class="mf">99.98850518</span>
+<span class="mf">1.3000</span>	 <span class="o">-</span><span class="mf">99.97767860</span>
+<span class="mf">1.3500</span>	 <span class="o">-</span><span class="mf">99.96722798</span>
+<span class="mf">1.4000</span>	 <span class="o">-</span><span class="mf">99.95729554</span>
+<span class="mf">1.4500</span>	 <span class="o">-</span><span class="mf">99.94797370</span>
+<span class="mf">1.5000</span>	 <span class="o">-</span><span class="mf">99.93931638</span>
+<span class="mf">1.5500</span>	 <span class="o">-</span><span class="mf">99.93134832</span>
+<span class="mf">1.6000</span>	 <span class="o">-</span><span class="mf">99.92407265</span>
+<span class="mf">1.6500</span>	 <span class="o">-</span><span class="mf">99.91747685</span>
+<span class="mf">1.7000</span>	 <span class="o">-</span><span class="mf">99.91153737</span>
+<span class="mf">1.7500</span>	 <span class="o">-</span><span class="mf">99.90622293</span>
+<span class="mf">1.8000</span>	 <span class="o">-</span><span class="mf">99.90149693</span>
+<span class="mf">1.8500</span>	 <span class="o">-</span><span class="mf">99.89731924</span>
+<span class="mf">1.9000</span>	 <span class="o">-</span><span class="mf">99.89364747</span>
+<span class="mf">1.9500</span>	 <span class="o">-</span><span class="mf">99.89043804</span>
+<span class="mf">2.0000</span>	 <span class="o">-</span><span class="mf">99.88764711</span>
+<span class="mf">2.0500</span>	 <span class="o">-</span><span class="mf">99.88523151</span>
+<span class="mf">2.1000</span>	 <span class="o">-</span><span class="mf">99.88314945</span>
+<span class="mf">2.1500</span>	 <span class="o">-</span><span class="mf">99.88136132</span>
+<span class="mf">2.2000</span>	 <span class="o">-</span><span class="mf">99.87983017</span>
+<span class="mf">2.3000</span>	 <span class="o">-</span><span class="mf">99.87740696</span>
+<span class="mf">2.4000</span>	 <span class="o">-</span><span class="mf">99.87564961</span>
+<span class="mf">2.5000</span>	 <span class="o">-</span><span class="mf">99.87438007</span>
+<span class="mf">2.6000</span>	 <span class="o">-</span><span class="mf">99.87346539</span>
+<span class="mf">2.7000</span>	 <span class="o">-</span><span class="mf">99.87280811</span>
+<span class="mf">2.8000</span>	 <span class="o">-</span><span class="mf">99.87233707</span>
+<span class="mf">2.9000</span>	 <span class="o">-</span><span class="mf">99.87200028</span>
+<span class="mf">3.0000</span>	 <span class="o">-</span><span class="mf">99.87175975</span>
+<span class="mf">4.0000</span>	 <span class="o">-</span><span class="mf">99.87116318</span>
+<span class="mf">5.0000</span>	 <span class="o">-</span><span class="mf">99.87114070</span>
+ <span class="no">DistUnit</span> <span class="o">=</span> <span class="n">angstrom</span>
+  <span class="no">EnerUnit</span> <span class="o">=</span> <span class="n">hartree</span> 
+  <span class="no">Grid</span> <span class="o">=</span> <span class="mi">450</span>
+  <span class="no">Range</span> <span class="o">=</span> <span class="mf">0.85</span> <span class="mf">9.4</span>
+  <span class="no">Vibrations</span> <span class="o">=</span> <span class="mi">2</span>
+  <span class="n">scale</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background HF is a diatomic molecule and here we want to use it as an example to demostrate how to fitting spectroscopic constant.]]></summary></entry><entry><title type="html">QUESTDB and excited state quantum chemistry method</title><link href="http://localhost:4000/jekyll/update/2025/07/03/questdb.html" rel="alternate" type="text/html" title="QUESTDB and excited state quantum chemistry method" /><published>2025-07-03T21:28:29+08:00</published><updated>2025-07-03T21:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/07/03/questdb</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/07/03/questdb.html"><![CDATA[<h2 id="background">Background</h2>
 <p>QUESTDB( https://lcpq.github.io/QUESTDB_website/ )
 is quantum excited state database which benchmark quantum chemistry method for excited state.
 The Journal of Physical Chemistry Letters 2020 116, 2374-2383
