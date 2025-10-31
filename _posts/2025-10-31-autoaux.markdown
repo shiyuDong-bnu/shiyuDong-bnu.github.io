@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "Generate auxiliary basis set using autoaux"
+date:   2025-10-28 20:41:29 +0800
+categories: jekyll update
+---
+
+## Background
+Density Fitting is a common technique to accelerate 
+calculation in quantum chemistry. And we need auxiliary 
+basis set.For some basis set there are pre-optimized auxiliary basisset 
+for other we need to use autoaux to generate.
+The reference is 
+
+doi: 10.1021/acs.jctc.6b01041
+
+## Basis Set Exchange 
+
+{% highlight ruby mark_lines="1 2" %}
+from basis_set_exchange.api import get_basis
+bs=get_basis("cc-pv5z",elements=[1,6],fmt="psi4",
+             get_aux=1)
+fhand= open("cc-pv5z-autoaux","w")
+print(bs,file=fhand)
+fhand.close()
+{%endhighlight%}
+
+
+
+
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
