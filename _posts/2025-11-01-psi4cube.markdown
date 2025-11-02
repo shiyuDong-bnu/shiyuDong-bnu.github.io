@@ -1,0 +1,54 @@
+---
+layout: post
+title:  "Visulize orbital in psi4 using cube "
+date:   2025-10-28 20:41:29 +0800
+categories: jekyll update
+---
+
+## Background
+
+##  Generate cube file in psi4
+
+
+{% highlight ruby mark_lines="1 2" %}
+
+e_hf,hf_wfn=psi4.energy("scf",return_wfn=True)
+cp=psi4.core.CubeProperties(hf_wfn)
+orb_index=[7,8] # start with zero !!
+orb_label=["homo","lumo"]
+cp.compute_orbitals(hf_wfn.Ca(),indices=orb_index,labels=orb_label,key="planar")
+{%endhighlight%}
+ This will generate cubes files
+## Visualize file in vmdcube
+
+{% highlight ruby mark_lines="1 2" %}
+from vmdcube import VMDCube
+vmd = VMDCube()
+vmd.cubedir = "cubes" # Directory containing the cube files
+vmd.positive_color = "#C1844E"
+vmd.negative_color = "#8BC14E"
+vmd.isovalues = [0.05,-0.05]
+vmd.ambient = 0.6 # default is 0.6
+vmd.diffuse = 0.75 # default is 0.5
+vmd.mirror = 0.0 # default is 0.0
+vmd.opacity = 0.55 # default is 1.0
+vmd.specular = 0.96 # default is 0.96
+vmd.shininess = 0.75 # default is 0.75
+vmd.outline = 2.0 # default is 0.0
+vmd.outlinewidth = 0.6 # default is 0.0
+vmd.scale = 0.7
+vmd.height = 800 # Height of the output image
+vmd.width = 800 # Width of the output image
+vmd.run()
+vmd.show()
+{%endhighlight%}
+Some expamles  are homo and lumo of ethylene 
+![AltText](/image/cubes/FabConvert.com_planar_8_orb7.png)
+![AltText](/image/cubes/FabConvert.com_planar_12_orb11.png)
+
+
+
+
+
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
