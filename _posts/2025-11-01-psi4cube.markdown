@@ -42,6 +42,11 @@ vmd.width = 800 # Width of the output image
 vmd.run()
 vmd.show()
 {%endhighlight%}
+command to open .tga image files
+{% highlight ruby mark_lines="1 2" %}
+eog image.tga
+{%endhighlight%}
+
 Some expamles  are homo and lumo of ethylene 
 ![AltText](/image/cubes/FabConvert.com_planar_8_orb7.png)
 ![AltText](/image/cubes/FabConvert.com_planar_12_orb11.png)

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-02T19:46:37+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Spectroscopic constant of diatomic molecule : HF as an example</title><link href="http://localhost:4000/jekyll/update/2025/10/28/hfbond.html" rel="alternate" type="text/html" title="Spectroscopic constant of diatomic molecule : HF as an example" /><published>2025-10-28T20:41:29+08:00</published><updated>2025-10-28T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/10/28/hfbond</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/10/28/hfbond.html"><![CDATA[<h2 id="background">Background</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-02T21:21:14+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Spectroscopic constant of diatomic molecule : HF as an example</title><link href="http://localhost:4000/jekyll/update/2025/10/28/hfbond.html" rel="alternate" type="text/html" title="Spectroscopic constant of diatomic molecule : HF as an example" /><published>2025-10-28T20:41:29+08:00</published><updated>2025-10-28T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/10/28/hfbond</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/10/28/hfbond.html"><![CDATA[<h2 id="background">Background</h2>
 <p>HF is a diatomic molecule and  here we want to use it as an example to 
 demostrate how to fitting spectroscopic constant.</p>
 
@@ -215,6 +215,11 @@ The reference is</p>
 <span class="n">vmd</span><span class="p">.</span><span class="nf">width</span> <span class="o">=</span> <span class="mi">800</span> <span class="c1"># Width of the output image</span>
 <span class="n">vmd</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
 <span class="n">vmd</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre></figure>
+
+<p>command to open .tga image files</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">eog</span> <span class="n">image</span><span class="p">.</span><span class="nf">tga</span>
+</span></code></pre></figure>
 
 <p>Some expamles  are homo and lumo of ethylene 
 <img src="/image/cubes/FabConvert.com_planar_8_orb7.png" alt="AltText" />
