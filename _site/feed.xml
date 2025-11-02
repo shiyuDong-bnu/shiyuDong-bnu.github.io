@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-10-31T11:34:34+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Spectroscopic constant of diatomic molecule : HF as an example</title><link href="http://localhost:4000/jekyll/update/2025/10/28/hfbond.html" rel="alternate" type="text/html" title="Spectroscopic constant of diatomic molecule : HF as an example" /><published>2025-10-28T20:41:29+08:00</published><updated>2025-10-28T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/10/28/hfbond</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/10/28/hfbond.html"><![CDATA[<h2 id="background">Background</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-02T19:46:37+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Spectroscopic constant of diatomic molecule : HF as an example</title><link href="http://localhost:4000/jekyll/update/2025/10/28/hfbond.html" rel="alternate" type="text/html" title="Spectroscopic constant of diatomic molecule : HF as an example" /><published>2025-10-28T20:41:29+08:00</published><updated>2025-10-28T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/10/28/hfbond</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/10/28/hfbond.html"><![CDATA[<h2 id="background">Background</h2>
 <p>HF is a diatomic molecule and  here we want to use it as an example to 
 demostrate how to fitting spectroscopic constant.</p>
 
@@ -183,7 +183,42 @@ The reference is</p>
 </span>             <span class="n">get_aux</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">fhand</span><span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"cc-pv5z-autoaux"</span><span class="p">,</span><span class="s2">"w"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="n">fhand</span><span class="p">)</span>
-<span class="n">fhand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background Density Fitting is a common technique to accelerate calculation in quantum chemistry. And we need auxiliary basis set.For some basis set there are pre-optimized auxiliary basisset for other we need to use autoaux to generate. The reference is]]></summary></entry><entry><title type="html">Simplified Tamm-Dancoff approximation to TD-DFT</title><link href="http://localhost:4000/jekyll/update/2025/08/08/stda.html" rel="alternate" type="text/html" title="Simplified Tamm-Dancoff approximation to TD-DFT" /><published>2025-08-08T20:41:29+08:00</published><updated>2025-08-08T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/08/08/stda</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/08/08/stda.html"><![CDATA[<h2 id="background">Background</h2>
+<span class="n">fhand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background Density Fitting is a common technique to accelerate calculation in quantum chemistry. And we need auxiliary basis set.For some basis set there are pre-optimized auxiliary basisset for other we need to use autoaux to generate. The reference is]]></summary></entry><entry><title type="html">Visulize orbital in psi4 using cube</title><link href="http://localhost:4000/jekyll/update/2025/10/28/psi4cube.html" rel="alternate" type="text/html" title="Visulize orbital in psi4 using cube" /><published>2025-10-28T20:41:29+08:00</published><updated>2025-10-28T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/10/28/psi4cube</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/10/28/psi4cube.html"><![CDATA[<h2 id="background">Background</h2>
+
+<h2 id="generate-cube-file-in-psi4">Generate cube file in psi4</h2>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">e_hf</span><span class="p">,</span><span class="n">hf_wfn</span><span class="o">=</span><span class="n">psi4</span><span class="p">.</span><span class="nf">energy</span><span class="p">(</span><span class="s2">"scf"</span><span class="p">,</span><span class="n">return_wfn</span><span class="o">=</span><span class="no">True</span><span class="p">)</span>
+</span><span class="hll"><span class="n">cp</span><span class="o">=</span><span class="n">psi4</span><span class="p">.</span><span class="nf">core</span><span class="o">.</span><span class="no">CubeProperties</span><span class="p">(</span><span class="n">hf_wfn</span><span class="p">)</span>
+</span><span class="n">orb_index</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span> <span class="c1"># start with zero !!</span>
+<span class="n">orb_label</span><span class="o">=</span><span class="p">[</span><span class="s2">"homo"</span><span class="p">,</span><span class="s2">"lumo"</span><span class="p">]</span>
+<span class="n">cp</span><span class="p">.</span><span class="nf">compute_orbitals</span><span class="p">(</span><span class="n">hf_wfn</span><span class="o">.</span><span class="no">Ca</span><span class="p">(),</span><span class="n">indices</span><span class="o">=</span><span class="n">orb_index</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="n">orb_label</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="s2">"planar"</span><span class="p">)</span></code></pre></figure>
+
+<p>This will generate cubes files</p>
+<h2 id="visualize-file-in-vmdcube">Visualize file in vmdcube</h2>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">from</span> <span class="n">vmdcube</span> <span class="n">import</span> <span class="no">VMDCube</span>
+</span><span class="hll"><span class="n">vmd</span> <span class="o">=</span> <span class="no">VMDCube</span><span class="p">()</span>
+</span><span class="n">vmd</span><span class="p">.</span><span class="nf">cubedir</span> <span class="o">=</span> <span class="s2">"cubes"</span> <span class="c1"># Directory containing the cube files</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">positive_color</span> <span class="o">=</span> <span class="s2">"#C1844E"</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">negative_color</span> <span class="o">=</span> <span class="s2">"#8BC14E"</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">isovalues</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="o">-</span><span class="mf">0.05</span><span class="p">]</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">ambient</span> <span class="o">=</span> <span class="mf">0.6</span> <span class="c1"># default is 0.6</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">diffuse</span> <span class="o">=</span> <span class="mf">0.75</span> <span class="c1"># default is 0.5</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">mirror</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># default is 0.0</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">opacity</span> <span class="o">=</span> <span class="mf">0.55</span> <span class="c1"># default is 1.0</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">specular</span> <span class="o">=</span> <span class="mf">0.96</span> <span class="c1"># default is 0.96</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">shininess</span> <span class="o">=</span> <span class="mf">0.75</span> <span class="c1"># default is 0.75</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">outline</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="c1"># default is 0.0</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">outlinewidth</span> <span class="o">=</span> <span class="mf">0.6</span> <span class="c1"># default is 0.0</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">scale</span> <span class="o">=</span> <span class="mf">0.7</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">height</span> <span class="o">=</span> <span class="mi">800</span> <span class="c1"># Height of the output image</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">width</span> <span class="o">=</span> <span class="mi">800</span> <span class="c1"># Width of the output image</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+<span class="n">vmd</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre></figure>
+
+<p>Some expamles  are homo and lumo of ethylene 
+<img src="/image/cubes/FabConvert.com_planar_8_orb7.png" alt="AltText" />
+<img src="/image/cubes/FabConvert.com_planar_12_orb11.png" alt="AltText" /></p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background]]></summary></entry><entry><title type="html">Simplified Tamm-Dancoff approximation to TD-DFT</title><link href="http://localhost:4000/jekyll/update/2025/08/08/stda.html" rel="alternate" type="text/html" title="Simplified Tamm-Dancoff approximation to TD-DFT" /><published>2025-08-08T20:41:29+08:00</published><updated>2025-08-08T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/08/08/stda</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/08/08/stda.html"><![CDATA[<h2 id="background">Background</h2>
 <p>reference</p>
 
 <p>The time-dependent density functional theory (TD-DFT) responce 
@@ -942,19 +977,4 @@ The correct active space is pi bond.</li>
   </li>
 </ol>
 
-<p>Need to check all input parameter !!!</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Here we want to calculate the adiabatic excitation energy of C2H2]]></summary></entry><entry><title type="html">Theory of DSRG-PT2</title><link href="http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Theory of DSRG-PT2" /><published>2025-04-26T22:13:29+08:00</published><updated>2025-04-26T22:13:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/04/26/welcome-to-jekyll.html"><![CDATA[<p>This site my can host some learning material in my life.
-<code class="language-plaintext highlighter-rouge">YEAR-MONTH-DAY-title.MARKUP</code></p>
-
-<p>Where <code class="language-plaintext highlighter-rouge">YEAR</code> is a four-digit number, <code class="language-plaintext highlighter-rouge">MONTH</code> and <code class="language-plaintext highlighter-rouge">DAY</code> are both two-digit numbers, and <code class="language-plaintext highlighter-rouge">MARKUP</code> is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
-
-<p>Jekyll also offers powerful support for code snippets:</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-  <span class="n">puts</span> <span class="sh">"</span><span class="s">Hi, #{name}</span><span class="sh">"</span>
-<span class="n">end</span>
-<span class="nf">print_hi</span><span class="p">(</span><span class="sh">'</span><span class="s">Tom</span><span class="sh">'</span><span class="p">)</span>
-<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
-
-<p>There is an equation
-\(E=mcd^2\)
-Check out the <a href="https://github.com/docs/home">Forte</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[This site my can host some learning material in my life. YEAR-MONTH-DAY-title.MARKUP]]></summary></entry></feed>
+<p>Need to check all input parameter !!!</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Here we want to calculate the adiabatic excitation energy of C2H2]]></summary></entry></feed>
