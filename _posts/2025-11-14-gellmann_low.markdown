@@ -12,7 +12,7 @@ on book <<Quantum Theory of Many-Particle Systems>> Alexander L. Fetter and John
 
 ## Notes
 
-<object data="/pdfs/green_function.pdf" type="application/pdf" width="100%" height="600px">
+<object data="/pdf/green_function.pdf" type="application/pdf" width="100%" height="600px">
   <p>the browser does not support PDFs. <a href="/pdf/green_function.pdf">Download the PDF</a>.</p>
 </object>
 
