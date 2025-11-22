@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-18T16:24:15+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Pseudopotential Plane Wave</title><link href="http://localhost:4000/jekyll/update/2025/11/18/pwscf.html" rel="alternate" type="text/html" title="Pseudopotential Plane Wave" /><published>2025-11-18T11:41:29+08:00</published><updated>2025-11-18T11:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/11/18/pwscf</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/11/18/pwscf.html"><![CDATA[<h2 id="introduction">Introduction</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-11-22T22:13:33+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">VQE UCCSD ansatz</title><link href="http://localhost:4000/jekyll/update/2025/11/22/ucc.html" rel="alternate" type="text/html" title="VQE UCCSD ansatz" /><published>2025-11-22T22:13:29+08:00</published><updated>2025-11-22T22:13:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/11/22/ucc</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/11/22/ucc.html"><![CDATA[<h2 id="introduction">Introduction</h2>
+
+<h2 id="do-scf-calculation">do scf calculation</h2>
+<object data="/pdf/ucc.pdf" type="application/pdf" width="100%" height="600px">
+  <p>the browser does not support PDFs. <a href="/pdf/ucc.pdf">Download the PDF</a>.</p>
+</object>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Introduction]]></summary></entry><entry><title type="html">Pseudopotential Plane Wave</title><link href="http://localhost:4000/jekyll/update/2025/11/18/pwscf.html" rel="alternate" type="text/html" title="Pseudopotential Plane Wave" /><published>2025-11-18T11:41:29+08:00</published><updated>2025-11-18T11:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/11/18/pwscf</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/11/18/pwscf.html"><![CDATA[<h2 id="introduction">Introduction</h2>
 
 <h2 id="do-scf-calculation">do scf calculation</h2>
 <object data="/pdf/pwscf.pdf" type="application/pdf" width="100%" height="600px">
@@ -413,73 +418,4 @@ In the G2 model, the former is treated as a part of the core while the latter is
 <p>The number of core electrons are 
 2(Li to Mg) 10(Al to Ca) 18 (Sc to Kr)</p>
 
-<h3 id="conclusion">Conclusion</h3>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background reference]]></summary></entry><entry><title type="html">Example of Generalized Normal Order</title><link href="http://localhost:4000/jekyll/update/2025/05/30/GNO.html" rel="alternate" type="text/html" title="Example of Generalized Normal Order" /><published>2025-05-30T16:28:29+08:00</published><updated>2025-05-30T16:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/30/GNO</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/30/GNO.html"><![CDATA[<h2 id="background">Background</h2>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background]]></summary></entry><entry><title type="html">Cumulant And Cumulant Decomposition</title><link href="http://localhost:4000/jekyll/update/2025/05/28/cumulant.html" rel="alternate" type="text/html" title="Cumulant And Cumulant Decomposition" /><published>2025-05-28T16:28:29+08:00</published><updated>2025-05-28T16:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/28/cumulant</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/28/cumulant.html"><![CDATA[<h2 id="background">Background</h2>
-<p>Here we want to demostate the decomposite of three body operator into two body operator by cumulant decomposition.The reference paper is</p>
-
-<p>J. Chem. Phys. 127, 104107 (2007)
-https://doi.org/10.1063/1.2761870</p>
-
-<h2 id="main-result">Main result</h2>
-<p>the main result is  equation #(7)</p>
-
-\[a_{stu}^{pqr}\implies 9(\gamma^p_s \wedge a^{qr}_{ut}) -12 (\gamma^p_s \wedge \gamma^q_t \wedge \gamma^r_u)\]
-
-<p>The notation \(a_{stu}^{pqr}\) is operator ,\(\gamma\) is reduced density matrix , but how does \(\wedge\) and the coefficent 9 and -12 comes from ?</p>
-<h2 id="relation-between-rdm-and-cumulant">Relation between RDM and Cumulant</h2>
-
-<p>The answer comes from equation #(8-10)
-\(\gamma^p_s=\lambda^p_s \\
-\gamma^{pq}_{st}=\lambda^{pq}_{st} + (\lambda^p_s \lambda^q_t -\lambda^p_t\lambda^q_s) \\
-\gamma^{pqr}_{stu}=\lambda^{pqr}_{stu}+(\lambda^p_s\lambda^{qr}_{tu}+\cdots)+(\lambda^p_s \lambda^q_t \lambda^r_u+\cdots)\)</p>
-
-<p>The question now is why  this relation is true ? The answer is that the quantity \(\lambda\) which is named kumulant is defined to be make this relationship true.</p>
-<h2 id="cumulant-by-axioms">Cumulant by axioms</h2>
-
-<p>J. Chem. Theory Comput. 2020, 16, 10, 6150–6164
-https://doi.org/10.1021/acs.jctc.0c00422</p>
-
-<p>cumulant definition by three axioms</p>
-<ol>
-  <li>Fuctional Axioms \(\lambda=\sum_\rho \mu_\rho \gamma(\rho)\)
-Here the \(\rho\) is fermionic partition and \(\mu_\rho\) is Mobius function .</li>
-  <li>
-    <p>Normalization \(\mu^{pq\cdots}_{rs\cdots}=1\)</p>
-  </li>
-  <li>Additiv Separability</li>
-</ol>
-
-<p>If RDM \(\gamma^{pq\cdots}_{rs\cdots}\) is multiplicatively seperable,then \(\lambda^{pq\cdots}_{rs\cdots}\) is additivly seperable.</p>
-<h3 id="additive-separability-from-multiplicative-separability">Additive Separability from Multiplicative Separability</h3>
-<p>The key object we consider are antisymmetic tensros with n uppder index and n lower index.</p>
-
-<p>Suppose the index can be partitioned into subsets, called blocks
-\(p,q,r,s\)
-in one block \(u,v\) in another block.</p>
-
-<p>If the antisymmetry tensor satisfing the following relationship ,we call this tensor is multiplicative separable with respect to the partition.</p>
-
-\[A_{pur}^{qsv}=-A_{pru}^{qsv}=-A_{pr}^{qs}A_{u}^{v}\]
-
-<p>Additive separability means that the tensor for the symtem with orbitals from all blocks of the partion is the sum of tensors with orbitals from only as singel block of partition</p>
-
-<p>\(A_{pur}^{qsv}=-A_{pru}^{qsv}=-(A_{pr}^{qs}+A_{u}^{v})\)</p>
-<h3 id="manually-construct">Manually construct</h3>
-<p>Let \(\gamma_{pr}^{qs}\) be multiplicative separable.</p>
-
-<p>Then  define
-\(\lambda_{pr}^{qs}\equiv \gamma_{pr}^{qs}-\gamma_p^q\gamma_r^s+\gamma_p^s\gamma_r^q\)</p>
-
-<p>If Index \(p,q\) is in one block ,and \(r,s\) in another block,then \(\gamma_p^s=\gamma_r^q=0\),
-\(\lambda_{pr}^{qs}=\gamma_{pr}^{qs}-\gamma_p^q\gamma_r^s+0=0\)</p>
-
-<p>Similaly,if index \(p,r\) is in one block ,and \(q,s\) in another block,then \(\gamma_p^q=\gamma_r^s=0\),
-\(\lambda_{pr}^{qs}=-\gamma_{pr}^{sq}-0+\gamma_p^q\gamma_r^s =0\)</p>
-<h3 id="fermionic-partition">Fermionic Partition</h3>
-
-<p>Fermionic Partition is normal partition plus all unique term generated by permutation operator.
-The begining relationship is equation #(18) in jctc paper metioned above</p>
-
-<p>\(\gamma^{pq\cdots}_{rs\cdots}=\sum_\rho \lambda(\rho)\)
-Here we will generate the diagram</p>
-
-<p>Due to time limitationn ,I will rewrite this post laterly.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background Here we want to demostate the decomposite of three body operator into two body operator by cumulant decomposition.The reference paper is]]></summary></entry></feed>
+<h3 id="conclusion">Conclusion</h3>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background reference]]></summary></entry><entry><title type="html">Example of Generalized Normal Order</title><link href="http://localhost:4000/jekyll/update/2025/05/30/GNO.html" rel="alternate" type="text/html" title="Example of Generalized Normal Order" /><published>2025-05-30T16:28:29+08:00</published><updated>2025-05-30T16:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/05/30/GNO</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/05/30/GNO.html"><![CDATA[<h2 id="background">Background</h2>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background]]></summary></entry></feed>

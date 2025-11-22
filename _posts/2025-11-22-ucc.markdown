@@ -1,0 +1,27 @@
+---
+layout: post
+title:  "VQE UCCSD ansatz"
+date:   2025-11-22 22:13:29 +0800
+categories: jekyll update
+---
+
+##  Introduction 
+
+
+## do scf calculation
+<object data="/pdf/ucc.pdf" type="application/pdf" width="100%" height="600px">
+  <p>the browser does not support PDFs. <a href="/pdf/ucc.pdf">Download the PDF</a>.</p>
+</object>
+
+
+
+
+
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
+
+
+
+
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
