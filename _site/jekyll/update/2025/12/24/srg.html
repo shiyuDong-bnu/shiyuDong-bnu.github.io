@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Relationship between SRG and DSRG | Garden Of Garbage</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Relationship between SRG and DSRG" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This is an introduction when I write an introduction ,but I decided to delete it. But this part is what most intresting part of the whole theory in my eyes.So I keep it here for reminder. Introduction \par DSRG has been motivated by the desire to realize the SRG transformation using a formalism similar to that of unitary CC theory\cite{Evangelista:2014kt,Li:2019fu}. %% srg Initially formulated by Wegner\cite{Wegner:1994kh} and by Glazek and Wilson\cite{Giazek:1993ik}, the SRG has been extensively applied in various areas of physics\cite{Xu2024b, Parzuchowski:2016vi, Morris2015}. The essence of the SRG formalism is to perform a continuous unitary (similarity) transformation of the Hamiltonian to drive it to a diagonal or block-diagonal form. \begin{equation} H(s)=U^\dagger(s)HU(s) \implies \frac{dH(s)}{ds}=[\eta(s),H(s)] \end{equation} where \(s\in [0,\infty]\) is time-like flow parameter,and generator \(\eta(s)\equiv \frac{d U(s)^\dagger}{ds}U(s)\) implicitly defines the unitary transformation. The SRG flow equation with the Wegner generator has the structure of a double bracket equation\cite{Helmke1994}. \begin{equation} \eta=[H^d(s),H(s)] \implies dH=[[H^d(s),H(s)],H(s)] \end{equation} where \(H^d\) is the defined “diagonal” parts of Hamiltonian. In mathematical literature, this is recognized as a gradient flow on a manifold of unitary matrices\cite{BROCKETT199179}. One of the most important features of the SRG transformation is its ability to separate energy scales in the Hamiltonian. A second-order perturbative analysis of the SRG flow reveals that the off-diagonal matrix elements decay exponentially with the flow parameter $s$: \begin{equation} H_{ij}^{\text{od}}(s) \approx e^{-s \Delta_{ij}^2} H_{ij}^{\text{od}}(0), \end{equation} where \(H^{\text{od}}\) denotes the off-diagonal parts of the Hamiltonian, and \(\Delta_{ij} = H_{ii}^{d} - H_{jj}^{d}\) is the energy gap between the $i$-th and $j$-th diagonal (zeroth-order) states. This exponential damping suppresses couplings between states with large energy differences (\(|\Delta_{ij}| \gg 1/\sqrt{s}\)), while preserving couplings between quasidegenerate states (\(|\Delta_{ij}| \lesssim 1/\sqrt{s}\)). However, the Wegner generator has a notable drawback: it produces a stiff set of ordinary differential equations (ODEs) due to the non-uniform decay rates of different off-diagonal elements. To address this issue, alternative generators have been proposed. For instance, the White generator and the “imaginary time” generator induce uniform suppression of all off-diagonal elements. \begin{equation} H_{ij}^{\text{od}}(s) \approx e^{-s} H_{ij}^{\text{od}}(0). \label{eq:uniform_decay} \end{equation} Another distinctive feature of the Wegner generator becomes apparent when examining the second-order correlation energy expression." />
+<meta property="og:description" content="This is an introduction when I write an introduction ,but I decided to delete it. But this part is what most intresting part of the whole theory in my eyes.So I keep it here for reminder. Introduction \par DSRG has been motivated by the desire to realize the SRG transformation using a formalism similar to that of unitary CC theory\cite{Evangelista:2014kt,Li:2019fu}. %% srg Initially formulated by Wegner\cite{Wegner:1994kh} and by Glazek and Wilson\cite{Giazek:1993ik}, the SRG has been extensively applied in various areas of physics\cite{Xu2024b, Parzuchowski:2016vi, Morris2015}. The essence of the SRG formalism is to perform a continuous unitary (similarity) transformation of the Hamiltonian to drive it to a diagonal or block-diagonal form. \begin{equation} H(s)=U^\dagger(s)HU(s) \implies \frac{dH(s)}{ds}=[\eta(s),H(s)] \end{equation} where \(s\in [0,\infty]\) is time-like flow parameter,and generator \(\eta(s)\equiv \frac{d U(s)^\dagger}{ds}U(s)\) implicitly defines the unitary transformation. The SRG flow equation with the Wegner generator has the structure of a double bracket equation\cite{Helmke1994}. \begin{equation} \eta=[H^d(s),H(s)] \implies dH=[[H^d(s),H(s)],H(s)] \end{equation} where \(H^d\) is the defined “diagonal” parts of Hamiltonian. In mathematical literature, this is recognized as a gradient flow on a manifold of unitary matrices\cite{BROCKETT199179}. One of the most important features of the SRG transformation is its ability to separate energy scales in the Hamiltonian. A second-order perturbative analysis of the SRG flow reveals that the off-diagonal matrix elements decay exponentially with the flow parameter $s$: \begin{equation} H_{ij}^{\text{od}}(s) \approx e^{-s \Delta_{ij}^2} H_{ij}^{\text{od}}(0), \end{equation} where \(H^{\text{od}}\) denotes the off-diagonal parts of the Hamiltonian, and \(\Delta_{ij} = H_{ii}^{d} - H_{jj}^{d}\) is the energy gap between the $i$-th and $j$-th diagonal (zeroth-order) states. This exponential damping suppresses couplings between states with large energy differences (\(|\Delta_{ij}| \gg 1/\sqrt{s}\)), while preserving couplings between quasidegenerate states (\(|\Delta_{ij}| \lesssim 1/\sqrt{s}\)). However, the Wegner generator has a notable drawback: it produces a stiff set of ordinary differential equations (ODEs) due to the non-uniform decay rates of different off-diagonal elements. To address this issue, alternative generators have been proposed. For instance, the White generator and the “imaginary time” generator induce uniform suppression of all off-diagonal elements. \begin{equation} H_{ij}^{\text{od}}(s) \approx e^{-s} H_{ij}^{\text{od}}(0). \label{eq:uniform_decay} \end{equation} Another distinctive feature of the Wegner generator becomes apparent when examining the second-order correlation energy expression." />
+<link rel="canonical" href="http://localhost:4000/jekyll/update/2025/12/24/srg.html" />
+<meta property="og:url" content="http://localhost:4000/jekyll/update/2025/12/24/srg.html" />
+<meta property="og:site_name" content="Garden Of Garbage" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-12-24T15:47:29+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Relationship between SRG and DSRG" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-12-24T15:47:29+08:00","datePublished":"2025-12-24T15:47:29+08:00","description":"This is an introduction when I write an introduction ,but I decided to delete it. But this part is what most intresting part of the whole theory in my eyes.So I keep it here for reminder. Introduction \\par DSRG has been motivated by the desire to realize the SRG transformation using a formalism similar to that of unitary CC theory\\cite{Evangelista:2014kt,Li:2019fu}. %% srg Initially formulated by Wegner\\cite{Wegner:1994kh} and by Glazek and Wilson\\cite{Giazek:1993ik}, the SRG has been extensively applied in various areas of physics\\cite{Xu2024b, Parzuchowski:2016vi, Morris2015}. The essence of the SRG formalism is to perform a continuous unitary (similarity) transformation of the Hamiltonian to drive it to a diagonal or block-diagonal form. \\begin{equation} H(s)=U^\\dagger(s)HU(s) \\implies \\frac{dH(s)}{ds}=[\\eta(s),H(s)] \\end{equation} where \\(s\\in [0,\\infty]\\) is time-like flow parameter,and generator \\(\\eta(s)\\equiv \\frac{d U(s)^\\dagger}{ds}U(s)\\) implicitly defines the unitary transformation. The SRG flow equation with the Wegner generator has the structure of a double bracket equation\\cite{Helmke1994}. \\begin{equation} \\eta=[H^d(s),H(s)] \\implies dH=[[H^d(s),H(s)],H(s)] \\end{equation} where \\(H^d\\) is the defined “diagonal” parts of Hamiltonian. In mathematical literature, this is recognized as a gradient flow on a manifold of unitary matrices\\cite{BROCKETT199179}. One of the most important features of the SRG transformation is its ability to separate energy scales in the Hamiltonian. A second-order perturbative analysis of the SRG flow reveals that the off-diagonal matrix elements decay exponentially with the flow parameter $s$: \\begin{equation} H_{ij}^{\\text{od}}(s) \\approx e^{-s \\Delta_{ij}^2} H_{ij}^{\\text{od}}(0), \\end{equation} where \\(H^{\\text{od}}\\) denotes the off-diagonal parts of the Hamiltonian, and \\(\\Delta_{ij} = H_{ii}^{d} - H_{jj}^{d}\\) is the energy gap between the $i$-th and $j$-th diagonal (zeroth-order) states. This exponential damping suppresses couplings between states with large energy differences (\\(|\\Delta_{ij}| \\gg 1/\\sqrt{s}\\)), while preserving couplings between quasidegenerate states (\\(|\\Delta_{ij}| \\lesssim 1/\\sqrt{s}\\)). However, the Wegner generator has a notable drawback: it produces a stiff set of ordinary differential equations (ODEs) due to the non-uniform decay rates of different off-diagonal elements. To address this issue, alternative generators have been proposed. For instance, the White generator and the “imaginary time” generator induce uniform suppression of all off-diagonal elements. \\begin{equation} H_{ij}^{\\text{od}}(s) \\approx e^{-s} H_{ij}^{\\text{od}}(0). \\label{eq:uniform_decay} \\end{equation} Another distinctive feature of the Wegner generator becomes apparent when examining the second-order correlation energy expression.","headline":"Relationship between SRG and DSRG","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/jekyll/update/2025/12/24/srg.html"},"url":"http://localhost:4000/jekyll/update/2025/12/24/srg.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Garden Of Garbage" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Garden Of Garbage</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Relationship between SRG and DSRG</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-12-24T15:47:29+08:00" itemprop="datePublished">Dec 24, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This is an introduction when I write an introduction ,but I decided to delete it. But this part is
+what most intresting part of the whole theory in my eyes.So I keep it here for reminder.</p>
+<h2 id="introduction">Introduction</h2>
+<p>\par
+DSRG has been motivated by the desire to realize the SRG transformation using a 
+formalism similar to that of unitary CC theory\cite{Evangelista:2014kt,Li:2019fu}.
+%% srg
+Initially formulated by Wegner\cite{Wegner:1994kh} and by Glazek and Wilson\cite{Giazek:1993ik}, the SRG has been extensively applied in various areas of physics\cite{Xu2024b, Parzuchowski:2016vi, Morris2015}.
+The essence of the SRG formalism is to perform a continuous unitary (similarity) transformation of the Hamiltonian to 
+drive it to a diagonal or block-diagonal form.
+\begin{equation}
+H(s)=U^\dagger(s)HU(s) \implies \frac{dH(s)}{ds}=[\eta(s),H(s)]
+\end{equation}
+where \(s\in [0,\infty]\) is time-like flow parameter,and generator \(\eta(s)\equiv \frac{d U(s)^\dagger}{ds}U(s)\) implicitly defines the unitary transformation.
+The SRG flow equation with the Wegner generator has the structure of a double bracket equation\cite{Helmke1994}. 
+ \begin{equation}
+ \eta=[H^d(s),H(s)] \implies dH=[[H^d(s),H(s)],H(s)]
+ \end{equation}
+where \(H^d\) is the defined “diagonal” parts of Hamiltonian.
+In mathematical literature, this is recognized as a gradient flow on a manifold of unitary matrices\cite{BROCKETT199179}.
+One of the most important features of the SRG transformation is its ability to separate energy scales in the Hamiltonian. 
+A second-order perturbative analysis of the SRG flow reveals that the off-diagonal matrix elements decay exponentially with the flow parameter $s$:
+\begin{equation}
+    H_{ij}^{\text{od}}(s) \approx e^{-s \Delta_{ij}^2} H_{ij}^{\text{od}}(0),
+\end{equation}
+where \(H^{\text{od}}\) denotes the off-diagonal parts of the Hamiltonian, and \(\Delta_{ij} = H_{ii}^{d} - H_{jj}^{d}\) is the energy gap between the $i$-th and $j$-th diagonal (zeroth-order) states. 
+This exponential damping suppresses couplings between states with large energy differences (\(|\Delta_{ij}| \gg 1/\sqrt{s}\)), while preserving couplings between quasidegenerate states (\(|\Delta_{ij}| \lesssim 1/\sqrt{s}\)).
+However, the Wegner generator has a notable drawback: it produces a stiff set of ordinary differential equations (ODEs) due to the non-uniform decay rates of different off-diagonal elements.
+To address this issue, alternative generators have been proposed. For instance, the White generator and the “imaginary time” generator induce uniform suppression of all off-diagonal elements.
+\begin{equation}
+    H_{ij}^{\text{od}}(s) \approx e^{-s} H_{ij}^{\text{od}}(0).
+    \label{eq:uniform_decay}
+\end{equation}
+Another distinctive feature of the Wegner generator becomes apparent when examining the second-order correlation energy expression.</p>
+
+<p>\begin{equation}
+    E_i^{(2)}(s)=  \sum_{k\neq i } \frac{H_{ik}^2}{\Delta_{ik}} [ 1 - e^{-2s\Delta_{ik}^2} ]
+\end{equation}</p>
+
+<p>This expression can be viewed as a regularized generalization of ordinary Rayleigh–Schrödinger perturbation theory. The regularization factor \(\left[1 - e^{-2s\Delta_{ik}^2}\right]\) ensures that the energy remains finite even when two zeroth-order states become degenerate (\(\Delta_{ik} \rightarrow 0\)), thereby providing intrinsic protection against the intruder-state problem.
+% dsrg
+\par
+The Driven Similarity Renormalization Group (DSRG) was initially formulated by Evangelista as an integrated version of the SRG formalism the continuous SRG flow\cite{Evangelista:2014kt}.
+ DSRG employs a memory-less source operator \(\hat{R}(s)\) that drives the off-diagonal components of the Hamiltonian to zero as \(s \rightarrow \infty\).
+This approach replaces the set of stiff ordinary differential equations in SRG with a system of algebraic equations that are solved at each value of the flow parameter $s$.
+The DSRG parametrizes the unitary transformation using an anti-Hermitian operator , analogous to unitary coupled cluster theory.
+\begin{equation}
+    U(s)=e^{\hat A(s)} \quad \hat{A}(s) = \hat{T}(s) - \hat{T}^\dagger(s)
+\end{equation}
+The cluster operator \(\hat T(s)\) is determined by the many-body-condtion
+\begin{equation}
+    \hat H(s)^{od}=\hat R(s)
+\end{equation}
+Crucially, the source operator \(\hat{R}(s)\) is chosen to incorporate the same regularization factor as the SRG with the Wegner generators making the DSRG intrinsically protected against the intruder-state problem.
+Soon after, Li and Evangelista presented a DSRG-MRPT\cite{Li:2015iz}, and the iterative multireference method MR-LDSRG(2)\cite{Li:2016hb},
+where ‘L’ denotes “linearized” since only the linear commutator is evaluated and ‘(2)’ 
+signals that only up to two-body operators are retained in the recursive linear commutator expansion.
+Many application have show DSRG is very good \cite{Li2025,Zhao2025}.</p>
+
+
+  </div><a class="u-url" href="/jekyll/update/2025/12/24/srg.html" hidden></a>
+  <script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+  </script>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Garden Of Garbage</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Garden Of Garbage</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/shiyuDong-bnu"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">shiyuDong-bnu</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>a garden to log the garbage of my life</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
