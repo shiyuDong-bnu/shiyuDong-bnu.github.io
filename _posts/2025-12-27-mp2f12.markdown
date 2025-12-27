@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "MP2F12 implementaion"
+date:   2025-12-24 15:47:29 +0800
+categories: jekyll update
+---
+This is a note about mp2f12
+ <object data="/pdf/mp2f12.pdf" type="application/pdf" width="100%" height="600px">
+   <p>the browser does not support PDFs. <a href="/pdf/mp2f12.pdf">Download the PDF</a>.</p>
+ </object>
+
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
+
+
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-24T16:05:48+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Relationship between SRG and DSRG</title><link href="http://localhost:4000/jekyll/update/2025/12/24/srg.html" rel="alternate" type="text/html" title="Relationship between SRG and DSRG" /><published>2025-12-24T15:47:29+08:00</published><updated>2025-12-24T15:47:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/12/24/srg</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/12/24/srg.html"><![CDATA[<p>This is an introduction when I write an introduction ,but I decided to delete it. But this part is
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-27T11:39:07+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Relationship between SRG and DSRG</title><link href="http://localhost:4000/jekyll/update/2025/12/24/srg.html" rel="alternate" type="text/html" title="Relationship between SRG and DSRG" /><published>2025-12-24T15:47:29+08:00</published><updated>2025-12-24T15:47:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/12/24/srg</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/12/24/srg.html"><![CDATA[<p>This is an introduction when I write an introduction ,but I decided to delete it. But this part is
 what most intresting part of the whole theory in my eyes.So I keep it here for reminder.</p>
 <h2 id="introduction">Introduction</h2>
 <p>\par
@@ -55,7 +55,10 @@ Crucially, the source operator \(\hat{R}(s)\) is chosen to incorporate the same 
 Soon after, Li and Evangelista presented a DSRG-MRPT\cite{Li:2015iz}, and the iterative multireference method MR-LDSRG(2)\cite{Li:2016hb},
 where ‘L’ denotes “linearized” since only the linear commutator is evaluated and ‘(2)’ 
 signals that only up to two-body operators are retained in the recursive linear commutator expansion.
-Many application have show DSRG is very good \cite{Li2025,Zhao2025}.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[This is an introduction when I write an introduction ,but I decided to delete it. But this part is what most intresting part of the whole theory in my eyes.So I keep it here for reminder. Introduction \par DSRG has been motivated by the desire to realize the SRG transformation using a formalism similar to that of unitary CC theory\cite{Evangelista:2014kt,Li:2019fu}. %% srg Initially formulated by Wegner\cite{Wegner:1994kh} and by Glazek and Wilson\cite{Giazek:1993ik}, the SRG has been extensively applied in various areas of physics\cite{Xu2024b, Parzuchowski:2016vi, Morris2015}. The essence of the SRG formalism is to perform a continuous unitary (similarity) transformation of the Hamiltonian to drive it to a diagonal or block-diagonal form. \begin{equation} H(s)=U^\dagger(s)HU(s) \implies \frac{dH(s)}{ds}=[\eta(s),H(s)] \end{equation} where \(s\in [0,\infty]\) is time-like flow parameter,and generator \(\eta(s)\equiv \frac{d U(s)^\dagger}{ds}U(s)\) implicitly defines the unitary transformation. The SRG flow equation with the Wegner generator has the structure of a double bracket equation\cite{Helmke1994}. \begin{equation} \eta=[H^d(s),H(s)] \implies dH=[[H^d(s),H(s)],H(s)] \end{equation} where \(H^d\) is the defined “diagonal” parts of Hamiltonian. In mathematical literature, this is recognized as a gradient flow on a manifold of unitary matrices\cite{BROCKETT199179}. One of the most important features of the SRG transformation is its ability to separate energy scales in the Hamiltonian. A second-order perturbative analysis of the SRG flow reveals that the off-diagonal matrix elements decay exponentially with the flow parameter $s$: \begin{equation} H_{ij}^{\text{od}}(s) \approx e^{-s \Delta_{ij}^2} H_{ij}^{\text{od}}(0), \end{equation} where \(H^{\text{od}}\) denotes the off-diagonal parts of the Hamiltonian, and \(\Delta_{ij} = H_{ii}^{d} - H_{jj}^{d}\) is the energy gap between the $i$-th and $j$-th diagonal (zeroth-order) states. This exponential damping suppresses couplings between states with large energy differences (\(|\Delta_{ij}| \gg 1/\sqrt{s}\)), while preserving couplings between quasidegenerate states (\(|\Delta_{ij}| \lesssim 1/\sqrt{s}\)). However, the Wegner generator has a notable drawback: it produces a stiff set of ordinary differential equations (ODEs) due to the non-uniform decay rates of different off-diagonal elements. To address this issue, alternative generators have been proposed. For instance, the White generator and the “imaginary time” generator induce uniform suppression of all off-diagonal elements. \begin{equation} H_{ij}^{\text{od}}(s) \approx e^{-s} H_{ij}^{\text{od}}(0). \label{eq:uniform_decay} \end{equation} Another distinctive feature of the Wegner generator becomes apparent when examining the second-order correlation energy expression.]]></summary></entry><entry><title type="html">VQE UCCSD ansatz</title><link href="http://localhost:4000/jekyll/update/2025/11/22/ucc.html" rel="alternate" type="text/html" title="VQE UCCSD ansatz" /><published>2025-11-22T22:13:29+08:00</published><updated>2025-11-22T22:13:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/11/22/ucc</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/11/22/ucc.html"><![CDATA[<h2 id="introduction">Introduction</h2>
+Many application have show DSRG is very good \cite{Li2025,Zhao2025}.</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[This is an introduction when I write an introduction ,but I decided to delete it. But this part is what most intresting part of the whole theory in my eyes.So I keep it here for reminder. Introduction \par DSRG has been motivated by the desire to realize the SRG transformation using a formalism similar to that of unitary CC theory\cite{Evangelista:2014kt,Li:2019fu}. %% srg Initially formulated by Wegner\cite{Wegner:1994kh} and by Glazek and Wilson\cite{Giazek:1993ik}, the SRG has been extensively applied in various areas of physics\cite{Xu2024b, Parzuchowski:2016vi, Morris2015}. The essence of the SRG formalism is to perform a continuous unitary (similarity) transformation of the Hamiltonian to drive it to a diagonal or block-diagonal form. \begin{equation} H(s)=U^\dagger(s)HU(s) \implies \frac{dH(s)}{ds}=[\eta(s),H(s)] \end{equation} where \(s\in [0,\infty]\) is time-like flow parameter,and generator \(\eta(s)\equiv \frac{d U(s)^\dagger}{ds}U(s)\) implicitly defines the unitary transformation. The SRG flow equation with the Wegner generator has the structure of a double bracket equation\cite{Helmke1994}. \begin{equation} \eta=[H^d(s),H(s)] \implies dH=[[H^d(s),H(s)],H(s)] \end{equation} where \(H^d\) is the defined “diagonal” parts of Hamiltonian. In mathematical literature, this is recognized as a gradient flow on a manifold of unitary matrices\cite{BROCKETT199179}. One of the most important features of the SRG transformation is its ability to separate energy scales in the Hamiltonian. A second-order perturbative analysis of the SRG flow reveals that the off-diagonal matrix elements decay exponentially with the flow parameter $s$: \begin{equation} H_{ij}^{\text{od}}(s) \approx e^{-s \Delta_{ij}^2} H_{ij}^{\text{od}}(0), \end{equation} where \(H^{\text{od}}\) denotes the off-diagonal parts of the Hamiltonian, and \(\Delta_{ij} = H_{ii}^{d} - H_{jj}^{d}\) is the energy gap between the $i$-th and $j$-th diagonal (zeroth-order) states. This exponential damping suppresses couplings between states with large energy differences (\(|\Delta_{ij}| \gg 1/\sqrt{s}\)), while preserving couplings between quasidegenerate states (\(|\Delta_{ij}| \lesssim 1/\sqrt{s}\)). However, the Wegner generator has a notable drawback: it produces a stiff set of ordinary differential equations (ODEs) due to the non-uniform decay rates of different off-diagonal elements. To address this issue, alternative generators have been proposed. For instance, the White generator and the “imaginary time” generator induce uniform suppression of all off-diagonal elements. \begin{equation} H_{ij}^{\text{od}}(s) \approx e^{-s} H_{ij}^{\text{od}}(0). \label{eq:uniform_decay} \end{equation} Another distinctive feature of the Wegner generator becomes apparent when examining the second-order correlation energy expression.]]></summary></entry><entry><title type="html">MP2F12 implementaion</title><link href="http://localhost:4000/jekyll/update/2025/12/24/mp2f12.html" rel="alternate" type="text/html" title="MP2F12 implementaion" /><published>2025-12-24T15:47:29+08:00</published><updated>2025-12-24T15:47:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/12/24/mp2f12</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/12/24/mp2f12.html"><![CDATA[<p>This is a note about mp2f12</p>
+<object data="/pdf/mp2f12.pdf" type="application/pdf" width="100%" height="600px">
+   <p>the browser does not support PDFs. <a href="/pdf/mp2f12.pdf">Download the PDF</a>.</p>
+ </object>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[This is a note about mp2f12 the browser does not support PDFs. Download the PDF.]]></summary></entry><entry><title type="html">VQE UCCSD ansatz</title><link href="http://localhost:4000/jekyll/update/2025/11/22/ucc.html" rel="alternate" type="text/html" title="VQE UCCSD ansatz" /><published>2025-11-22T22:13:29+08:00</published><updated>2025-11-22T22:13:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/11/22/ucc</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/11/22/ucc.html"><![CDATA[<h2 id="introduction">Introduction</h2>
 
 <h2 id="do-scf-calculation">do scf calculation</h2>
 <object data="/pdf/ucc.pdf" type="application/pdf" width="100%" height="600px">
@@ -404,75 +407,4 @@ I calculate EOM-CCSD of acetaldehyde using molpro</p>
     <span class="mf">2.2</span>     <span class="mf">0.29101596</span>    <span class="o">-</span><span class="mf">153.28215811</span>     <span class="mf">0.924E+00</span>     <span class="mf">0.759E-01</span>    <span class="o">-</span><span class="mf">0.351E-06</span>     <span class="no">Y</span>    <span class="o">-</span><span class="mf">0.81336</span>     <span class="mf">10.1</span> <span class="o">-&gt;</span>  <span class="mf">3.2</span></code></pre></figure>
 
 <h3 id="conclusion">Conclusion</h3>
-<p>you can search</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background QUESTDB( https://lcpq.github.io/QUESTDB_website/ ) is quantum excited state database which benchmark quantum chemistry method for excited state. The Journal of Physical Chemistry Letters 2020 116, 2374-2383 DOI: 10.1021/acs.jpclett.0c00014 Develop theories for excited is more complex excited state lack a proper vairational principle excited state have very difference natures ( \(\pi-&gt;\pi*\),\(n-&gt;\pi*\) charge transfer ,double excitateion ,valence ,Rydberg ,singlet ,triplet )]]></summary></entry><entry><title type="html">frozen core and basis set</title><link href="http://localhost:4000/jekyll/update/2025/07/03/frozen_core.html" rel="alternate" type="text/html" title="frozen core and basis set" /><published>2025-07-03T21:28:29+08:00</published><updated>2025-07-03T21:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/07/03/frozen_core</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/07/03/frozen_core.html"><![CDATA[<h2 id="background">Background</h2>
-<p>reference</p>
-
-<p>J. Chem. Theory Comput. 2025, 21, 6, 2977–2987 https://doi.org/10.1021/acs.jctc.4c01731</p>
-
-<p>A very widely applied approximation for electron correlation
-methods  is the frozen-core approximation,
-whereby the lowest lying MOs are “frozen”, prohibiting
-excitations from these orbitals and only including excitations
-from valence or “active” orbitals. This approximation also
-coincides with an intuitive chemist’s picture where the core
-electrons are considered to be less sensitive to changes in the
-environment and chemical reactions are determined by valence
-electrons. 
-In fact, it has been found that the error introduced
-by the frozen-core approximation is minimal in terms of
-relative energies and additionally for geometries of
-related methods.
-Furthermore, for practical applications,
-the use of the frozen-core approximation is preferred since
-most of the commonly used basis sets are designed to correlate
-the valence electrons only.</p>
-<h2 id="basis-set">basis set</h2>
-<p>Specifically, most AO and auxiliary
-basis sets are not equipped to describe the core region
-sufficiently and special basis functions, that is, Gaussians with
-large exponents, would have to be added to the basis sets in
-order to describe the correlation between core electrons as well
-as core and active electrons such as, for example, in
-Dunning’s cc-pCVXZ73 and cc-pwCVXZ74 basis sets (where X
-= D, T, Q, 5, …).</p>
-<h2 id="auxiliary-basis-set">auxiliary basis set</h2>
-<p>The problem with auxiliary basis sets is even
-more obvious since they are often developed within the frozen-
-core approximation and, thus, do not contain any core
-functions. One possible solution is the use of automatically
-generated auxiliary basis sets, for example, developed by Neese
-and coworkers.75 However, these basis sets are usually about
-twice the size of optimized basis sets, which makes the
-computation much more expensive. Another possible solution
-lies in the utilization of optimized auxiliary basis sets in
-combination with the frozen-core approximation for the
-underlying electron correlation method, which allows to
-overcome the restrictions on the basis set selection.</p>
-<h2 id="advatages-of-using-frozen-core-approximation">advatages of using frozen core approximation</h2>
-<p>A further
-advantage when using the frozen-core approximation comes
-with the increased computational efficiency since the active
-occupied space excludes the core electrons. 
-Thus, the limited
-availability of all-electron basis sets together with the higher
-computational cost for larger basis sets makes the use of the
-frozen-core approximation preferable within electron correla-
-tion methods.
-In addition, the frozen-core approximation
-entails no significant loss of accuracy for quantities such as
-structural parameters or relative energies.</p>
-
-<h2 id="how-to---choose-the-number-of-frozen-core-and-potential-problem">How to   choose the number of frozen core and potential problem</h2>
-<p>The definition of core electrons,Chemical Physics Letters,Volume 350, Issues 5–6,2001,Pages 573-576,
-https://doi.org/10.1016/S0009-2614(01)01345-8.</p>
-
-<p>A common practice is to carry out a Hartree–Fock calculation on the electronic ground state 
- and then to select the appropriate number of orbitals with the lowest one-electron energies .
-However, difficulties arise when the core energies of one atom lie above the energies of some valence atomic orbitals of another atom .
-A notable example is gallium trifluoride GaF3, where the energy of a gallium 3d-orbital lies above that of a fluorine 2s orbital. 
-In the G2 model, the former is treated as a part of the core while the latter is part of the valence shell</p>
-
-<p>The number of core electrons are 
-2(Li to Mg) 10(Al to Ca) 18 (Sc to Kr)</p>
-
-<h3 id="conclusion">Conclusion</h3>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background reference]]></summary></entry></feed>
+<p>you can search</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background QUESTDB( https://lcpq.github.io/QUESTDB_website/ ) is quantum excited state database which benchmark quantum chemistry method for excited state. The Journal of Physical Chemistry Letters 2020 116, 2374-2383 DOI: 10.1021/acs.jpclett.0c00014 Develop theories for excited is more complex excited state lack a proper vairational principle excited state have very difference natures ( \(\pi-&gt;\pi*\),\(n-&gt;\pi*\) charge transfer ,double excitateion ,valence ,Rydberg ,singlet ,triplet )]]></summary></entry></feed>
