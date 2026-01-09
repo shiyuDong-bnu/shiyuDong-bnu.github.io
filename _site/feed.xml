@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2025-12-27T11:39:07+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Relationship between SRG and DSRG</title><link href="http://localhost:4000/jekyll/update/2025/12/24/srg.html" rel="alternate" type="text/html" title="Relationship between SRG and DSRG" /><published>2025-12-24T15:47:29+08:00</published><updated>2025-12-24T15:47:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/12/24/srg</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/12/24/srg.html"><![CDATA[<p>This is an introduction when I write an introduction ,but I decided to delete it. But this part is
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-09T10:16:37+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Calculate permutation sign using cyles</title><link href="http://localhost:4000/jekyll/update/2026/01/09/permutation.html" rel="alternate" type="text/html" title="Calculate permutation sign using cyles" /><published>2026-01-09T10:14:29+08:00</published><updated>2026-01-09T10:14:29+08:00</updated><id>http://localhost:4000/jekyll/update/2026/01/09/permutation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2026/01/09/permutation.html"><![CDATA[<h1 id="calculate-permutation-sign-using-cycles">Calculate Permutation Sign using cycles</h1>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="k">def</span> <span class="nf">parity</span><span class="p">(</span><span class="n">permutation</span><span class="p">):</span>
+</span><span class="hll">    <span class="c1">## permutation is a list of integer number range(0,n+1)</span>
+</span>    <span class="c1">## it means  a two column representation of permutation</span>
+    <span class="c1">## (0 1 2 3 ... n)</span>
+    <span class="c1">## (per[0],per[1],... per[0] )</span>
+    <span class="c1">## for example if per=[3,2,1,0]</span>
+    <span class="c1">## we want to calculate all cycle</span>
+    <span class="c1">## then calculate the sign of all cycle</span>
+    <span class="n">circles</span><span class="o">=</span><span class="p">[]</span>
+    <span class="n">n_perm</span><span class="o">=</span><span class="n">len</span><span class="p">(</span><span class="n">permutation</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="n">n_perm</span><span class="p">):</span>
+        <span class="c1">## check if this is a new circle</span>
+        <span class="n">in_circle</span><span class="o">=</span><span class="no">False</span>
+        <span class="k">for</span> <span class="n">circle</span> <span class="k">in</span> <span class="ss">circles:</span>
+<span class="ss">            </span><span class="k">if</span> <span class="n">i</span> <span class="k">in</span> <span class="ss">circle:</span>
+<span class="ss">                </span><span class="n">in_circle</span><span class="o">=</span><span class="no">True</span>
+                <span class="k">break</span>
+        <span class="k">if</span> <span class="ss">in_circle:</span>
+<span class="ss">            </span><span class="n">continue</span>
+        <span class="c1">## generate new circle</span>
+        <span class="n">new_circle</span><span class="o">=</span><span class="p">[]</span>
+        <span class="n">new_circle</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">next_term</span><span class="o">=</span><span class="n">permutation</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="k">while</span> <span class="n">next_term!</span><span class="o">=</span><span class="n">new_circle</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">new_circle</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">next_term</span><span class="p">)</span>
+            <span class="n">next_term</span><span class="o">=</span><span class="n">permutation</span><span class="p">[</span><span class="n">next_term</span><span class="p">]</span>
+        <span class="c1">## save circle</span>
+        <span class="n">circles</span><span class="p">.</span><span class="nf">append</span><span class="p">(</span><span class="n">new_circle</span><span class="p">)</span>
+    <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
+    <span class="k">for</span> <span class="n">circle</span> <span class="k">in</span> <span class="ss">circles:</span>
+<span class="ss">        </span><span class="n">count</span><span class="o">+=</span><span class="n">len</span><span class="p">(</span><span class="n">circle</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="n">sign</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="n">count</span>
+    <span class="k">return</span> <span class="n">sign</span>
+
+<span class="k">if</span> <span class="n">__name__</span><span class="o">==</span><span class="s2">"__main__"</span><span class="p">:</span>
+    <span class="n">from</span> <span class="n">sympy</span><span class="p">.</span><span class="nf">combinatorics</span> <span class="n">import</span> <span class="no">Permutation</span>
+    <span class="n">from</span> <span class="n">sympy</span><span class="p">.</span><span class="nf">core</span><span class="p">.</span><span class="nf">random</span> <span class="n">import</span> <span class="n">shuffle</span><span class="p">,</span><span class="n">randint</span>
+    <span class="n">n_per</span><span class="o">=</span><span class="n">randint</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+    <span class="n">per</span><span class="o">=</span><span class="n">list</span><span class="p">(</span><span class="n">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">n_per</span><span class="p">))</span>
+    <span class="n">shuffle</span><span class="p">(</span><span class="n">per</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"rand range"</span><span class="p">,</span><span class="n">per</span><span class="p">)</span>
+    <span class="nb">p</span> <span class="o">=</span> <span class="no">Permutation</span><span class="p">(</span><span class="n">per</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">parity</span><span class="p">(</span><span class="n">per</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="nb">p</span><span class="p">.</span><span class="nf">is_even</span><span class="p">)</span>
+
+ </code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Calculate Permutation Sign using cycles def parity(permutation): ## permutation is a list of integer number range(0,n+1) ## it means a two column representation of permutation ## (0 1 2 3 ... n) ## (per[0],per[1],... per[0] ) ## for example if per=[3,2,1,0] ## we want to calculate all cycle ## then calculate the sign of all cycle circles=[] n_perm=len(permutation) for i in range(n_perm): ## check if this is a new circle in_circle=False for circle in circles: if i in circle: in_circle=True break if in_circle: continue ## generate new circle new_circle=[] new_circle.append(i) next_term=permutation[i] while next_term!=new_circle[0]: new_circle.append(next_term) next_term=permutation[next_term] ## save circle circles.append(new_circle) count=0 for circle in circles: count+=len(circle)-1 sign=(-1)**count return sign]]></summary></entry><entry><title type="html">Context Free Gramma</title><link href="http://localhost:4000/jekyll/update/2025/12/30/context-free-gramma.html" rel="alternate" type="text/html" title="Context Free Gramma" /><published>2025-12-30T15:47:29+08:00</published><updated>2025-12-30T15:47:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/12/30/context-free-gramma</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/12/30/context-free-gramma.html"><![CDATA[<h1 id="contex-free-grammar">Contex-free grammar</h1>
+<p>A context-free grammar is a way of representing languages using variables together with rules for
+how those variables can be converted into alphabet symbols.</p>
+
+<p>One motivation for it comes from linguistics(or from 
+programming languages), as you might infer from the name “grammar”.The idea is that in linguistic,you 
+might have variables like S denoting a sentence,N denoting a noun,V denoting a verb,and A denoting an adjective,together with ruls for how a sentence might
+decompose into these constituent parts of speech.
+For examle,you might have a rule \(S\rightarrow NV\)
+to denote that a sentence wight decompose into a noun 
+followed by a verb.You could have antoher ruls line \(S\rightarrow ANV\) to denote that a sentence might instead decompose into an adjective,noun,verb sequence.
+You could then alos have rules that alow a variables A,N and V to turn into real words:for example,\(N\rightarrow&lt;John&gt;\) mieght be a rule.</p>
+
+<p>Such collections of variable and rules are called “context-free grammas”. They are sometimes used in linguistics as well as programming languages, where
+one needs to formally define the synmatx of a language.</p>
+
+<p>In this course,our context-free grammasrs(CFGs) might look something like this 
+\begin{equation}
+S \rightarrow XY
+X \rightarrow 0X1
+Y \rightarrow 2Y
+X \rightarrow \epsilon
+Y \rightarrow 3
+\end{equation}
+The interpretation of this will be as follows. The capital letters S,X,and Y are called variables.One
+variable,usually denoted S is spetial: it is called the start variable.The expression sush as \(X\rightarrow 0X1\) are called rules,and tell us how
+we are allowed to turn the variable on the left (in this case X) into a new string of varialbes and alphabets symbols.To generate a string from a context-free grammar,we start with the start varialbe S,and use any number of rules(in any order) to replace the variables with other strings,until we get a tring that has only alphabet symbols and no varailbes;such a string is said to be generated by the contex-free grammar.</p>
+<h1 id="pushdown-automata">PushDown Automata</h1>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Contex-free grammar A context-free grammar is a way of representing languages using variables together with rules for how those variables can be converted into alphabet symbols.]]></summary></entry><entry><title type="html">Relationship between SRG and DSRG</title><link href="http://localhost:4000/jekyll/update/2025/12/24/srg.html" rel="alternate" type="text/html" title="Relationship between SRG and DSRG" /><published>2025-12-24T15:47:29+08:00</published><updated>2025-12-24T15:47:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/12/24/srg</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/12/24/srg.html"><![CDATA[<p>This is an introduction when I write an introduction ,but I decided to delete it. But this part is
 what most intresting part of the whole theory in my eyes.So I keep it here for reminder.</p>
 <h2 id="introduction">Introduction</h2>
 <p>\par
@@ -303,108 +377,4 @@ The reference is</p>
 
 <p>Some expamles  are homo and lumo of ethylene 
 <img src="/image/cubes/FabConvert.com_planar_8_orb7.png" alt="AltText" />
-<img src="/image/cubes/FabConvert.com_planar_12_orb11.png" alt="AltText" /></p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background]]></summary></entry><entry><title type="html">Simplified Tamm-Dancoff approximation to TD-DFT</title><link href="http://localhost:4000/jekyll/update/2025/08/08/stda.html" rel="alternate" type="text/html" title="Simplified Tamm-Dancoff approximation to TD-DFT" /><published>2025-08-08T20:41:29+08:00</published><updated>2025-08-08T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/08/08/stda</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/08/08/stda.html"><![CDATA[<h2 id="background">Background</h2>
-<p>reference</p>
-
-<p>The time-dependent density functional theory (TD-DFT) responce 
-problem can be expressed as the following non-Hermitian eigenvalue problem</p>
-
-<p>\(\begin{pmatrix}
- A &amp; B \\
- B^{*}&amp; A^{*} 
-\end{pmatrix}
-\begin{pmatrix}
-X \\
-Y
-\end{pmatrix}
-= 
-\begin{pmatrix}
-\omega &amp; 0\\
-0&amp; \omega 
-\end{pmatrix}
-\begin{pmatrix}
-X \\
-Y
-\end{pmatrix}\)
-In the Tamm-Dancoff approximation (TDA), the matrix B is neglected which leads to</p>
-
-<p>\(AX=\omega X\)
-Three simplifications then yield the simplified Tamm-Dancoff approach (sTDA)</p>
-<ol>
-  <li>Neglect the responce of exchange-correlation functional</li>
-  <li>Evaluate the two-electron integrals as damped Coulomb interactions between transition/charge density monopoles</li>
-  <li>Restrict the configuration sapce to a user-specified energy range of excitations</li>
-</ol>
-
-<p>The elements of the simplified matrix are then given as</p>
-
-<p>\(A^\prime_{ia,jb}=\delta_{ij}\delta_{ab}(\epsilon_a-\epsilon_b)+\sum_{A,B}^{N_{atoms}}
-(s_k q_{ia}^{A}\gamma_{AB}^{K}q_{jb}^B-q_{ia}^{A}\gamma_{AB}^{J}q_{jb}^B)\)
-\(q_{ia}^{A}\) are the transition/charge density monopoles located on atom A .
-These are obtained from Lowdin population analysis.
-\(\epsilon_p\) is the Kon-Sham orbital energy of orbital p.
-In the spin-restricted case,\(s_k=2\) for singlet-singlet transition ,\(s_k=0\) for singlet-triplet exictaions.
-\(\gamma_{AB}^K\) and \(\gamma_{AB}^J\) are the Mataga-Nishimoto-Ohno-Klopman damped Coulomb operators for exchange-type 
-and Coulom-type integrals ,respectively.
-\(\gamma_{AB}^{J}=(\frac{1}{R_{AB}^\beta+(a_x\eta)^{-\beta}})^{1/\beta}\)</p>
-
-<h2 id="tddft">TDDFT</h2>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background reference]]></summary></entry><entry><title type="html">QUESTDB and excited state quantum chemistry method</title><link href="http://localhost:4000/jekyll/update/2025/07/03/questdb.html" rel="alternate" type="text/html" title="QUESTDB and excited state quantum chemistry method" /><published>2025-07-03T21:28:29+08:00</published><updated>2025-07-03T21:28:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/07/03/questdb</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/07/03/questdb.html"><![CDATA[<h2 id="background">Background</h2>
-<p>QUESTDB( https://lcpq.github.io/QUESTDB_website/ )
-is quantum excited state database which benchmark quantum chemistry method for excited state.
-The Journal of Physical Chemistry Letters 2020 116, 2374-2383
-DOI: 10.1021/acs.jpclett.0c00014</p>
-<h2 id="develop-theories-for-excited-is-more-complex">Develop theories for excited is more complex</h2>
-<ol>
-  <li>excited state lack a proper vairational principle</li>
-  <li>excited state have very difference natures ( \(\pi-&gt;\pi*\),\(n-&gt;\pi*\) charge transfer ,double excitateion ,valence ,Rydberg ,singlet ,triplet )</li>
-</ol>
-
-<h2 id="method">Method</h2>
-<ol>
-  <li>first ab initial method for excited was CIS in 1970 , error ~1 eV, CIS(D) has error 0.2-0.3 eV</li>
-  <li>CASSCF and CASPT2,NEVPT2 is more reliable and has error 0.1-0.2</li>
-  <li>TD-DFT 0.2-0.4 ev for low lying valence excited state, but not goot for charge-transfer , Rydberg state and double excitation.</li>
-  <li>EOM-CCSD 0.1 eV</li>
-  <li>ADC (2) 0.1-0.2 ev  ADC(3)</li>
-  <li>BSE GW  0.1-0.3 EV</li>
-  <li>selected CI (SCI)
-    <h2 id="usage">Usage</h2>
-    <p>You can download the geometry and reference energy from QUESTDB here is an example
-I calculate EOM-CCSD of acetaldehyde using molpro</p>
-    <h3 id="input">input</h3>
-    <p>geometry download from questdb</p>
-  </li>
-</ol>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="mi">7</span>
-</span><span class="hll">
-</span><span class="no">C</span>   <span class="o">-</span><span class="mf">0.00124094</span>            <span class="mf">0.00000000</span>            <span class="mf">0.46104598</span>
-<span class="no">C</span>   <span class="o">-</span><span class="mf">0.93054640</span>            <span class="mf">0.00000000</span>           <span class="o">-</span><span class="mf">0.71424991</span>
-<span class="no">O</span>    <span class="mf">1.20624568</span>            <span class="mf">0.00000000</span>            <span class="mf">0.38083840</span>
-<span class="no">H</span>   <span class="o">-</span><span class="mf">0.49162964</span>            <span class="mf">0.00000000</span>            <span class="mf">1.44957198</span>
-<span class="no">H</span>   <span class="o">-</span><span class="mf">1.57671241</span>            <span class="mf">0.87868017</span>           <span class="o">-</span><span class="mf">0.66257994</span>
-<span class="no">H</span>   <span class="o">-</span><span class="mf">1.57671241</span>           <span class="o">-</span><span class="mf">0.87868017</span>           <span class="o">-</span><span class="mf">0.66257994</span>
-<span class="no">H</span>   <span class="o">-</span><span class="mf">0.37065389</span>            <span class="mf">0.00000000</span>           <span class="o">-</span><span class="mf">1.64609256</span></code></pre></figure>
-
-<p>molpro input</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">basis</span><span class="o">=</span><span class="n">aug</span><span class="o">-</span><span class="n">cc</span><span class="o">-</span><span class="n">pvtz</span>    <span class="o">!</span> <span class="n">define</span> <span class="n">basis</span> <span class="n">set</span>
-</span><span class="hll"><span class="n">geometry</span><span class="o">=</span><span class="n">acetaldehyde</span><span class="p">.</span><span class="nf">xyz</span>  <span class="o">!</span> <span class="n">read</span> <span class="n">geometry</span>
-</span><span class="n">hf</span>                         <span class="o">!</span> <span class="k">do</span> <span class="n">scf</span> <span class="n">calculation</span>
-<span class="n">ccsd</span>                       <span class="o">!</span> <span class="k">do</span> <span class="n">ccsd</span> <span class="n">calculation</span>
-<span class="n">start</span> <span class="p">,</span><span class="mf">4000.2</span> <span class="n">save</span> <span class="mf">4000.2</span> <span class="o">!</span> <span class="n">save</span> <span class="n">final</span> <span class="no">T</span> <span class="n">amplitudes</span>
-<span class="n">eom</span> <span class="mf">2.1</span> <span class="mf">1.1</span>  <span class="mf">1.2</span>  <span class="mf">2.2</span>     <span class="o">!</span> <span class="n">ground</span> <span class="n">state</span> <span class="n">is</span> <span class="mf">1.1</span> <span class="n">first</span> <span class="n">exited</span> <span class="n">state</span> <span class="n">is</span> <span class="mf">1.2</span></code></pre></figure>
-
-<p>output</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll">   <span class="no">Final</span> <span class="no">Results</span><span class="p">:</span>
-</span><span class="hll">   <span class="o">==============</span>
-</span> 
-   <span class="no">State</span>    <span class="no">Exc</span><span class="o">.</span> <span class="no">Energy</span>    <span class="no">Total</span> <span class="no">Energy</span>     <span class="no">Weight</span><span class="p">(</span><span class="no">S</span><span class="p">)</span>     <span class="no">Weight</span><span class="p">(</span><span class="no">D</span><span class="p">)</span>      <span class="no">Delta</span> <span class="no">E</span>    <span class="no">Conv</span>   <span class="no">Max</span><span class="o">.</span> <span class="no">Coef</span><span class="o">.</span>     <span class="no">Excitation</span>
-    <span class="mf">1.1</span>     <span class="mf">0.00000000</span>    <span class="o">-</span><span class="mf">153.57317406</span>     <span class="mf">0.635E-02</span>     <span class="mf">0.156E+00</span>    <span class="o">-</span><span class="mf">0.124E-06</span>     <span class="no">Y</span>
-    <span class="mf">1.2</span>     <span class="mf">0.16029771</span>    <span class="o">-</span><span class="mf">153.41287635</span>     <span class="mf">0.928E+00</span>     <span class="mf">0.724E-01</span>     <span class="mf">0.122E-06</span>     <span class="no">Y</span>    <span class="o">-</span><span class="mf">0.76471</span>     <span class="mf">10.1</span> <span class="o">-&gt;</span>  <span class="mf">6.2</span>
-    <span class="mf">2.1</span>     <span class="mf">0.25671913</span>    <span class="o">-</span><span class="mf">153.31645494</span>     <span class="mf">0.924E+00</span>     <span class="mf">0.757E-01</span>     <span class="mf">0.837E-06</span>     <span class="no">Y</span>    <span class="o">-</span><span class="mf">0.75379</span>     <span class="mf">10.1</span> <span class="o">-&gt;</span> <span class="mf">11.1</span>
-    <span class="mf">2.2</span>     <span class="mf">0.29101596</span>    <span class="o">-</span><span class="mf">153.28215811</span>     <span class="mf">0.924E+00</span>     <span class="mf">0.759E-01</span>    <span class="o">-</span><span class="mf">0.351E-06</span>     <span class="no">Y</span>    <span class="o">-</span><span class="mf">0.81336</span>     <span class="mf">10.1</span> <span class="o">-&gt;</span>  <span class="mf">3.2</span></code></pre></figure>
-
-<h3 id="conclusion">Conclusion</h3>
-<p>you can search</p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background QUESTDB( https://lcpq.github.io/QUESTDB_website/ ) is quantum excited state database which benchmark quantum chemistry method for excited state. The Journal of Physical Chemistry Letters 2020 116, 2374-2383 DOI: 10.1021/acs.jpclett.0c00014 Develop theories for excited is more complex excited state lack a proper vairational principle excited state have very difference natures ( \(\pi-&gt;\pi*\),\(n-&gt;\pi*\) charge transfer ,double excitateion ,valence ,Rydberg ,singlet ,triplet )]]></summary></entry></feed>
+<img src="/image/cubes/FabConvert.com_planar_12_orb11.png" alt="AltText" /></p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background]]></summary></entry></feed>
