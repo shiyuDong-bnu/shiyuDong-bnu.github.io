@@ -1,0 +1,98 @@
+---
+layout: post
+title:  "CuPc and F16CuPC"
+date:   2026-01-23 10:14:29 +0800
+categories: jekyll update
+---
+## Molecule of  CuPc and F16CuPc
+- https://doi.org/10.1016/j.jphotochem.2025.116397
+- PHYSICAL REVIEW B 77, 035133, 2008
+- J. Phys. Chem. A 2021, 125, 19, 4055–4061
+- J. Phys. Chem. C 2013, 117, 4, 1863–1878
+- J. Chem. Phys. 162, 244708 (2025)
+- J. Chem. Phys. 109, 8218–8224 (1998)
+## TDDFT
+\begin{equation}
+\delta \rho(r,t)=\chi(r,r^\prime,t-t^\prime)\delta v_{ext}(r^\prime,t^\prime)
+\end{equation}
+
+\begin{equation}
+\delta \rho (r,t)= \chi_{irr}(r,r^\prime,t-t^\prime)\delta v_{s}(r^\prime,t^\prime)
+\end{equation}
+
+\begin{equation}
+\delta v_s(t)=\delta v_{ext}(t)+\delta v_H(t)+\delta v_{xc}(t)
+\end{equation}
+\begin{equation}
+V_{ind}=\delta v_H(t)+\delta v_{xc}(t)
+\end{equation}
+\begin{equation}
+V_{ind}(r)=f_{Hxc}(r-r^\prime)\delta \rho(r^\prime)
+\end{equation}
+\begin{equation}
+\epsilon \chi=\chi_{irr}
+\end{equation}
+\begin{equation}
+\epsilon=\delta-\chi_{irr}f_{Hxc}
+\end{equation}
+\begin{equation}
+\chi=\epsilon^{-1}\chi_{irr}
+\end{equation}
+To find the electronic excitattions of the system, we 
+have to determin the poles of the $$\chi$$
+We can find two different ways in which poles can arise.
+First, the poles of $$\chi_{irr}$$. Second $$\epsilon$$ has 
+an zero mode.
+The first kind is single-particle excitations,wheras the second type is plasmons.
+
+To find the pole of $$\chi$$ is equal to find zero mode of $$\chi^{-1}=\chi_{irr}^{-1}\epsilon=\chi_{irr}^{-1}\delta -f_{Hxc}$$
+
+
+Now we expand those variables in basis set
+\begin{equation}
+\delta \rho= P_{ia}\phi_i\phi_a^* + P_{ai}\phi_a\phi_i
+\end{equation}
+\begin{equation}
+\chi_{irr}(\omega)=\frac{\delta n_{st}}{\epsilon_s-\epsilon_t-\omega}
+\end{equation}
+
+Casida Equation
+\begin{equation}
+\begin{pmatrix}
+A & B  \\  
+B & A 
+\end{pmatrix}
+\begin{pmatrix}
+X\\
+Y
+\end{pmatrix}
+
+=\omega
+\begin{pmatrix}
+X\\
+Y
+\end{pmatrix}
+\end{equation}
+## NTO
+Single Particle transition density
+\begin{equation}
+T_{ia}=\langle \Psi_{ex}\vert c^\dagger_a c_i \vert \Psi_0\rangle
+\end{equation}
+index  i occupied orbitals and a virtual orbitals
+T is $N_o\times N_v$ matrix 
+\begin{equation}
+T=U\lambda V
+\end{equation}
+\begin{equation}
+\phi_1,\phi_2,\dots \phi_{N_o}=(\psi_1,\cdots,\psi_{N_o})U
+\end{equation}
+\begin{equation}
+\phi_1,\phi_2,\dots \phi_{N_v}=(\psi_1,\cdots,\psi_{N_a})V
+\end{equation}
+So there is particle orbital and hole orbitals.and eigenvalue $$\lambda$$
+## monomer
+##dimer 
+##pbc
+## opt and tddft
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

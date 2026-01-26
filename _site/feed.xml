@@ -1,4 +1,95 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-09T10:16:37+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Calculate permutation sign using cyles</title><link href="http://localhost:4000/jekyll/update/2026/01/09/permutation.html" rel="alternate" type="text/html" title="Calculate permutation sign using cyles" /><published>2026-01-09T10:14:29+08:00</published><updated>2026-01-09T10:14:29+08:00</updated><id>http://localhost:4000/jekyll/update/2026/01/09/permutation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2026/01/09/permutation.html"><![CDATA[<h1 id="calculate-permutation-sign-using-cycles">Calculate Permutation Sign using cycles</h1>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-26T21:42:02+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">CuPc and F16CuPC</title><link href="http://localhost:4000/jekyll/update/2026/01/23/cupc.html" rel="alternate" type="text/html" title="CuPc and F16CuPC" /><published>2026-01-23T10:14:29+08:00</published><updated>2026-01-23T10:14:29+08:00</updated><id>http://localhost:4000/jekyll/update/2026/01/23/cupc</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2026/01/23/cupc.html"><![CDATA[<h2 id="molecule-of--cupc-and-f16cupc">Molecule of  CuPc and F16CuPc</h2>
+<ul>
+  <li>https://doi.org/10.1016/j.jphotochem.2025.116397</li>
+  <li>PHYSICAL REVIEW B 77, 035133, 2008</li>
+  <li>J. Phys. Chem. A 2021, 125, 19, 4055–4061</li>
+  <li>J. Phys. Chem. C 2013, 117, 4, 1863–1878</li>
+  <li>J. Chem. Phys. 162, 244708 (2025)</li>
+  <li>J. Chem. Phys. 109, 8218–8224 (1998)
+    <h2 id="tddft">TDDFT</h2>
+    <p>\begin{equation}
+\delta \rho(r,t)=\chi(r,r^\prime,t-t^\prime)\delta v_{ext}(r^\prime,t^\prime)
+\end{equation}</p>
+  </li>
+</ul>
+
+<p>\begin{equation}
+\delta \rho (r,t)= \chi_{irr}(r,r^\prime,t-t^\prime)\delta v_{s}(r^\prime,t^\prime)
+\end{equation}</p>
+
+<p>\begin{equation}
+\delta v_s(t)=\delta v_{ext}(t)+\delta v_H(t)+\delta v_{xc}(t)
+\end{equation}
+\begin{equation}
+V_{ind}=\delta v_H(t)+\delta v_{xc}(t)
+\end{equation}
+\begin{equation}
+V_{ind}(r)=f_{Hxc}(r-r^\prime)\delta \rho(r^\prime)
+\end{equation}
+\begin{equation}
+\epsilon \chi=\chi_{irr}
+\end{equation}
+\begin{equation}
+\epsilon=\delta-\chi_{irr}f_{Hxc}
+\end{equation}
+\begin{equation}
+\chi=\epsilon^{-1}\chi_{irr}
+\end{equation}
+To find the electronic excitattions of the system, we 
+have to determin the poles of the \(\chi\)
+We can find two different ways in which poles can arise.
+First, the poles of \(\chi_{irr}\). Second \(\epsilon\) has 
+an zero mode.
+The first kind is single-particle excitations,wheras the second type is plasmons.</p>
+
+<p>To find the pole of \(\chi\) is equal to find zero mode of \(\chi^{-1}=\chi_{irr}^{-1}\epsilon=\chi_{irr}^{-1}\delta -f_{Hxc}\)</p>
+
+<p>Now we expand those variables in basis set
+\begin{equation}
+\delta \rho= P_{ia}\phi_i\phi_a^* + P_{ai}\phi_a\phi_i
+\end{equation}
+\begin{equation}
+\chi_{irr}(\omega)=\frac{\delta n_{st}}{\epsilon_s-\epsilon_t-\omega}
+\end{equation}</p>
+
+<p>Casida Equation
+\begin{equation}
+\begin{pmatrix}
+A &amp; B  \<br />
+B &amp; A 
+\end{pmatrix}
+\begin{pmatrix}
+X<br />
+Y
+\end{pmatrix}</p>
+
+<p>=\omega
+\begin{pmatrix}
+X<br />
+Y
+\end{pmatrix}
+\end{equation}</p>
+<h2 id="nto">NTO</h2>
+<p>Single Particle transition density
+\begin{equation}
+T_{ia}=\langle \Psi_{ex}\vert c^\dagger_a c_i \vert \Psi_0\rangle
+\end{equation}
+index  i occupied orbitals and a virtual orbitals
+T is $N_o\times N_v$ matrix 
+\begin{equation}
+T=U\lambda V
+\end{equation}
+\begin{equation}
+\phi_1,\phi_2,\dots \phi_{N_o}=(\psi_1,\cdots,\psi_{N_o})U
+\end{equation}
+\begin{equation}
+\phi_1,\phi_2,\dots \phi_{N_v}=(\psi_1,\cdots,\psi_{N_a})V
+\end{equation}
+So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
+<h2 id="monomer">monomer</h2>
+<p>##dimer 
+##pbc</p>
+<h2 id="opt-and-tddft">opt and tddft</h2>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Molecule of CuPc and F16CuPc https://doi.org/10.1016/j.jphotochem.2025.116397 PHYSICAL REVIEW B 77, 035133, 2008 J. Phys. Chem. A 2021, 125, 19, 4055–4061 J. Phys. Chem. C 2013, 117, 4, 1863–1878 J. Chem. Phys. 162, 244708 (2025) J. Chem. Phys. 109, 8218–8224 (1998) TDDFT \begin{equation} \delta \rho(r,t)=\chi(r,r^\prime,t-t^\prime)\delta v_{ext}(r^\prime,t^\prime) \end{equation}]]></summary></entry><entry><title type="html">Calculate permutation sign using cyles</title><link href="http://localhost:4000/jekyll/update/2026/01/09/permutation.html" rel="alternate" type="text/html" title="Calculate permutation sign using cyles" /><published>2026-01-09T10:14:29+08:00</published><updated>2026-01-09T10:14:29+08:00</updated><id>http://localhost:4000/jekyll/update/2026/01/09/permutation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2026/01/09/permutation.html"><![CDATA[<h1 id="calculate-permutation-sign-using-cycles">Calculate Permutation Sign using cycles</h1>
 
 <figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="k">def</span> <span class="nf">parity</span><span class="p">(</span><span class="n">permutation</span><span class="p">):</span>
 </span><span class="hll">    <span class="c1">## permutation is a list of integer number range(0,n+1)</span>
@@ -337,44 +428,4 @@ The reference is</p>
 </span>             <span class="n">get_aux</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">fhand</span><span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"cc-pv5z-autoaux"</span><span class="p">,</span><span class="s2">"w"</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span><span class="n">file</span><span class="o">=</span><span class="n">fhand</span><span class="p">)</span>
-<span class="n">fhand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background Density Fitting is a common technique to accelerate calculation in quantum chemistry. And we need auxiliary basis set.For some basis set there are pre-optimized auxiliary basisset for other we need to use autoaux to generate. The reference is]]></summary></entry><entry><title type="html">Visulize orbital in psi4 using cube</title><link href="http://localhost:4000/jekyll/update/2025/10/28/psi4cube.html" rel="alternate" type="text/html" title="Visulize orbital in psi4 using cube" /><published>2025-10-28T20:41:29+08:00</published><updated>2025-10-28T20:41:29+08:00</updated><id>http://localhost:4000/jekyll/update/2025/10/28/psi4cube</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2025/10/28/psi4cube.html"><![CDATA[<h2 id="background">Background</h2>
-
-<h2 id="generate-cube-file-in-psi4">Generate cube file in psi4</h2>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">e_hf</span><span class="p">,</span><span class="n">hf_wfn</span><span class="o">=</span><span class="n">psi4</span><span class="p">.</span><span class="nf">energy</span><span class="p">(</span><span class="s2">"scf"</span><span class="p">,</span><span class="n">return_wfn</span><span class="o">=</span><span class="no">True</span><span class="p">)</span>
-</span><span class="hll"><span class="n">cp</span><span class="o">=</span><span class="n">psi4</span><span class="p">.</span><span class="nf">core</span><span class="o">.</span><span class="no">CubeProperties</span><span class="p">(</span><span class="n">hf_wfn</span><span class="p">)</span>
-</span><span class="n">orb_index</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span> <span class="c1"># start with zero !!</span>
-<span class="n">orb_label</span><span class="o">=</span><span class="p">[</span><span class="s2">"homo"</span><span class="p">,</span><span class="s2">"lumo"</span><span class="p">]</span>
-<span class="n">cp</span><span class="p">.</span><span class="nf">compute_orbitals</span><span class="p">(</span><span class="n">hf_wfn</span><span class="o">.</span><span class="no">Ca</span><span class="p">(),</span><span class="n">indices</span><span class="o">=</span><span class="n">orb_index</span><span class="p">,</span><span class="n">labels</span><span class="o">=</span><span class="n">orb_label</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="s2">"planar"</span><span class="p">)</span></code></pre></figure>
-
-<p>This will generate cubes files</p>
-<h2 id="visualize-file-in-vmdcube">Visualize file in vmdcube</h2>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">from</span> <span class="n">vmdcube</span> <span class="n">import</span> <span class="no">VMDCube</span>
-</span><span class="hll"><span class="n">vmd</span> <span class="o">=</span> <span class="no">VMDCube</span><span class="p">()</span>
-</span><span class="n">vmd</span><span class="p">.</span><span class="nf">cubedir</span> <span class="o">=</span> <span class="s2">"cubes"</span> <span class="c1"># Directory containing the cube files</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">positive_color</span> <span class="o">=</span> <span class="s2">"#C1844E"</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">negative_color</span> <span class="o">=</span> <span class="s2">"#8BC14E"</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">isovalues</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.05</span><span class="p">,</span><span class="o">-</span><span class="mf">0.05</span><span class="p">]</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">ambient</span> <span class="o">=</span> <span class="mf">0.6</span> <span class="c1"># default is 0.6</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">diffuse</span> <span class="o">=</span> <span class="mf">0.75</span> <span class="c1"># default is 0.5</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">mirror</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="c1"># default is 0.0</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">opacity</span> <span class="o">=</span> <span class="mf">0.55</span> <span class="c1"># default is 1.0</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">specular</span> <span class="o">=</span> <span class="mf">0.96</span> <span class="c1"># default is 0.96</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">shininess</span> <span class="o">=</span> <span class="mf">0.75</span> <span class="c1"># default is 0.75</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">outline</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="c1"># default is 0.0</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">outlinewidth</span> <span class="o">=</span> <span class="mf">0.6</span> <span class="c1"># default is 0.0</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">scale</span> <span class="o">=</span> <span class="mf">0.7</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">height</span> <span class="o">=</span> <span class="mi">800</span> <span class="c1"># Height of the output image</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">width</span> <span class="o">=</span> <span class="mi">800</span> <span class="c1"># Width of the output image</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
-<span class="n">vmd</span><span class="p">.</span><span class="nf">show</span><span class="p">()</span></code></pre></figure>
-
-<p>command to open .tga image files</p>
-
-<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="hll"><span class="n">eog</span> <span class="n">image</span><span class="p">.</span><span class="nf">tga</span>
-</span></code></pre></figure>
-
-<p>Some expamles  are homo and lumo of ethylene 
-<img src="/image/cubes/FabConvert.com_planar_8_orb7.png" alt="AltText" />
-<img src="/image/cubes/FabConvert.com_planar_12_orb11.png" alt="AltText" /></p>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background]]></summary></entry></feed>
+<span class="n">fhand</span><span class="p">.</span><span class="nf">close</span><span class="p">()</span></code></pre></figure>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Background Density Fitting is a common technique to accelerate calculation in quantum chemistry. And we need auxiliary basis set.For some basis set there are pre-optimized auxiliary basisset for other we need to use autoaux to generate. The reference is]]></summary></entry></feed>
