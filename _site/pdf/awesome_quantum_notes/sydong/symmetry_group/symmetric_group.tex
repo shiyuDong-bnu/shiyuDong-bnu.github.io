@@ -1,0 +1,234 @@
+\documentclass[11pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usetheme{Hannover}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{graphicx} 
+\begin{document}
+	\author{Shiyu Dong}
+	\title{The symmetric Group}
+	%\subtitle{}
+	%\logo{}
+	%\institute{}
+	%\date{}
+	%\subject{}
+	%\setbeamercovered{transparent}
+	%\setbeamertemplate{navigation symbols}{}
+
+	\begin{frame}[plain]
+		\maketitle
+	\end{frame}
+\begin{frame}{outline}
+	\tableofcontents
+\end{frame}
+		\section{Permutation}
+	\begin{frame}{Permutation}
+		\begin{equation}
+			P=\begin{pmatrix}
+				1&2&\cdots&n \\
+				p_1&p_2&\cdots & p_n
+			\end{pmatrix}
+		\end{equation}
+			\begin{equation}
+		Q=\begin{pmatrix}
+			1&2&\cdots&n \\
+			q_1&q_2&\cdots & q_n
+		\end{pmatrix}
+	\end{equation}	
+	\begin{align}
+		PQ&=\begin{pmatrix}
+			1&2&\cdots&n \\
+			p_1&p_2&\cdots & p_n
+		\end{pmatrix}\begin{pmatrix}
+			1&2&\cdots&n \\
+			q_1&q_2&\cdots & q_n
+		\end{pmatrix} \\
+		&=\begin{pmatrix}
+				q_1&q_2&\cdots & q_n \\
+			r_1&r_2&\cdots & r_n
+		\end{pmatrix}\begin{pmatrix}
+			1&2&\cdots&n \\
+			q_1&q_2&\cdots & q_n
+		\end{pmatrix} \\
+		&=\begin{pmatrix}
+			1&2&\cdots&n \\
+			r_1&r_2&\cdots & r_n
+		\end{pmatrix}
+	\end{align}
+		
+	\end{frame}
+\begin{frame}{cycle}
+	\textit{m-cycle}   
+	\begin{equation}
+		\begin{pmatrix}
+			1&2&\cdots & m-1 &m \\
+			2&3&\cdots &m &1 
+		\end{pmatrix}\equiv 
+			\begin{pmatrix}
+			1&2&\cdots & m-1 &m 
+		\end{pmatrix}
+	\end{equation}
+	2-cycle is called \textit{transpositon}
+	\begin{equation}
+		\begin{pmatrix}
+			1 &2 
+		\end{pmatrix} \quad \cdots \quad 	\begin{pmatrix}
+		1 &i
+		\end{pmatrix} \quad \begin{pmatrix}
+		i &j
+		\end{pmatrix}
+	\end{equation}
+\end{frame}
+	\begin{frame}{Parity}
+		\begin{equation}
+		\begin{split}
+		\Delta(x_1,x_2,\cdots,x_n)=(x_1-x_2)(x_1-x_3)\cdots(x_1-x_n)\\
+		\times(x_2-x_3)\cdots(x_2-x_n) \cdots \\
+		\times(x_{n-1}-x_n)
+	\end{split}		
+		\end{equation}
+\begin{equation}
+	P \Delta=(-1)^{\sigma_p}\Delta
+\end{equation}
+\end{frame}
+\begin{frame}{Decomposition}
+
+		Every permutation can be expressed as a pdoduct of cycles 
+	Example
+	\begin{equation}
+		\begin{pmatrix}
+			1 &2&3&4&5&6\\
+			2&4&5&1&3&6
+		\end{pmatrix}\equiv \begin{pmatrix}
+		1 &2&4 
+		\end{pmatrix} \begin{pmatrix}
+	3 &5 
+		\end{pmatrix}
+		\begin{pmatrix}
+			6
+		\end{pmatrix}
+	\end{equation}
+	Every permutation can be expressed as a product of transposition \\
+	A m-cycle can be decomposed into product of m-1 transposition
+\end{frame}
+\begin{frame}{Decomposition}
+	\begin{equation}
+		\begin{pmatrix}
+			1&2&3&\cdots& m-1&m\\
+				1&2&3&\cdots& m-1&m
+		\end{pmatrix}
+	\end{equation}
+	\begin{equation}
+(1m)				\begin{pmatrix}
+			1&2&\cdots& m-1&m\\
+			1&2&\cdots& m-1&m
+		\end{pmatrix}=	\begin{pmatrix}
+		1&2&\cdots& m-1&m\\
+		m&2&\cdots& m-1&1
+		\end{pmatrix}
+	\end{equation}
+	\begin{equation}
+(1m-1)	(1m)				\begin{pmatrix}
+		1&2&\cdots& m-1&m\\
+		1&2&\cdots& m-1&m
+	\end{pmatrix}=	\begin{pmatrix}
+		1&2&\cdots& m-1&m\\
+		m-1&2&\cdots& m&1
+	\end{pmatrix}
+\end{equation}
+\end{frame}
+		\section{Partitions And conjugate classes}
+\begin{frame}{Partition and conjugate class}
+		\begin{equation}
+		Q=TPT^{-1}
+	\end{equation}
+\begin{theorem}
+	Two permutation in $S_n$ are conjugate if and only if they have the same cycle structure(they have the same number of cycles of equal length)
+\end{theorem}
+\end{frame}
+\begin{frame}{Proof}
+	Conjugate $\implies $same cycle structure
+	\begin{equation}
+		Q=TPT^{-1}=\begin{pmatrix}
+			1&2\cdots&m\\
+			t_1&t_2\cdots&t_m
+		\end{pmatrix}\begin{pmatrix}
+			1&2\cdots&m\\
+			p_1&p_2\cdots&p_m
+		\end{pmatrix}\begin{pmatrix}
+		t_1&t_2\cdots&t_m\\
+		1&2\cdots&m
+		\end{pmatrix}
+	\end{equation}
+	\begin{equation}
+	=\begin{pmatrix}
+		t_1&t_2&\cdots & t_m\\
+		p_{t_1}&p_{t_2}\cdots &p_{t_m}
+	\end{pmatrix}
+	\end{equation}
+Relabeling the index.
+\end{frame}
+\begin{frame}{Cycle structure }
+	\begin{equation}
+		(\nu)=(1^{\nu_1}2^{\nu_2}\cdots m^{\nu_m})
+	\end{equation}
+	\begin{equation}
+		\nu_1+2\nu_2+\cdots +m\nu_m=m
+	\end{equation}
+	\begin{equation}
+		\lambda_1=\nu_1+\nu_2+\cdots +\nu_m
+	\end{equation}
+		\begin{equation}
+		\lambda_k=\nu_k+\nu_2+\cdots +\nu_m
+	\end{equation}
+	\begin{equation}
+		\lambda_1+\lambda_2+\cdots \lambda_m=m
+	\end{equation}
+	\begin{equation}
+		\nu_k=\lambda_k-\lambda_{k+1}
+	\end{equation}
+	partition of integer $n$:
+	\begin{equation*}
+		\lambda_1+\lambda_2+\cdots+\lambda_n=n \quad \lambda_1\ge \lambda_2\cdots \lambda_n
+	\end{equation*}
+\end{frame}
+		\section{Young Tableaux}
+\begin{frame}{Symmetry and Antisymmety}
+	% TODO: 
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{rep}
+		\caption{}
+		\label{fig:rep}
+	\end{figure}
+	
+\end{frame}
+		\section{Antisymmetrizer}
+	\begin{frame}
+			\begin{equation}
+		 	\mathcal{\hat A}^{(n)}(1,2,\cdots,n)=\frac{1}{n!}\sum_P(-1)^{\sigma_p}\hat P
+		\end{equation}
+			\begin{equation}
+			\hat Q\mathcal{\hat A}^{(n)} =(-1)^{\sigma_Q}\mathcal{\hat A}^{(n)}
+		\end{equation}
+		\begin{equation}
+			\mathcal{\hat A}^{(n)}\mathcal{\hat A}^{(n)}=\mathcal{\hat A}^{(n)}
+		\end{equation}
+Proof
+\begin{align}
+	\hat Q\mathcal{\hat A}^{(n)}&=\frac{1}{n!}\sum_P (-1)^{\sigma_p}QP \\
+	&=\frac{1}{n!}\sum_p (-1)^{\sigma_{Q}} (-1)^{\sigma_{QP}}QP  \\
+	&= (-1)^{\sigma_{Q}}\frac{1}{n!}\sum_{qp} (-1)^{\sigma_{QP}}QP \\
+	&= (-1)^{\sigma_{Q}}\mathcal{\hat A}^{(n)}
+\end{align}
+	\end{frame}
+	\begin{frame}
+	\begin{align}
+		\mathcal{\hat A}^{(n)}\mathcal{\hat A}^{(n)}&=(\frac{1}{n!}\sum_{Q}(-1)^{\sigma_Q}Q)(\frac{1}{n!}\sum_{P}(-1)^{\sigma_P}P) \\
+		&=\frac{1}{n!}\sum_{Q}(-1)^{\sigma_Q} (-1)^{\sigma_Q} 	\mathcal{\hat A}^{(n)}\\
+		&=\hat A^{(n)}
+	\end{align}
+	\end{frame}
+\end{document}

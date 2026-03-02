@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "Work Plan"
+date:   2026-02-02 10:14:29 +0800
+categories: jekyll update
+---
+## Things to be done
+
+## Calculation of CuPc F16CuPc
+
+  1. use X-TDDFT (spin adapted tddft) with BDF  to calculate CuPc dimer and F16CuPc using triplet as ground state. 
+  2. use gaussian to calculate H2Pc cluster model and crystal to model effect of envrioment on peak at 1000 nm.
+  3. effect of substibution and effect of morphology
+
+## Write F12-DSRG paper
+  Calculate HF and N2 using relaxed version 
+  Calculate Excited State of several molecules : BH ,COH2,H2O,
+  1. benchmark s
+  2. benchmakr $$\gamma$$
+  3. check convergence rate of F12-DSRG-MRPT and DSRG-MRPT
+
+## Predicting Molecular orbital from small basis set to larger basis set using diffusion model
+
+  1. predicting hamiltonian using QHNet "Efficient and Equivariant Graph Networks for Predicting Quantum Hamiltonian"
+
+  2. Conditional Generation using diffusion model
+  https://diffusion.csail.mit.edu/2026/index.html
+
+
+
+
+
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

@@ -11,6 +11,8 @@ categories: jekyll update
 - J. Phys. Chem. C 2013, 117, 4, 1863–1878
 - J. Chem. Phys. 162, 244708 (2025)
 - J. Chem. Phys. 109, 8218–8224 (1998)
+- J. Phys. Chem. C 2021, 125, 22, 12398–12404
+- J. Appl. Phys. 113, 013914 (2013)
 ## TDDFT
 \begin{equation}
 \delta \rho(r,t)=\chi(r,r^\prime,t-t^\prime)\delta v_{ext}(r^\prime,t^\prime)
@@ -94,5 +96,6 @@ So there is particle orbital and hole orbitals.and eigenvalue $$\lambda$$
 ##dimer 
 ##pbc
 ## opt and tddft
+
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/

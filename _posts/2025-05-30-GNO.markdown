@@ -1,0 +1,13 @@
+---
+layout: post
+title:  "Example of Generalized Normal Order"
+date:   2025-05-30 16:28:29 +0800
+categories: jekyll update
+---
+
+## Background
+
+
+
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
