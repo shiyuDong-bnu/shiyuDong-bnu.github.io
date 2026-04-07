@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:3000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3000/" rel="alternate" type="text/html" /><updated>2026-03-23T12:59:52+08:00</updated><id>http://localhost:3000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Extrapolation</title><link href="http://localhost:3000/jekyll/update/2026/02/02/extrapolation.html" rel="alternate" type="text/html" title="Extrapolation" /><published>2026-02-02T10:14:29+08:00</published><updated>2026-02-02T10:14:29+08:00</updated><id>http://localhost:3000/jekyll/update/2026/02/02/extrapolation</id><content type="html" xml:base="http://localhost:3000/jekyll/update/2026/02/02/extrapolation.html"><![CDATA[<h2 id="papers">papers</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="http://localhost:3000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:3000/" rel="alternate" type="text/html" /><updated>2026-04-07T17:46:02+08:00</updated><id>http://localhost:3000/feed.xml</id><title type="html">Garden Of Garbage</title><subtitle>a garden to log the garbage of my life</subtitle><entry><title type="html">Extrapolation</title><link href="http://localhost:3000/jekyll/update/2026/02/02/extrapolation.html" rel="alternate" type="text/html" title="Extrapolation" /><published>2026-02-02T10:14:29+08:00</published><updated>2026-02-02T10:14:29+08:00</updated><id>http://localhost:3000/jekyll/update/2026/02/02/extrapolation</id><content type="html" xml:base="http://localhost:3000/jekyll/update/2026/02/02/extrapolation.html"><![CDATA[<h2 id="papers">papers</h2>
 <ul>
   <li>Chemical Physics Letters Volume 286, Issues 3–4, 10 April 1998, Pages 243-252</li>
   <li>Phys. Rev. 126, 1015 – Published 1 May, 1962</li>
@@ -189,7 +189,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
     <tr>
       <td>CC2/6-31g</td>
       <td>Molpro</td>
-      <td> </td>
+      <td>637   min</td>
       <td>-8.19</td>
       <td>12.8</td>
     </tr>
@@ -231,7 +231,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
     <tr>
       <td>wb97xd</td>
       <td>Gaussian</td>
-      <td>23 min</td>
+      <td>23  min</td>
       <td>-4.21</td>
       <td>9.1</td>
     </tr>
@@ -251,6 +251,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
   <thead>
     <tr>
       <th style="text-align: right">state</th>
+      <th style="text-align: right">DF-CC2</th>
       <th style="text-align: right">ADC(2)</th>
       <th style="text-align: right">PBE</th>
       <th style="text-align: right">PBE0</th>
@@ -264,6 +265,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
   <tbody>
     <tr>
       <td style="text-align: right">1</td>
+      <td style="text-align: right">2.220</td>
       <td style="text-align: right">2.0957</td>
       <td style="text-align: right">1.4456</td>
       <td style="text-align: right">1.7266</td>
@@ -275,6 +277,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
     </tr>
     <tr>
       <td style="text-align: right">2</td>
+      <td style="text-align: right">2.300</td>
       <td style="text-align: right">2.1992</td>
       <td style="text-align: right">1.4577</td>
       <td style="text-align: right">1.7331</td>
@@ -286,6 +289,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
     </tr>
     <tr>
       <td style="text-align: right">3</td>
+      <td style="text-align: right">2.338</td>
       <td style="text-align: right">2.2345</td>
       <td style="text-align: right">1.5091</td>
       <td style="text-align: right">1.8196</td>
@@ -297,6 +301,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
     </tr>
     <tr>
       <td style="text-align: right">4</td>
+      <td style="text-align: right">2.416</td>
       <td style="text-align: right">2.4108</td>
       <td style="text-align: right">1.5269</td>
       <td style="text-align: right">1.8327</td>
@@ -308,6 +313,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
     </tr>
     <tr>
       <td style="text-align: right">5</td>
+      <td style="text-align: right">2.435</td>
       <td style="text-align: right">2.4137</td>
       <td style="text-align: right">1.8526</td>
       <td style="text-align: right">1.9668</td>
@@ -319,6 +325,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
     </tr>
     <tr>
       <td style="text-align: right">6</td>
+      <td style="text-align: right">2.525</td>
       <td style="text-align: right">2.4977</td>
       <td style="text-align: right">1.8697</td>
       <td style="text-align: right">1.9866</td>
@@ -330,6 +337,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
     </tr>
     <tr>
       <td style="text-align: right">7</td>
+      <td style="text-align: right">2.532</td>
       <td style="text-align: right">2.5664</td>
       <td style="text-align: right">2.0228</td>
       <td style="text-align: right">2.1896</td>
@@ -341,6 +349,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
     </tr>
     <tr>
       <td style="text-align: right">8</td>
+      <td style="text-align: right">2.589</td>
       <td style="text-align: right">2.5816</td>
       <td style="text-align: right">2.0617</td>
       <td style="text-align: right">2.2280</td>
@@ -352,6 +361,7 @@ So there is particle orbital and hole orbitals.and eigenvalue \(\lambda\)</p>
     </tr>
     <tr>
       <td style="text-align: right">9</td>
+      <td style="text-align: right">3.309</td>
       <td style="text-align: right">3.3099</td>
       <td style="text-align: right">2.4295</td>
       <td style="text-align: right">3.0657</td>

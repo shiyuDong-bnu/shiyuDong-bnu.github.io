@@ -4,31 +4,22 @@ title:  "Work Plan"
 date:   2026-02-02 10:14:29 +0800
 categories: jekyll update
 ---
-## Things to be done
-
-## Calculation of CuPc F16CuPc
-
-  1. use X-TDDFT (spin adapted tddft) with BDF  to calculate CuPc dimer and F16CuPc using triplet as ground state. 
-  2. use gaussian to calculate H2Pc cluster model and crystal to model effect of envrioment on peak at 1000 nm.
-  3. effect of substibution and effect of morphology
-
-## Write F12-DSRG paper
-  Calculate HF and N2 using relaxed version 
-  Calculate Excited State of several molecules : BH ,COH2,H2O,
-  1. benchmark s
-  2. benchmakr $$\gamma$$
-  3. check convergence rate of F12-DSRG-MRPT and DSRG-MRPT
-
-## Predicting Molecular orbital from small basis set to larger basis set using diffusion model
-
-  1. predicting hamiltonian using QHNet "Efficient and Equivariant Graph Networks for Predicting Quantum Hamiltonian"
-
-  2. Conditional Generation using diffusion model
-  https://diffusion.csail.mit.edu/2026/index.html
 
 
 
 
-
+## How to keep moving ?
+  The meaning of your work is not to change the world or have an impact on human society. 
+  Your work is to change yourself first.
+  Do you truly believe this paper (explantion or rules or laws) ?
+  Do you think there should be some improvement?
+## My confusions this day 
+  Here are some very confusing aspects of computational chemistry for me. 
+  How to simulate CuPc crystal spectrum resonably well ? 
+  What is the ground state of $$beta$$ CuPc crystal ? why is there a missing peak ?
+  Thirdly, how to derive equations using second-order quantization ? can we use ai to do this ?.
+## To to list 
+  review of TDDFT  and GW-BSE 
+  How to derive equations !!!
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-talk]: https://talk.jekyllrb.com/
