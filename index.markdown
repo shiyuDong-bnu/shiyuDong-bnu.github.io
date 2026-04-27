@@ -1,6 +1,5 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
 ---
+
+A computational chemistry notebook — raw calculations, theoretical notes, and the slow accumulation of understanding. Most posts come with real input/output files from Molpro, ORCA, Psi4, and Quantum ESPRESSO.

@@ -11,13 +11,34 @@ layout: default
         {{ page.date | date: date_format }}
       </time>
       {%- if page.author -%}
-        • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
-      {%- endif -%}</p>
+        &middot; <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ page.author }}</span></span>
+      {%- endif -%}
+      {%- capture words -%}{{ content | number_of_words }}{%- endcapture -%}
+      {%- if words != "0" -%}
+        <span class="reading-time">
+          {%- assign w = words | plus: 0 -%}
+          {%- if w < 360 -%}
+            1 min read
+          {%- else -%}
+            {{ w | divided_by: 180 }} min read
+          {%- endif -%}
+        </span>
+      {%- endif -%}
+    </p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
     {{ content }}
   </div>
+
+  <footer class="post-footer">
+    {%- if page.tags -%}
+      {%- include tags.html tags=page.tags -%}
+    {%- endif -%}
+    <nav class="post-footer-nav">
+      <a href="{{ "/" | relative_url }}">&larr; Back to home</a>
+    </nav>
+  </footer>
 
   {%- if site.disqus.shortname -%}
     {%- include disqus_comments.html -%}

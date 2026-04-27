@@ -4,15 +4,16 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+Hello! I'm **Shiyu Dong**, a researcher in computational and quantum chemistry.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+This site — *Garden Of Garbage* — is my digital notebook. I use it to log hands-on quantum chemistry calculations, explore theoretical methods, and work through ideas I'm learning. Most posts involve real calculations (Molpro, ORCA, Psi4, Quantum ESPRESSO) with input files, output analysis, and theoretical background.
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+The name reflects the spirit: these are working notes, not polished publications. They're the "garbage" of daily research — calculations that fail, derivations that need reworking, and the slow accumulation of understanding.
 
+Topics you'll find here:
+- **Electronic structure** — CASPT2, NEVPT2, coupled-cluster, post-HF methods
+- **Quantum chemistry theory** — cumulant decomposition, SRG/DSRG, Gell-Mann–Low theorem
+- **Quantum computing** — VQE, UCCSD ansatz
+- **Miscellaneous CS & math** — context-free grammars, permutations, algorithms
 
-[jekyll-organization]: https://github.com/jekyll
+Find my code and projects on [GitHub](https://github.com/{{ site.github_username }}).
