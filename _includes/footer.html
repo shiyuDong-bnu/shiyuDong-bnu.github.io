@@ -1,0 +1,30 @@
+<footer class="site-footer h-card">
+  <data class="u-url" href="{{ "/" | relative_url }}"></data>
+
+  <div class="wrapper">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="footer-mark" aria-hidden="true">⚛️</span>
+        <div>
+          <div class="footer-heading">{{ site.title | escape }}</div>
+          <p class="footer-tagline">{{ site.description | escape }}</p>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        {%- if site.email -%}
+          <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        {%- endif -%}
+        {%- if site.github_username -%}
+          <a href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
+        {%- endif -%}
+        <a href="{{ "/feed.xml" | relative_url }}">RSS feed</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {{ site.time | date: "%Y" }} {{ site.author | escape }}</span>
+      <span>Built with Jekyll · hosted on GitHub Pages</span>
+    </div>
+  </div>
+</footer>

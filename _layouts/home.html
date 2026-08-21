@@ -3,14 +3,24 @@ layout: default
 ---
 
 <div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
 
-  {{ content }}
+  <section class="hero">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-grid" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <p class="hero-kicker">Shiyu Dong · research notebook</p>
+      <h1 class="hero-title">{{ site.title | escape }}</h1>
+      <div class="hero-subtitle">{{ content }}</div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="{{ "/about/" | relative_url }}">About me</a>
+        <a class="btn btn-ghost" href="https://github.com/{{ site.github_username }}" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-ghost" href="{{ "/feed.xml" | relative_url }}">RSS</a>
+      </div>
+    </div>
+  </section>
 
   {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
+    <h2 class="post-list-heading">{{ page.list_title | default: "Latest notes" }}</h2>
     <ul class="post-list">
       {%- for post in site.posts -%}
       <li>
