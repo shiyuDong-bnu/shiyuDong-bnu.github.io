@@ -256,6 +256,15 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--accent);
 }
 
+.precepts-intro {
+  margin: 14px 0 2px;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--text-dim);
+}
+
 .precepts-list {
   list-style: none;
   margin: 0;
