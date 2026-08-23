@@ -341,38 +341,6 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-faint);
 }
 
-.precept--motto {
-  margin-top: 12px;
-  padding: 26px 26px 28px;
-  background: radial-gradient(130% 160% at 0% 0%, var(--accent-soft), transparent 62%);
-  border: 1px solid rgba(94, 234, 212, 0.26);
-  border-radius: var(--radius);
-  box-shadow: 0 0 48px rgba(94, 234, 212, 0.09), inset 0 1px 0 rgba(94, 234, 212, 0.14);
-}
-
-.precept--motto .precept-num {
-  color: var(--accent);
-  text-shadow: 0 0 26px var(--accent-glow);
-}
-
-.precept--motto .precept-en { color: var(--heading); }
-
-.precept--motto .precept-fr { color: var(--text-dim); }
-
-.precept-motto-tag {
-  display: inline-block;
-  margin: 0 0 10px;
-  font-family: var(--font-mono);
-  font-size: 10.5px;
-  font-weight: 500;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  color: var(--accent-2);
-  background: var(--accent-2-soft);
-  padding: 3px 11px;
-  border-radius: 999px;
-}
-
 .precepts-attribution {
   margin: 34px 0 0;
   font-family: var(--font-mono);
@@ -389,7 +357,6 @@ h1, h2, h3, h4, h5, h6 {
   .precept-en { font-size: 15.5px; }
   .precept-fr { font-size: 13px; }
   .precepts-lead { font-size: 16px; }
-  .precept--motto { padding: 20px 16px 22px; }
 }
 
 /* ── Post list ──────────────────────────────────────────────── */
