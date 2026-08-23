@@ -235,6 +235,58 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
+/* ── Hero motto ─────────────────────────────────────────────── */
+.hero-motto {
+  position: relative;
+  margin: 48px 0 0;
+  padding: 26px 30px 24px 32px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(100deg, var(--accent-soft), rgba(94, 234, 212, 0.03) 55%, transparent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.hero-motto-label {
+  margin: 0 0 14px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.hero-motto-en,
+.hero-motto-fr {
+  margin: 0;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+  font-style: italic;
+}
+
+.hero-motto-en {
+  font-size: clamp(16.5px, 2.5vw, 19px);
+  line-height: 1.62;
+  color: var(--heading);
+}
+
+.hero-motto-fr {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--text-dim);
+}
+
+.hero-motto-attribution {
+  display: block;
+  margin-top: 16px;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
 /* ── Post list ──────────────────────────────────────────────── */
 .post-list-heading {
   font-size: 22px;
