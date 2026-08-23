@@ -235,7 +235,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
 
-/* ── Precepts ───────────────────────────────────────────────── */
+/* ── Precepts (collapsible motto) ───────────────────────────── */
 .precepts {
   position: relative;
   margin-top: 40px;
@@ -243,6 +243,63 @@ h1, h2, h3, h4, h5, h6 {
   border-top: 1px solid var(--border);
   overflow: hidden;
 }
+
+.precepts-summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.precepts-summary::-webkit-details-marker { display: none; }
+.precepts-summary:hover {
+  border-color: var(--accent-strong);
+  background: var(--surface-2);
+  box-shadow: 0 0 32px rgba(94, 234, 212, 0.08);
+}
+.precepts-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.precept-motto-tag {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  background: var(--accent-2-soft);
+  padding: 3px 11px;
+  border-radius: 999px;
+}
+
+.precepts-summary-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.2px;
+  color: var(--heading);
+}
+
+.precepts-chevron {
+  margin-left: auto;
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg);
+  transition: transform .25s ease;
+}
+.precepts[open] .precepts-chevron { transform: rotate(225deg); }
 
 .precepts-glow {
   position: absolute;
@@ -262,17 +319,11 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 700px;
   margin: 0 auto;
   text-align: center;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .3s ease, transform .3s ease;
 }
-
-.precepts-kicker {
-  margin: 0 0 20px;
-  font-family: var(--font-mono);
-  font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: 2.4px;
-  text-transform: uppercase;
-  color: var(--accent);
-}
+.precepts[open] .precepts-inner { opacity: 1; transform: none; }
 
 .precepts-lead {
   margin: 0 auto;
@@ -351,7 +402,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media screen and (max-width: 600px) {
-  .precepts { padding: 56px 0 16px; }
+  .precepts { padding: 48px 0 16px; }
+  .precepts-summary { padding: 14px 16px; gap: 10px; }
+  .precepts-summary-title { font-size: 15px; }
   .precept { gap: 14px; padding: 24px 2px; }
   .precept-num { flex: 0 0 40px; font-size: 32px; }
   .precept-en { font-size: 15.5px; }

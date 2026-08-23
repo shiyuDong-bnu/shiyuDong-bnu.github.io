@@ -19,10 +19,14 @@ layout: default
     </div>
   </section>
 
-  <section class="precepts" aria-label="The four precepts of Descartes' Discourse on Method">
+  <details class="precepts" aria-label="My motto: the four precepts of Descartes' Discourse on Method">
+    <summary class="precepts-summary">
+      <span class="precept-motto-tag">My motto</span>
+      <span class="precepts-summary-title">The Four Precepts</span>
+      <span class="precepts-chevron" aria-hidden="true"></span>
+    </summary>
     <div class="precepts-glow" aria-hidden="true"></div>
     <div class="precepts-inner">
-      <p class="precepts-kicker">The Four Precepts</p>
       <p class="precepts-lead">&ldquo;I believed that the four following would prove perfectly sufficient for me, provided I took the firm and unwavering resolution never in a single instance to fail in observing them.&rdquo;</p>
       <ol class="precepts-list">
         <li class="precept">
@@ -56,7 +60,7 @@ layout: default
       </ol>
       <p class="precepts-attribution">&mdash; Ren&eacute; Descartes &middot; Discourse on Method, Part II</p>
     </div>
-  </section>
+  </details>
 
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Latest notes" }}</h2>
