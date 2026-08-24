@@ -205,6 +205,183 @@ h1, h2, h3, h4, h5, h6 {
 }
 .btn-ghost:hover { border-color: var(--ink); color: var(--ink); }
 
+/* ── Precepts (collapsible motto) ───────────────────────────── */
+.precepts {
+  position: relative;
+  margin-top: 40px;
+  padding: 64px 0 24px;
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.precepts-summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--surface);
+  list-style: none;
+  cursor: pointer;
+  user-select: none;
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+.precepts-summary::-webkit-details-marker { display: none; }
+.precepts-summary:hover {
+  border-color: var(--accent-strong);
+  background: var(--surface-2);
+  box-shadow: 0 0 32px rgba(94, 234, 212, 0.08);
+}
+.precepts-summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.precept-motto-tag {
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--accent-2);
+  background: var(--accent-2-soft);
+  padding: 3px 11px;
+  border-radius: 999px;
+}
+
+.precepts-summary-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: -0.2px;
+  color: var(--heading);
+}
+
+.precepts-chevron {
+  margin-left: auto;
+  flex: 0 0 auto;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  transform: rotate(45deg);
+  transition: transform .25s ease;
+}
+.precepts[open] .precepts-chevron { transform: rotate(225deg); }
+
+.precepts-glow {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 620px;
+  height: 300px;
+  background: radial-gradient(ellipse at center, var(--accent-glow), transparent 70%);
+  filter: blur(48px);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.precepts-inner {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity .3s ease, transform .3s ease;
+}
+.precepts[open] .precepts-inner { opacity: 1; transform: none; }
+
+.precepts-lead {
+  margin: 0 auto;
+  max-width: 640px;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text-dim);
+}
+
+.precepts-list {
+  list-style: none;
+  margin: 30px 0 0;
+  padding: 0;
+  text-align: left;
+}
+
+.precept {
+  display: flex;
+  gap: 24px;
+  padding: 30px 6px;
+  border-top: 1px solid var(--border);
+}
+.precept:first-child { border-top: none; }
+
+.precept-num {
+  flex: 0 0 54px;
+  font-family: var(--font-display);
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+  color: rgba(94, 234, 212, 0.2);
+  transition: color .25s ease, text-shadow .25s ease;
+}
+
+.precept:hover .precept-num {
+  color: rgba(94, 234, 212, 0.6);
+  text-shadow: 0 0 24px var(--accent-glow);
+}
+
+.precept-body {
+  min-width: 0;
+  transition: transform .25s ease;
+}
+.precept:hover .precept-body { transform: translateX(3px); }
+
+.precept-en,
+.precept-fr {
+  margin: 0;
+  font-family: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, 'Times New Roman', serif;
+  font-style: italic;
+}
+
+.precept-en {
+  font-size: 16.5px;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.precept-fr {
+  margin-top: 8px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-faint);
+}
+
+.precepts-attribution {
+  margin: 34px 0 0;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+@media screen and (max-width: 600px) {
+  .precepts { padding: 48px 0 16px; }
+  .precepts-summary { padding: 14px 16px; gap: 10px; }
+  .precepts-summary-title { font-size: 15px; }
+  .precept { gap: 14px; padding: 24px 2px; }
+  .precept-num { flex: 0 0 40px; font-size: 32px; }
+  .precept-en { font-size: 15.5px; }
+  .precept-fr { font-size: 13px; }
+  .precepts-lead { font-size: 16px; }
+}
+
 /* ── Post list ──────────────────────────────────────────────── */
 .post-list-heading {
   font-family: var(--font-sans);
